@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32009200256C324600AEEEA2 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320091FF256C324600AEEEA2 /* MapView.swift */; };
+		32009204256C35C000AEEEA2 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32009203256C35C000AEEEA2 /* ActivityIndicator.swift */; };
 		320E0BC02569A8AE0045BC4D /* QuakeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320E0BBF2569A8AE0045BC4D /* QuakeRow.swift */; };
 		320E0BCB256ACC080045BC4D /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320E0BCA256ACC070045BC4D /* Date+Extension.swift */; };
 		3213E9CE25683C0A001DEF04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3213E9CD25683C0A001DEF04 /* AppDelegate.swift */; };
@@ -15,6 +17,9 @@
 		3213E9D425683C0D001DEF04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3213E9D325683C0D001DEF04 /* Assets.xcassets */; };
 		3213E9D725683C0D001DEF04 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3213E9D625683C0D001DEF04 /* Preview Assets.xcassets */; };
 		3213E9DA25683C0D001DEF04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3213E9D825683C0D001DEF04 /* LaunchScreen.storyboard */; };
+		3245FBDC256C429500B94D2F /* EarthQuakesMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3245FBDB256C429500B94D2F /* EarthQuakesMapView.swift */; };
+		3245FBE1256C478C00B94D2F /* Artwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3245FBE0256C478C00B94D2F /* Artwork.swift */; };
+		3245FBE5256C488300B94D2F /* MarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3245FBE4256C488300B94D2F /* MarkerView.swift */; };
 		3246488525691EBF00E8D383 /* EarthQuake.h in Headers */ = {isa = PBXBuildFile; fileRef = 3246488325691EBF00E8D383 /* EarthQuake.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3246488825691EBF00E8D383 /* EarthQuake.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3246488125691EBF00E8D383 /* EarthQuake.framework */; };
 		3246488925691EBF00E8D383 /* EarthQuake.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3246488125691EBF00E8D383 /* EarthQuake.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -64,6 +69,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		320091FF256C324600AEEEA2 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		32009203256C35C000AEEEA2 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		320E0BBF2569A8AE0045BC4D /* QuakeRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuakeRow.swift; sourceTree = "<group>"; };
 		320E0BCA256ACC070045BC4D /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		3213E9CA25683C0A001DEF04 /* Planet Earth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Planet Earth.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +81,9 @@
 		3213E9D625683C0D001DEF04 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3213E9D925683C0D001DEF04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3213E9DB25683C0D001DEF04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3245FBDB256C429500B94D2F /* EarthQuakesMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthQuakesMapView.swift; sourceTree = "<group>"; };
+		3245FBE0256C478C00B94D2F /* Artwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artwork.swift; sourceTree = "<group>"; };
+		3245FBE4256C488300B94D2F /* MarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerView.swift; sourceTree = "<group>"; };
 		3246488125691EBF00E8D383 /* EarthQuake.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EarthQuake.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3246488325691EBF00E8D383 /* EarthQuake.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EarthQuake.h; sourceTree = "<group>"; };
 		3246488425691EBF00E8D383 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -167,6 +177,16 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		3245FBDF256C477300B94D2F /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				3245FBDB256C429500B94D2F /* EarthQuakesMapView.swift */,
+				3245FBE0256C478C00B94D2F /* Artwork.swift */,
+				3245FBE4256C488300B94D2F /* MarkerView.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
 		3246488225691EBF00E8D383 /* EarthQuake */ = {
 			isa = PBXGroup;
 			children = (
@@ -191,7 +211,10 @@
 		32464897256920C300E8D383 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3245FBDF256C477300B94D2F /* Map */,
 				324648932569207200E8D383 /* EarthQuakeView.swift */,
+				320091FF256C324600AEEEA2 /* MapView.swift */,
+				32009203256C35C000AEEEA2 /* ActivityIndicator.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -388,9 +411,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				32464899256920D900E8D383 /* EarthQuakeService.swift in Sources */,
+				32009200256C324600AEEEA2 /* MapView.swift in Sources */,
+				3245FBDC256C429500B94D2F /* EarthQuakesMapView.swift in Sources */,
 				324648A125693CB300E8D383 /* QuakeTimeline.swift in Sources */,
 				320E0BC02569A8AE0045BC4D /* QuakeRow.swift in Sources */,
+				32009204256C35C000AEEEA2 /* ActivityIndicator.swift in Sources */,
 				3246489E256933B800E8D383 /* Quake.swift in Sources */,
+				3245FBE1256C478C00B94D2F /* Artwork.swift in Sources */,
+				3245FBE5256C488300B94D2F /* MarkerView.swift in Sources */,
 				324648942569207200E8D383 /* EarthQuakeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

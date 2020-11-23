@@ -20,9 +20,8 @@ struct QuakeRow: View {
                 QuakeTimeView(quake: quake)
                 Text(quake.magnitude ?? "N/A")
                     .font(.system(size: 22, weight: .bold))
-                    .foregroundColor(quake.magnitudeColor)
-                    .fixedSize()
-                    .frame(width: 32)
+                    .foregroundColor(Color(quake.magnitudeColor))
+                    .frame(minWidth: 32)
             }
         }
     }

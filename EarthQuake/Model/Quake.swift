@@ -21,19 +21,20 @@ struct Quake: Identifiable {
     
     var location: QuakeLocation?
     
-    var magnitudeColor: Color {
-        guard let magnitude = magnitude, let doubleValue = Double(magnitude) else { return .init(.label) }
+    var magnitudeColor: UIColor {
+        guard let magnitude = magnitude, let doubleValue = Double(magnitude) else { return .label }
         switch doubleValue {
         case 0.0..<3.0:
-            return .green
+            return .systemGreen
         case 3.0..<4.0:
-            return .purple
+            return .systemPurple
         case 4.0..<5.0:
             return .orange
         default:
             return .red
         }
     }
+   
 }
 
 struct QuakeLocation {

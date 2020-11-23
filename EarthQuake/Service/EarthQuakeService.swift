@@ -17,6 +17,13 @@ class EarthQuakeService: ObservableObject {
     private let earthQuakesURL = URL(string: "https://www.volcanodiscovery.com/earthquakes/today-showMore.html")!
     
     @Published private(set) var quakesTimeline: [QuakeTimeline] = []
+    @Published private(set) var state = State.loading
+    
+    enum State {
+        case loading
+        case success
+        case error(Error)
+    }
     
     private var task: AnyCancellable?
     
@@ -25,7 +32,7 @@ class EarthQuakeService: ObservableObject {
     }
     
     func fetchEarthQuakes() {
-        
+        self.state = .loading
         self.task = URLSession.shared.dataTaskPublisher(for: earthQuakesURL)
             .compactMap { String(data: $0.data, encoding: .utf8) }
             .tryMap { data -> [QuakeTimeline] in
@@ -33,11 +40,18 @@ class EarthQuakeService: ObservableObject {
             }
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { failure in
-                
+                switch failure {
+                case .failure(let error):
+                    self.state = .error(error)
+                    break
+                default:
+                    break
+                }
             }, receiveValue: { value in
                 self.quakesTimeline = value
+                self.state = .success
             })
-
+        
     }
     
     private func parseEarthQuakesHtmlTable(from data: String) throws -> [QuakeTimeline] {
@@ -46,7 +60,7 @@ class EarthQuakeService: ObservableObject {
         
         var earthQuakesTimeline: [QuakeTimeline] = []
         var currentEarthQuakeTimeline: QuakeTimeline?
-    
+        
         for row in quakeRows ?? [] {
             if !row.hasAttr("id") {
                 if let timeline = currentEarthQuakeTimeline {
@@ -69,7 +83,7 @@ class EarthQuakeService: ObservableObject {
     
     private func quake(from cell: Elements.Element) throws -> Quake {
         var quake = Quake()
-
+        
         let dateElement = try cell.getElementsByClass("sl2")
         try dateElement.select("span").remove()
         let date = try dateElement.text()
@@ -105,7 +119,7 @@ class EarthQuakeService: ObservableObject {
         location.name = try locationElement.text()
             .replacingOccurrences(of: "-", with: "")
             .trimmingCharacters(in: .whitespacesAndNewlines)
-            
+        
         let coordinates = try locationElement.select("span").attr("onclick")
             .split(separator: "(")
             .last?
@@ -118,6 +132,7 @@ class EarthQuakeService: ObservableObject {
         }
         return location
     }
+  
 }
 
 
