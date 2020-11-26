@@ -40,7 +40,7 @@ struct QuakesListView: View {
             ForEach(quakesTimeline, id: \.id) { timeline in
                  Section(header: Text(timeline.time)) {
                      ForEach(timeline.quakes, id: \.id) { quake in
-                        NavigationLink(destination: EarthQuakesMapView(quakes: quakes, coordinates: quake.location?.coordinates)) {
+                        NavigationLink(destination: EarthQuakesMapView(quakes, selected: quake)) {
                              QuakeRow(quake: quake)
                          }
                      }

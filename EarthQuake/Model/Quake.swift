@@ -52,3 +52,17 @@ struct QuakeLocation {
         return nil
     }
 }
+
+
+extension Quake {
+    
+    func toAnnotation() -> Artwork? {
+        guard let location = self.location, let coordinates = location.coordinates else { return nil }
+        let artwork = Artwork(coordinate: coordinates, title: location.country, subtitle: location.name)
+        artwork.glyphText = self.magnitude
+        artwork.color = self.magnitudeColor
+        artwork.userInfo = self
+        artwork.id = self.id
+        return artwork
+    }
+}

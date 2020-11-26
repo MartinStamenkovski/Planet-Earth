@@ -120,7 +120,7 @@ class EarthQuakeService: ObservableObject {
             .replacingOccurrences(of: "-", with: "")
             .trimmingCharacters(in: .whitespacesAndNewlines)
         
-        let coordinates = try locationElement.select("span").attr("onclick")
+        let coordinates = try cell.getElementsByClass("smap").attr("onclick")
             .split(separator: "(")
             .last?
             .split(separator: ",")

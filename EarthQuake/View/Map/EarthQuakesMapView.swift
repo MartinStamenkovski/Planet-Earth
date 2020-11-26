@@ -10,31 +10,57 @@ import MapKit
 
 struct EarthQuakesMapView: View {
     let quakes: [Quake]
-    let coordinates: CLLocationCoordinate2D?
+    let selectedQuake: Quake?
+    
+    @State private var annotations: [Artwork] = []
+    @State private var region: MKCoordinateRegion?
+        
+    @State private var selectedAnnotation: Artwork?
+    
+    init(_ quakes: [Quake], selected: Quake?) {
+        self.quakes = quakes
+        self.selectedQuake = selected
+    }
     
     var body: some View {
-        MapView()
-            .addAnnotations(artworks)
-            .setRegion(coordinates, span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10))
-            .edgesIgnoringSafeArea([.leading, .trailing])
-            .navigationBarTitle("Map", displayMode: .inline)
+        
+        ZStack {
+            PEMapView($annotations, selection: self.selectedQuake?.toAnnotation())
+                .annotationSelectionChanged { artwork in
+                    self.selectedAnnotation = artwork
+                }
+                .edgesIgnoringSafeArea([.leading, .trailing])
+                .navigationBarTitle("Map", displayMode: .inline)
+                .onAppear {
+                    self.loadArtworks()
+                }
+            if let ann = self.selectedAnnotation {
+                VStack {
+                    Text(ann.title!)
+                        .background(Color.white)
+                        .padding()
+                    Spacer()
+                }
+            }
+        }
     }
     
-    var artworks: [Artwork] {
+    func loadArtworks() {
         var artworks: [Artwork] = []
-        for quake in quakes {
-            guard let location = quake.location, let coordinates = location.coordinates else { continue }
-            let artwork = Artwork(coordinate: coordinates, title: location.country, subtitle: location.name)
-            artwork.glyphText = quake.magnitude
-            artwork.color = quake.magnitudeColor
+       
+        for quake in self.quakes {
+            //guard quake.id != self.selectedQuake?.id else { continue }
+            guard let artwork = quake.toAnnotation() else { continue }
             artworks.append(artwork)
         }
-        return artworks
+        self.annotations = artworks
+        
     }
+   
 }
 
 struct EarthQuakesMapView_Previews: PreviewProvider {
     static var previews: some View {
-        EarthQuakesMapView(quakes: [], coordinates: nil)
+        EarthQuakesMapView([], selected: nil)
     }
 }
