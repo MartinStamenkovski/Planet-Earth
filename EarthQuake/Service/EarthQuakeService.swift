@@ -12,18 +12,19 @@ import Combine
 import Extensions
 import CoreLocation
 
+public enum LoadingState {
+    case loading
+    case success
+    case error(Error)
+}
+
 class EarthQuakeService: ObservableObject {
     
     private let earthQuakesURL = URL(string: "https://www.volcanodiscovery.com/earthquakes/today-showMore.html")!
     
     @Published private(set) var quakesTimeline: [QuakeTimeline] = []
-    @Published private(set) var state = State.loading
+    @Published private(set) var state = LoadingState.loading
     
-    enum State {
-        case loading
-        case success
-        case error(Error)
-    }
     
     private var task: AnyCancellable?
     
@@ -99,7 +100,7 @@ class EarthQuakeService: ObservableObject {
         quake.timeAgo = quake.date?.timeAgo()
         
         quake.magnitude = magnitude
-        quake.depth = depth
+        quake.depth = depth.isEmpty ? "N/A" : depth
         
         quake.location = try self.quakeLocation(from: cell)
         return quake
@@ -110,15 +111,18 @@ class EarthQuakeService: ObservableObject {
         
         let locationElement = try cell.getElementsByClass("list_region")
         location.flag = try locationElement.select("img").attr("src")
-        location.country = try locationElement.select("img").attr("title")
+        let country = try locationElement.select("img").attr("title")
+        location.country = country.isEmpty ? "N/A" : country
         
         location.detailInfo = try locationElement.select("a.sl").remove().attr("href")
         
         try locationElement.select("a").remove()
         
-        location.name = try locationElement.text()
+        let locationName = try locationElement.text()
             .replacingOccurrences(of: "-", with: "")
             .trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        location.name = locationName.isEmpty ? "N/A" : locationName
         
         let coordinates = try cell.getElementsByClass("smap").attr("onclick")
             .split(separator: "(")

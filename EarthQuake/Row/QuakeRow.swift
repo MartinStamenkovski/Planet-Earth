@@ -23,7 +23,7 @@ struct QuakeRow: View {
                     .foregroundColor(Color(quake.magnitudeColor))
                     .frame(minWidth: 32)
             }
-        }
+        }.animation(.easeOut(duration: 5)).transition(.move(edge: .leading))
     }
 }
 

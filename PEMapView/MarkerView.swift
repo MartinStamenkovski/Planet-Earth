@@ -7,8 +7,8 @@
 
 import MapKit
 
-class MarkerView: MKMarkerAnnotationView {
-    override var annotation: MKAnnotation? {
+public class MarkerView: MKMarkerAnnotationView {
+    public override var annotation: MKAnnotation? {
         willSet {
             guard let artwork = newValue as? Artwork else {return}
             
@@ -19,9 +19,8 @@ class MarkerView: MKMarkerAnnotationView {
             glyphText = artwork.glyphText
             markerTintColor = artwork.color
          
-            clusteringIdentifier = String(describing: Artwork.self)
+            clusteringIdentifier = nil
             collisionMode = .circle
-            displayPriority = .defaultHigh
             
         }
     }

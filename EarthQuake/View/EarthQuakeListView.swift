@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-public struct EarthQuakeView: View {
+public struct EarthQuakeListView: View {
     
     @ObservedObject private var service = EarthQuakeService()
     
@@ -15,12 +15,13 @@ public struct EarthQuakeView: View {
     public var body: some View {
         
         NavigationView {
-            self.contentView().navigationBarTitle(Text("Earthquakes"))
+            self.contentView()
+               .navigationBarTitle(Text("Earthquakes"))
         }
     }
     
     private func contentView() -> AnyView {
-        switch  self.service.state {
+        switch service.state {
         case .loading:
             return AnyView(ActivityIndicator(isAnimating: .constant(true)))
         case .error(let error):
@@ -41,7 +42,7 @@ struct QuakesListView: View {
                  Section(header: Text(timeline.time)) {
                      ForEach(timeline.quakes, id: \.id) { quake in
                         NavigationLink(destination: EarthQuakesMapView(quakes, selected: quake)) {
-                             QuakeRow(quake: quake)
+                            QuakeRow(quake: quake)
                          }
                      }
                  }
@@ -54,8 +55,8 @@ struct QuakesListView: View {
     }
 }
 
-struct EarthQuakeView_Previews: PreviewProvider {
+struct EarthQuakeListView_Previews: PreviewProvider {
     static var previews: some View {
-        EarthQuakeView()
+        EarthQuakeListView()
     }
 }

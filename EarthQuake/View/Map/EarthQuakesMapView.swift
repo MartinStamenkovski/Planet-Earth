@@ -6,15 +6,23 @@
 //
 
 import SwiftUI
-import MapKit
+import PEMapView
+
+extension AnyTransition {
+    static var slideAndFade: AnyTransition {
+        let insertion = AnyTransition.slide
+            .combined(with: .opacity)
+        let removal = AnyTransition.slide
+            .combined(with: .opacity)
+        return .asymmetric(insertion: insertion, removal: removal)
+    }
+}
 
 struct EarthQuakesMapView: View {
     let quakes: [Quake]
     let selectedQuake: Quake?
     
-    @State private var annotations: [Artwork] = []
-    @State private var region: MKCoordinateRegion?
-        
+    @State private var annotations: [Artwork] = []    
     @State private var selectedAnnotation: Artwork?
     
     init(_ quakes: [Quake], selected: Quake?) {
@@ -27,36 +35,39 @@ struct EarthQuakesMapView: View {
         ZStack {
             PEMapView($annotations, selection: self.selectedQuake?.toAnnotation())
                 .annotationSelectionChanged { artwork in
-                    self.selectedAnnotation = artwork
+                    withAnimation(Animation.spring()) {
+                        self.selectedAnnotation = artwork
+                    }
                 }
                 .edgesIgnoringSafeArea([.leading, .trailing])
                 .navigationBarTitle("Map", displayMode: .inline)
-                .onAppear {
-                    self.loadArtworks()
-                }
-            if let ann = self.selectedAnnotation {
-                VStack {
-                    Text(ann.title!)
-                        .background(Color.white)
-                        .padding()
+            
+            VStack(alignment: .leading) {
+                if let annotation = self.selectedAnnotation {
+                    EarthQuakeDetails(quake: annotation.userInfo as! Quake)
+                        .transition(.slideAndFade)
                     Spacer()
                 }
             }
+            .padding(.horizontal, 12)
+            .padding(.vertical, 8)
+        }
+        .onAppear {
+            self.loadArtworks()
         }
     }
     
     func loadArtworks() {
         var artworks: [Artwork] = []
-       
+        
         for quake in self.quakes {
-            //guard quake.id != self.selectedQuake?.id else { continue }
             guard let artwork = quake.toAnnotation() else { continue }
             artworks.append(artwork)
         }
         self.annotations = artworks
         
     }
-   
+    
 }
 
 struct EarthQuakesMapView_Previews: PreviewProvider {

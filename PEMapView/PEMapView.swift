@@ -8,7 +8,7 @@
 import SwiftUI
 import MapKit
 
-struct PEMapView: UIViewRepresentable {
+public struct PEMapView: UIViewRepresentable {
     
     
     @Binding var annotations: [Artwork]
@@ -18,19 +18,19 @@ struct PEMapView: UIViewRepresentable {
     
     fileprivate var selectedAnnotation: Artwork?
     
-    init(_ annotations: Binding<[Artwork]>, region: Binding<MKCoordinateRegion?>, selection: Artwork? = nil) {
+    public init(_ annotations: Binding<[Artwork]>, region: Binding<MKCoordinateRegion?>, selection: Artwork? = nil) {
         self._annotations = annotations
         self._region = region
         self.selectedAnnotation = selection
     }
     
-    init(_ annotations: Binding<[Artwork]>, selection: Artwork? = nil) {
+    public init(_ annotations: Binding<[Artwork]>, selection: Artwork? = nil) {
         self._annotations = annotations
         self._region = .constant(nil)
         self.selectedAnnotation = selection
     }
     
-    func makeUIView(context: UIViewRepresentableContext<PEMapView>) -> MKMapView {
+    public func makeUIView(context: UIViewRepresentableContext<PEMapView>) -> MKMapView {
         let mapView = MKMapView()
         mapView.delegate = context.coordinator
         mapView.showsUserLocation = true
@@ -42,7 +42,7 @@ struct PEMapView: UIViewRepresentable {
         return mapView
     }
     
-    func updateUIView(_ uiView: MKMapView, context: Context) {
+    public func updateUIView(_ uiView: MKMapView, context: Context) {
         if uiView.annotations.filter({ $0 is Artwork }).count != annotations.count {
             uiView.removeAnnotations(uiView.annotations)
             uiView.addAnnotations(annotations)
@@ -50,11 +50,11 @@ struct PEMapView: UIViewRepresentable {
     }
     
     
-    func makeCoordinator() -> MKMapViewCoordinator {
+    public func makeCoordinator() -> MKMapViewCoordinator {
         return MKMapViewCoordinator(mapView: self)
     }
    
-    func annotationSelectionChanged(_ annotationSelected: @escaping ((Artwork?) -> Void)) -> Self {
+    public func annotationSelectionChanged(_ annotationSelected: @escaping ((Artwork?) -> Void)) -> Self {
         var mutableCopy = self
         mutableCopy.annotationSelectionChangedClosure = annotationSelected
         return mutableCopy
@@ -62,7 +62,7 @@ struct PEMapView: UIViewRepresentable {
 }
 
 
-class MKMapViewCoordinator: NSObject, MKMapViewDelegate {
+public final class MKMapViewCoordinator: NSObject, MKMapViewDelegate {
     
     var mapViewPlanetEarth: PEMapView
     
@@ -70,7 +70,7 @@ class MKMapViewCoordinator: NSObject, MKMapViewDelegate {
         self.mapViewPlanetEarth = mapView
     }
     
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+    public func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard annotation is Artwork else { return nil }
         
         var annotationView: MarkerView
@@ -89,7 +89,7 @@ class MKMapViewCoordinator: NSObject, MKMapViewDelegate {
         
     }
     
-    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+    public func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         if let artwork = view.annotation as? Artwork {
             artwork.span = mapView.region.span
             let region = MKCoordinateRegion(center: artwork.coordinate, span: artwork.span)
@@ -98,12 +98,12 @@ class MKMapViewCoordinator: NSObject, MKMapViewDelegate {
         }
     }
     
-    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+    public func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
         self.mapViewPlanetEarth.selectedAnnotation = nil
         self.mapViewPlanetEarth.annotationSelectionChangedClosure?(nil)
     }
    
-    func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
+    public func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
         guard mapView.selectedAnnotations.isEmpty else { return }
 
         if let selectedAnnotation = self.mapViewPlanetEarth.selectedAnnotation {

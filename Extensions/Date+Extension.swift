@@ -22,4 +22,14 @@ public extension Date {
         formatter.unitsStyle = .short
         return formatter.localizedString(for: self, relativeTo: Date())
     }
+    
+    var earthQuakeDateToCurrentLocale: String? {
+        let dateFormatter = DateFormatter.earthQuakeDateFormatter
+            
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .short
+        dateFormatter.timeZone = .current
+        
+        return dateFormatter.string(from: self)
+    }
 }

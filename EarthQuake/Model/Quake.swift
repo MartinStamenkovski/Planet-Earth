@@ -8,6 +8,7 @@
 import Foundation
 import CoreLocation
 import SwiftUI
+import PEMapView
 
 struct Quake: Identifiable {
     var id = UUID()

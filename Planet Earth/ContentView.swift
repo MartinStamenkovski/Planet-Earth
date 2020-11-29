@@ -9,9 +9,21 @@ import SwiftUI
 import EarthQuake
 
 struct ContentView: View {
+    
+    enum PETab: Hashable {
+        case earthquake
+    }
+    
     var body: some View {
         TabView {
-            EarthQuakeView()
+            EarthQuakeListView()
+                .tabItem {
+                    Image(systemName: "bolt.horizontal.fill")
+                    Text("Earthquakes")
+                }.tag(PETab.earthquake)
+            Color.red.tabItem {
+                Text("Colors")
+            }
         }
     }
 }
