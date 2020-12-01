@@ -38,7 +38,10 @@ public struct PEMapView: UIViewRepresentable {
             MarkerView.self,
             forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier
         )
-        
+        if let artwork = self.selectedAnnotation {
+            let region = MKCoordinateRegion(center: artwork.coordinate, span: artwork.span)
+            mapView.setRegion(region, animated: true)
+        }
         return mapView
     }
     

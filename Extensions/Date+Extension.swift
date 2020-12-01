@@ -10,10 +10,7 @@ import Foundation
 public extension Date {
     
     func shortTimeOnly() -> String? {
-        let dateFormatter = DateFormatter.dateFormatterUTC
-        dateFormatter.timeStyle = .short
-        dateFormatter.dateStyle = .none
-        dateFormatter.timeZone = .current
+        let dateFormatter = DateFormatter.shortTime
         return dateFormatter.string(from: self)
     }
     
@@ -24,12 +21,7 @@ public extension Date {
     }
     
     var earthQuakeDateToCurrentLocale: String? {
-        let dateFormatter = DateFormatter.earthQuakeDateFormatter
-            
-        dateFormatter.dateStyle = .short
-        dateFormatter.timeStyle = .short
-        dateFormatter.timeZone = .current
-        
+        let dateFormatter = DateFormatter.shortEarthQuakeDate
         return dateFormatter.string(from: self)
     }
 }

@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import CountryPicker
+import Extensions
+
 public struct EarthQuakeListView: View {
     
     @ObservedObject private var service = EarthQuakeService()
@@ -16,42 +19,61 @@ public struct EarthQuakeListView: View {
         
         NavigationView {
             self.contentView()
-               .navigationBarTitle(Text("Earthquakes"))
+                .navigationBarTitle(Text("Earthquakes"))
         }
     }
     
     private func contentView() -> AnyView {
         switch service.state {
         case .loading:
-            return AnyView(ActivityIndicator(isAnimating: .constant(true)))
+            return ActivityIndicator(isAnimating: .constant(true)).toAnyView()
         case .error(let error):
-            return AnyView(Text(error.localizedDescription))
+            return Text(error.localizedDescription).toAnyView()
         default:
-            return AnyView(QuakesListView(quakesTimeline: service.quakesTimeline))
+            return QuakesListView(quakesTimeline: self.service.quakesTimeline, countryChanged: { country in
+                self.service.fetchEarthQuakes(for: country)
+            }).toAnyView()
         }
     }
-
+    
 }
 
 struct QuakesListView: View {
     let quakesTimeline: [QuakeTimeline]
+    @State private var showCountryPicker = false
+    
+    var countryChanged: ((Country) -> Void)
     
     var body: some View {
         List {
             ForEach(quakesTimeline, id: \.id) { timeline in
-                 Section(header: Text(timeline.time)) {
-                     ForEach(timeline.quakes, id: \.id) { quake in
+                Section(header: Text(timeline.time)) {
+                    ForEach(timeline.quakes, id: \.id) { quake in
                         NavigationLink(destination: EarthQuakesMapView(quakes, selected: quake)) {
                             QuakeRow(quake: quake)
-                         }
-                     }
-                 }
-             }
-        }
+                        }
+                    }
+                }
+            }
+        }.listStyle(PlainListStyle())
+        .navigationBarItems(leading: leadingBarButtons())
+        .sheet(isPresented: self.$showCountryPicker, content: {
+            CountryPickerView(isShown: $showCountryPicker) { country in
+                self.countryChanged(country)
+            }
+        })
     }
     
     var quakes: [Quake] {
         return quakesTimeline.flatMap { $0.quakes }
+    }
+    
+    func leadingBarButtons() -> some View {
+        Button {
+            self.showCountryPicker.toggle()
+        } label: {
+            Image(systemName: "slider.vertical.3")
+        }
     }
 }
 

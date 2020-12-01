@@ -16,9 +16,9 @@ public extension String {
     }
     
     var earthQuakeTimeToCurrentLocale: String? {
-        let dateFormatter = DateFormatter.earthQuakeDateFormatter
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm:ss"
-        
+        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
         guard let date = dateFormatter.date(from: self) else { return nil }
         
         dateFormatter.dateStyle = .none
@@ -26,6 +26,10 @@ public extension String {
         dateFormatter.timeZone = .current
         
         return dateFormatter.string(from: date)
+    }
+    
+    var firstUppercased: String {
+        return prefix(1).uppercased() + self.dropFirst()
     }
 }
 

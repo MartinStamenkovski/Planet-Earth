@@ -10,7 +10,7 @@ import MapKit
 public class MarkerView: MKMarkerAnnotationView {
     public override var annotation: MKAnnotation? {
         willSet {
-            guard let artwork = newValue as? Artwork else {return}
+            guard let artwork = newValue as? Artwork else { return }
             
             animatesWhenAdded = true
             canShowCallout = true

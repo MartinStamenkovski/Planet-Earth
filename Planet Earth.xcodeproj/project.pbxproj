@@ -21,7 +21,6 @@
 		3246488525691EBF00E8D383 /* EarthQuake.h in Headers */ = {isa = PBXBuildFile; fileRef = 3246488325691EBF00E8D383 /* EarthQuake.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3246488825691EBF00E8D383 /* EarthQuake.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3246488125691EBF00E8D383 /* EarthQuake.framework */; };
 		3246488925691EBF00E8D383 /* EarthQuake.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3246488125691EBF00E8D383 /* EarthQuake.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		3246489125691F3000E8D383 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 3246489025691F3000E8D383 /* SwiftSoup */; };
 		324648942569207200E8D383 /* EarthQuakeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324648932569207200E8D383 /* EarthQuakeListView.swift */; };
 		32464899256920D900E8D383 /* EarthQuakeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32464898256920D900E8D383 /* EarthQuakeService.swift */; };
 		3246489E256933B800E8D383 /* Quake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3246489D256933B800E8D383 /* Quake.swift */; };
@@ -31,13 +30,31 @@
 		324648B025695B0400E8D383 /* Extensions.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 324648A825695B0400E8D383 /* Extensions.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		324648B725695B1400E8D383 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324648B625695B1400E8D383 /* String+Extension.swift */; };
 		324648BB25695B1F00E8D383 /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324648BA25695B1F00E8D383 /* DateFormatter+Extension.swift */; };
-		324648CA2569A73600E8D383 /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 324648C92569A73600E8D383 /* KingfisherSwiftUI */; };
+		324BC0D225755C4500B59FF7 /* SPMFrameworks.h in Headers */ = {isa = PBXBuildFile; fileRef = 324BC0D025755C4500B59FF7 /* SPMFrameworks.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		324BC0D525755C4500B59FF7 /* SPMFrameworks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 324BC0CE25755C4500B59FF7 /* SPMFrameworks.framework */; };
+		324BC0D625755C4500B59FF7 /* SPMFrameworks.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 324BC0CE25755C4500B59FF7 /* SPMFrameworks.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		324BC0DE25755C4E00B59FF7 /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 324BC0DD25755C4E00B59FF7 /* KingfisherSwiftUI */; };
+		324BC0E025755C5000B59FF7 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 324BC0DF25755C5000B59FF7 /* SwiftSoup */; };
+		324BC0E125755C6600B59FF7 /* SPMFrameworks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 324BC0CE25755C4500B59FF7 /* SPMFrameworks.framework */; };
+		324BC0E225755C6600B59FF7 /* SPMFrameworks.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 324BC0CE25755C4500B59FF7 /* SPMFrameworks.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		324BC0E525755C6D00B59FF7 /* SPMFrameworks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 324BC0CE25755C4500B59FF7 /* SPMFrameworks.framework */; };
+		324BC0E625755C6D00B59FF7 /* SPMFrameworks.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 324BC0CE25755C4500B59FF7 /* SPMFrameworks.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		325326A22571810200720332 /* PEMapView.h in Headers */ = {isa = PBXBuildFile; fileRef = 325326A02571810200720332 /* PEMapView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		325326A52571810200720332 /* PEMapView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3253269E2571810200720332 /* PEMapView.framework */; };
 		325326A62571810200720332 /* PEMapView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3253269E2571810200720332 /* PEMapView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		325326AD2571811000720332 /* PEMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320091FF256C324600AEEEA2 /* PEMapView.swift */; };
 		325326AE2571811000720332 /* Artwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3245FBE0256C478C00B94D2F /* Artwork.swift */; };
 		325326AF2571811000720332 /* MarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3245FBE4256C488300B94D2F /* MarkerView.swift */; };
+		327E0E672576C26500C18484 /* usa.json in Resources */ = {isa = PBXBuildFile; fileRef = 327E0E662576C26500C18484 /* usa.json */; };
+		327E0E6C2576C2C500C18484 /* CountryPickerRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327E0E6B2576C2C500C18484 /* CountryPickerRow.swift */; };
+		327E0E742576C90900C18484 /* USAStatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327E0E732576C90900C18484 /* USAStatesView.swift */; };
+		32EF59A12573CB24004C3856 /* CountryPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = 32EF599F2573CB24004C3856 /* CountryPicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32EF59A42573CB24004C3856 /* CountryPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32EF599D2573CB24004C3856 /* CountryPicker.framework */; };
+		32EF59A52573CB24004C3856 /* CountryPicker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 32EF599D2573CB24004C3856 /* CountryPicker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		32EF59AE2573CB38004C3856 /* CountryPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EF59AD2573CB38004C3856 /* CountryPickerView.swift */; };
+		32EF59BB2573CBBB004C3856 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EF59BA2573CBBB004C3856 /* Country.swift */; };
+		32EF5A3D2573D365004C3856 /* countries.json in Resources */ = {isa = PBXBuildFile; fileRef = 32EF59B42573CB5E004C3856 /* countries.json */; };
+		32EF5A432573DEA9004C3856 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EF5A422573DEA9004C3856 /* View+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,12 +72,40 @@
 			remoteGlobalIDString = 324648A725695B0400E8D383;
 			remoteInfo = Extensions;
 		};
+		324BC0D325755C4500B59FF7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3213E9C225683C0A001DEF04 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 324BC0CD25755C4500B59FF7;
+			remoteInfo = SPMFrameworks;
+		};
+		324BC0E325755C6600B59FF7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3213E9C225683C0A001DEF04 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 324BC0CD25755C4500B59FF7;
+			remoteInfo = SPMFrameworks;
+		};
+		324BC0E725755C6D00B59FF7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3213E9C225683C0A001DEF04 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 324BC0CD25755C4500B59FF7;
+			remoteInfo = SPMFrameworks;
+		};
 		325326A32571810200720332 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3213E9C225683C0A001DEF04 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 3253269D2571810200720332;
 			remoteInfo = PEMapView;
+		};
+		32EF59A22573CB24004C3856 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3213E9C225683C0A001DEF04 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 32EF599C2573CB24004C3856;
+			remoteInfo = CountryPicker;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -71,9 +116,33 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				324BC0D625755C4500B59FF7 /* SPMFrameworks.framework in Embed Frameworks */,
 				324648B025695B0400E8D383 /* Extensions.framework in Embed Frameworks */,
+				32EF59A52573CB24004C3856 /* CountryPicker.framework in Embed Frameworks */,
 				3246488925691EBF00E8D383 /* EarthQuake.framework in Embed Frameworks */,
 				325326A62571810200720332 /* PEMapView.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32EF5A1D2573D146004C3856 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				324BC0E625755C6D00B59FF7 /* SPMFrameworks.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32EF5A2D2573D164004C3856 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				324BC0E225755C6600B59FF7 /* SPMFrameworks.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -109,9 +178,22 @@
 		324648AB25695B0400E8D383 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		324648B625695B1400E8D383 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		324648BA25695B1F00E8D383 /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
+		324BC0CE25755C4500B59FF7 /* SPMFrameworks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SPMFrameworks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		324BC0D025755C4500B59FF7 /* SPMFrameworks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPMFrameworks.h; sourceTree = "<group>"; };
+		324BC0D125755C4500B59FF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3253269E2571810200720332 /* PEMapView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PEMapView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		325326A02571810200720332 /* PEMapView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PEMapView.h; sourceTree = "<group>"; };
 		325326A12571810200720332 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		327E0E662576C26500C18484 /* usa.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = usa.json; sourceTree = "<group>"; };
+		327E0E6B2576C2C500C18484 /* CountryPickerRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryPickerRow.swift; sourceTree = "<group>"; };
+		327E0E732576C90900C18484 /* USAStatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USAStatesView.swift; sourceTree = "<group>"; };
+		32EF599D2573CB24004C3856 /* CountryPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CountryPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		32EF599F2573CB24004C3856 /* CountryPicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CountryPicker.h; sourceTree = "<group>"; };
+		32EF59A02573CB24004C3856 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		32EF59AD2573CB38004C3856 /* CountryPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryPickerView.swift; sourceTree = "<group>"; };
+		32EF59B42573CB5E004C3856 /* countries.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = countries.json; sourceTree = "<group>"; };
+		32EF59BA2573CBBB004C3856 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		32EF5A422573DEA9004C3856 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,7 +201,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				324BC0D525755C4500B59FF7 /* SPMFrameworks.framework in Frameworks */,
 				324648AF25695B0400E8D383 /* Extensions.framework in Frameworks */,
+				32EF59A42573CB24004C3856 /* CountryPicker.framework in Frameworks */,
 				3246488825691EBF00E8D383 /* EarthQuake.framework in Frameworks */,
 				325326A52571810200720332 /* PEMapView.framework in Frameworks */,
 			);
@@ -129,8 +213,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				324648CA2569A73600E8D383 /* KingfisherSwiftUI in Frameworks */,
-				3246489125691F3000E8D383 /* SwiftSoup in Frameworks */,
+				324BC0E525755C6D00B59FF7 /* SPMFrameworks.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,10 +224,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		324BC0CB25755C4500B59FF7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				324BC0DE25755C4E00B59FF7 /* KingfisherSwiftUI in Frameworks */,
+				324BC0E025755C5000B59FF7 /* SwiftSoup in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3253269B2571810200720332 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32EF599A2573CB24004C3856 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				324BC0E125755C6600B59FF7 /* SPMFrameworks.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,9 +264,12 @@
 			children = (
 				3213E9CC25683C0A001DEF04 /* Planet Earth */,
 				3246488225691EBF00E8D383 /* EarthQuake */,
-				324648A925695B0400E8D383 /* Extensions */,
 				3253269F2571810200720332 /* PEMapView */,
+				32EF599E2573CB24004C3856 /* CountryPicker */,
+				324648A925695B0400E8D383 /* Extensions */,
+				324BC0CF25755C4500B59FF7 /* SPMFrameworks */,
 				3213E9CB25683C0A001DEF04 /* Products */,
+				32EF59C02573CCB6004C3856 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -177,6 +280,8 @@
 				3246488125691EBF00E8D383 /* EarthQuake.framework */,
 				324648A825695B0400E8D383 /* Extensions.framework */,
 				3253269E2571810200720332 /* PEMapView.framework */,
+				32EF599D2573CB24004C3856 /* CountryPicker.framework */,
+				324BC0CE25755C4500B59FF7 /* SPMFrameworks.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -260,8 +365,18 @@
 				324648B625695B1400E8D383 /* String+Extension.swift */,
 				324648BA25695B1F00E8D383 /* DateFormatter+Extension.swift */,
 				320E0BCA256ACC070045BC4D /* Date+Extension.swift */,
+				32EF5A422573DEA9004C3856 /* View+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		324BC0CF25755C4500B59FF7 /* SPMFrameworks */ = {
+			isa = PBXGroup;
+			children = (
+				324BC0D025755C4500B59FF7 /* SPMFrameworks.h */,
+				324BC0D125755C4500B59FF7 /* Info.plist */,
+			);
+			path = SPMFrameworks;
 			sourceTree = "<group>";
 		};
 		3253269F2571810200720332 /* PEMapView */ = {
@@ -274,6 +389,28 @@
 				325326A12571810200720332 /* Info.plist */,
 			);
 			path = PEMapView;
+			sourceTree = "<group>";
+		};
+		32EF599E2573CB24004C3856 /* CountryPicker */ = {
+			isa = PBXGroup;
+			children = (
+				32EF59B42573CB5E004C3856 /* countries.json */,
+				327E0E662576C26500C18484 /* usa.json */,
+				32EF599F2573CB24004C3856 /* CountryPicker.h */,
+				32EF59A02573CB24004C3856 /* Info.plist */,
+				327E0E732576C90900C18484 /* USAStatesView.swift */,
+				32EF59AD2573CB38004C3856 /* CountryPickerView.swift */,
+				327E0E6B2576C2C500C18484 /* CountryPickerRow.swift */,
+				32EF59BA2573CBBB004C3856 /* Country.swift */,
+			);
+			path = CountryPicker;
+			sourceTree = "<group>";
+		};
+		32EF59C02573CCB6004C3856 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,11 +432,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		324BC0C925755C4500B59FF7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				324BC0D225755C4500B59FF7 /* SPMFrameworks.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		325326992571810200720332 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				325326A22571810200720332 /* PEMapView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32EF59982573CB24004C3856 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32EF59A12573CB24004C3856 /* CountryPicker.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,8 +474,12 @@
 				3246488725691EBF00E8D383 /* PBXTargetDependency */,
 				324648AE25695B0400E8D383 /* PBXTargetDependency */,
 				325326A42571810200720332 /* PBXTargetDependency */,
+				32EF59A32573CB24004C3856 /* PBXTargetDependency */,
+				324BC0D425755C4500B59FF7 /* PBXTargetDependency */,
 			);
 			name = "Planet Earth";
+			packageProductDependencies = (
+			);
 			productName = "Planet Earth";
 			productReference = 3213E9CA25683C0A001DEF04 /* Planet Earth.app */;
 			productType = "com.apple.product-type.application";
@@ -335,15 +492,15 @@
 				3246487D25691EBF00E8D383 /* Sources */,
 				3246487E25691EBF00E8D383 /* Frameworks */,
 				3246487F25691EBF00E8D383 /* Resources */,
+				32EF5A1D2573D146004C3856 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				324BC0E825755C6D00B59FF7 /* PBXTargetDependency */,
 			);
 			name = EarthQuake;
 			packageProductDependencies = (
-				3246489025691F3000E8D383 /* SwiftSoup */,
-				324648C92569A73600E8D383 /* KingfisherSwiftUI */,
 			);
 			productName = EarthQuake;
 			productReference = 3246488125691EBF00E8D383 /* EarthQuake.framework */;
@@ -367,6 +524,28 @@
 			productReference = 324648A825695B0400E8D383 /* Extensions.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		324BC0CD25755C4500B59FF7 /* SPMFrameworks */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 324BC0D725755C4500B59FF7 /* Build configuration list for PBXNativeTarget "SPMFrameworks" */;
+			buildPhases = (
+				324BC0C925755C4500B59FF7 /* Headers */,
+				324BC0CA25755C4500B59FF7 /* Sources */,
+				324BC0CB25755C4500B59FF7 /* Frameworks */,
+				324BC0CC25755C4500B59FF7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SPMFrameworks;
+			packageProductDependencies = (
+				324BC0DD25755C4E00B59FF7 /* KingfisherSwiftUI */,
+				324BC0DF25755C5000B59FF7 /* SwiftSoup */,
+			);
+			productName = SPMFrameworks;
+			productReference = 324BC0CE25755C4500B59FF7 /* SPMFrameworks.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		3253269D2571810200720332 /* PEMapView */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 325326A92571810200720332 /* Build configuration list for PBXNativeTarget "PEMapView" */;
@@ -383,6 +562,28 @@
 			name = PEMapView;
 			productName = PEMapView;
 			productReference = 3253269E2571810200720332 /* PEMapView.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		32EF599C2573CB24004C3856 /* CountryPicker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 32EF59A82573CB24004C3856 /* Build configuration list for PBXNativeTarget "CountryPicker" */;
+			buildPhases = (
+				32EF59982573CB24004C3856 /* Headers */,
+				32EF59992573CB24004C3856 /* Sources */,
+				32EF599A2573CB24004C3856 /* Frameworks */,
+				32EF599B2573CB24004C3856 /* Resources */,
+				32EF5A2D2573D164004C3856 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				324BC0E425755C6600B59FF7 /* PBXTargetDependency */,
+			);
+			name = CountryPicker;
+			packageProductDependencies = (
+			);
+			productName = CountryPicker;
+			productReference = 32EF599D2573CB24004C3856 /* CountryPicker.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -405,8 +606,15 @@
 						CreatedOnToolsVersion = 12.2;
 						LastSwiftMigration = 1220;
 					};
+					324BC0CD25755C4500B59FF7 = {
+						CreatedOnToolsVersion = 12.2;
+					};
 					3253269D2571810200720332 = {
 						CreatedOnToolsVersion = 12.2;
+					};
+					32EF599C2573CB24004C3856 = {
+						CreatedOnToolsVersion = 12.2;
+						LastSwiftMigration = 1220;
 					};
 				};
 			};
@@ -420,8 +628,8 @@
 			);
 			mainGroup = 3213E9C125683C0A001DEF04;
 			packageReferences = (
-				3246488F25691F3000E8D383 /* XCRemoteSwiftPackageReference "SwiftSoup" */,
-				324648C82569A73600E8D383 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				32EF5A122573D137004C3856 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				324BC0B0257559FB00B59FF7 /* XCRemoteSwiftPackageReference "SwiftSoup" */,
 			);
 			productRefGroup = 3213E9CB25683C0A001DEF04 /* Products */;
 			projectDirPath = "";
@@ -431,6 +639,8 @@
 				3246488025691EBF00E8D383 /* EarthQuake */,
 				324648A725695B0400E8D383 /* Extensions */,
 				3253269D2571810200720332 /* PEMapView */,
+				32EF599C2573CB24004C3856 /* CountryPicker */,
+				324BC0CD25755C4500B59FF7 /* SPMFrameworks */,
 			);
 		};
 /* End PBXProject section */
@@ -460,10 +670,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		324BC0CC25755C4500B59FF7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3253269C2571810200720332 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32EF599B2573CB24004C3856 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32EF5A3D2573D365004C3856 /* countries.json in Resources */,
+				327E0E672576C26500C18484 /* usa.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,7 +727,15 @@
 			files = (
 				324648BB25695B1F00E8D383 /* DateFormatter+Extension.swift in Sources */,
 				324648B725695B1400E8D383 /* String+Extension.swift in Sources */,
+				32EF5A432573DEA9004C3856 /* View+Extension.swift in Sources */,
 				320E0BCB256ACC080045BC4D /* Date+Extension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		324BC0CA25755C4500B59FF7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,6 +746,17 @@
 				325326AE2571811000720332 /* Artwork.swift in Sources */,
 				325326AF2571811000720332 /* MarkerView.swift in Sources */,
 				325326AD2571811000720332 /* PEMapView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32EF59992573CB24004C3856 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				327E0E6C2576C2C500C18484 /* CountryPickerRow.swift in Sources */,
+				32EF59BB2573CBBB004C3856 /* Country.swift in Sources */,
+				327E0E742576C90900C18484 /* USAStatesView.swift in Sources */,
+				32EF59AE2573CB38004C3856 /* CountryPickerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,10 +773,30 @@
 			target = 324648A725695B0400E8D383 /* Extensions */;
 			targetProxy = 324648AD25695B0400E8D383 /* PBXContainerItemProxy */;
 		};
+		324BC0D425755C4500B59FF7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 324BC0CD25755C4500B59FF7 /* SPMFrameworks */;
+			targetProxy = 324BC0D325755C4500B59FF7 /* PBXContainerItemProxy */;
+		};
+		324BC0E425755C6600B59FF7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 324BC0CD25755C4500B59FF7 /* SPMFrameworks */;
+			targetProxy = 324BC0E325755C6600B59FF7 /* PBXContainerItemProxy */;
+		};
+		324BC0E825755C6D00B59FF7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 324BC0CD25755C4500B59FF7 /* SPMFrameworks */;
+			targetProxy = 324BC0E725755C6D00B59FF7 /* PBXContainerItemProxy */;
+		};
 		325326A42571810200720332 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 3253269D2571810200720332 /* PEMapView */;
 			targetProxy = 325326A32571810200720332 /* PBXContainerItemProxy */;
+		};
+		32EF59A32573CB24004C3856 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 32EF599C2573CB24004C3856 /* CountryPicker */;
+			targetProxy = 32EF59A22573CB24004C3856 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -825,6 +1090,60 @@
 			};
 			name = Release;
 		};
+		324BC0D825755C4500B59FF7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = UL53AFK9P6;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SPMFrameworks/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.stamenkovski.SPMFrameworks;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		324BC0D925755C4500B59FF7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = UL53AFK9P6;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SPMFrameworks/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.stamenkovski.SPMFrameworks;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		325326A72571810200720332 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -881,6 +1200,65 @@
 			};
 			name = Release;
 		};
+		32EF59A62573CB24004C3856 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = UL53AFK9P6;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = CountryPicker/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.stamenkovski.CountryPicker;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		32EF59A72573CB24004C3856 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = UL53AFK9P6;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = CountryPicker/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.stamenkovski.CountryPicker;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -920,6 +1298,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		324BC0D725755C4500B59FF7 /* Build configuration list for PBXNativeTarget "SPMFrameworks" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				324BC0D825755C4500B59FF7 /* Debug */,
+				324BC0D925755C4500B59FF7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		325326A92571810200720332 /* Build configuration list for PBXNativeTarget "PEMapView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -929,10 +1316,19 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		32EF59A82573CB24004C3856 /* Build configuration list for PBXNativeTarget "CountryPicker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32EF59A62573CB24004C3856 /* Debug */,
+				32EF59A72573CB24004C3856 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		3246488F25691F3000E8D383 /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
+		324BC0B0257559FB00B59FF7 /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/scinfu/SwiftSoup.git";
 			requirement = {
@@ -940,26 +1336,26 @@
 				minimumVersion = 2.3.2;
 			};
 		};
-		324648C82569A73600E8D383 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+		32EF5A122573D137004C3856 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.8.0;
+				minimumVersion = 5.15.8;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		3246489025691F3000E8D383 /* SwiftSoup */ = {
+		324BC0DD25755C4E00B59FF7 /* KingfisherSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 3246488F25691F3000E8D383 /* XCRemoteSwiftPackageReference "SwiftSoup" */;
-			productName = SwiftSoup;
-		};
-		324648C92569A73600E8D383 /* KingfisherSwiftUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 324648C82569A73600E8D383 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			package = 32EF5A122573D137004C3856 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = KingfisherSwiftUI;
+		};
+		324BC0DF25755C5000B59FF7 /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 324BC0B0257559FB00B59FF7 /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			productName = SwiftSoup;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

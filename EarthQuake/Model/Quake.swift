@@ -48,7 +48,7 @@ struct QuakeLocation {
     
     var flagURL: URL? {
         if let flag = self.flag {
-            return URL(string: "https://www.volcanodiscovery.com/\(flag)")
+            return URL(string: flag)
         }
         return nil
     }

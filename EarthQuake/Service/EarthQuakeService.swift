@@ -11,6 +11,7 @@ import SwiftUI
 import Combine
 import Extensions
 import CoreLocation
+import CountryPicker
 
 public enum LoadingState {
     case loading
@@ -20,11 +21,12 @@ public enum LoadingState {
 
 class EarthQuakeService: ObservableObject {
     
-    private let earthQuakesURL = URL(string: "https://www.volcanodiscovery.com/earthquakes/today-showMore.html")!
+    private var earthQuakesURL: URL!
     
     @Published private(set) var quakesTimeline: [QuakeTimeline] = []
     @Published private(set) var state = LoadingState.loading
     
+    private var selectedCountry: Country!
     
     private var task: AnyCancellable?
     
@@ -32,12 +34,14 @@ class EarthQuakeService: ObservableObject {
         self.fetchEarthQuakes()
     }
     
-    func fetchEarthQuakes() {
+    func fetchEarthQuakes(for country: Country = Country(name: "today")) {
+        self.selectedCountry = country
+        self.earthQuakesURL = URL(string: "https://www.volcanodiscovery.com/earthquakes/\(country.quakeQueryName)-showMore.html")
         self.state = .loading
         self.task = URLSession.shared.dataTaskPublisher(for: earthQuakesURL)
             .compactMap { String(data: $0.data, encoding: .utf8) }
-            .tryMap { data -> [QuakeTimeline] in
-                return try self.parseEarthQuakesHtmlTable(from: data)
+            .tryMap { html -> [QuakeTimeline] in
+                return try self.parseEarthQuakesHtmlTable(from: html)
             }
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { failure in
@@ -52,7 +56,27 @@ class EarthQuakeService: ObservableObject {
                 self.quakesTimeline = value
                 self.state = .success
             })
-        
+//        URLSession.shared.dataTask(with: URL(string: "https://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States")!) { (data, response, error) in
+//            if let data = data {
+//                var array = [Dictionary<String, String?>]()
+//
+//                let stringHTML = String(data: data, encoding: .utf8)
+//                let html = try? SwiftSoup.parse(stringHTML!)
+//                let table = try? html?.getElementsByClass("sortable")
+//                let rows = try? table?.select("tbody").select("tr").array()
+//                for row in rows ?? [] {
+//                    let col = try? row.select("th[scope=row]")
+//                    let imageURL = try? col?.select("img[alt]").attr("src")
+//                    let countryName = try? col?.select("a[title]").attr("title")
+//                    guard !(imageURL?.isEmpty ?? true), !(countryName?.isEmpty ?? true) else { continue }
+//                    let code = try? row.select("td").array().first?.text()
+//                    let dict = ["imageURL" : imageURL, "name" : countryName, "code" : code]
+//                    array.append(dict)
+//                }
+//                let json = try! JSONSerialization.data(withJSONObject: array, options: [.prettyPrinted])
+//                print(String(data: json, encoding: .utf8)!)
+//            }
+//        }.resume()
     }
     
     private func parseEarthQuakesHtmlTable(from data: String) throws -> [QuakeTimeline] {
@@ -86,16 +110,33 @@ class EarthQuakeService: ObservableObject {
         var quake = Quake()
         
         let dateElement = try cell.getElementsByClass("sl2")
-        try dateElement.select("span").remove()
-        let date = try dateElement.text()
-            .replacingOccurrences(of: "GMT", with: "")
-            .trimmingCharacters(in: .whitespacesAndNewlines)
-        
+        var quakeDate: Date?
+        if self.selectedCountry.name == "today" {
+            try dateElement.select("span").remove()
+            quakeDate = try dateElement.text()
+                .replacingOccurrences(of: "GMT", with: "")
+                .trimmingCharacters(in: .whitespacesAndNewlines)
+                .earthQuakeDate
+        } else {
+            quakeDate = try dateElement.select("span[class=subdued]").text()
+                .replacingOccurrences(of: "[GMT()]", with: "", options: .regularExpression)
+                .trimmingCharacters(in: .whitespacesAndNewlines)
+                .earthQuakeDate
+            //When quake date is empty than subdued does not exist, that most of the time means
+            // the date is in the <a> tag which we are extracting here.
+            if quakeDate == nil {
+                try dateElement.select("span").remove()
+                quakeDate = try dateElement.text()
+                    .replacingOccurrences(of: "GMT", with: "")
+                    .trimmingCharacters(in: .whitespacesAndNewlines)
+                    .earthQuakeDate
+            }
+        }
         let magnitudeAndDepthElement = try cell.getElementsByClass("mList")
         let magnitude = try magnitudeAndDepthElement.select("div").remove().text()
         let depth = try magnitudeAndDepthElement.text()
         
-        quake.date = date.earthQuakeDate
+        quake.date = quakeDate
         quake.time = quake.date?.shortTimeOnly()
         quake.timeAgo = quake.date?.timeAgo()
         
@@ -110,9 +151,19 @@ class EarthQuakeService: ObservableObject {
         var location = QuakeLocation()
         
         let locationElement = try cell.getElementsByClass("list_region")
-        location.flag = try locationElement.select("img").attr("src")
+        let countryFlag = try locationElement.select("img").attr("src")
+        if countryFlag.isEmpty, let flagURL = selectedCountry.flagURL {
+            location.flag = "https:\(flagURL)"
+        } else {
+            location.flag = "https://www.volcanodiscovery.com/\(countryFlag)"
+        }
         let country = try locationElement.select("img").attr("title")
-        location.country = country.isEmpty ? "N/A" : country
+        
+        if country.isEmpty && self.selectedCountry.name != "today" {
+            location.country = self.selectedCountry.name.replacingOccurrences(of: "-", with: " ").firstUppercased
+        } else {
+            location.country = country.isEmpty ? "N/A" : country
+        }
         
         location.detailInfo = try locationElement.select("a.sl").remove().attr("href")
         

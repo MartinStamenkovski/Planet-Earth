@@ -1,0 +1,278 @@
+
+[
+    {
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/5\/5c\/Flag_of_Alabama.svg\/45px-Flag_of_Alabama.svg.png",
+        "name" : "Alabama",
+        "code" : "AL"
+    },
+    {
+        "code" : "AK",
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/e\/e6\/Flag_of_Alaska.svg\/21px-Flag_of_Alaska.svg.png",
+        "name" : "Alaska"
+    },
+    {
+        "name" : "Arizona",
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/9\/9d\/Flag_of_Arizona.svg\/45px-Flag_of_Arizona.svg.png",
+        "code" : "AZ"
+    },
+    {
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/9\/9d\/Flag_of_Arkansas.svg\/45px-Flag_of_Arkansas.svg.png",
+        "name" : "Arkansas",
+        "code" : "AR"
+    },
+    {
+        "code" : "CA",
+        "name" : "California",
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/0\/01\/Flag_of_California.svg\/45px-Flag_of_California.svg.png"
+    },
+    {
+        "code" : "CO",
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/4\/46\/Flag_of_Colorado.svg\/45px-Flag_of_Colorado.svg.png",
+        "name" : "Colorado"
+    },
+    {
+        "code" : "CT",
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/9\/96\/Flag_of_Connecticut.svg\/20px-Flag_of_Connecticut.svg.png",
+        "name" : "Connecticut"
+    },
+    {
+        "code" : "DE",
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/c\/c6\/Flag_of_Delaware.svg\/45px-Flag_of_Delaware.svg.png",
+        "name" : "Delaware"
+    },
+    {
+        "code" : "FL",
+        "name" : "Florida",
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/f\/f7\/Flag_of_Florida.svg\/45px-Flag_of_Florida.svg.png"
+    },
+    {
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/5\/54\/Flag_of_Georgia_%28U.S._state%29.svg\/45px-Flag_of_Georgia_%28U.S._state%29.svg.png",
+        "code" : "GA",
+        "name" : "Georgia (U.S. state)"
+    },
+    {
+        "code" : "HI",
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/e\/ef\/Flag_of_Hawaii.svg\/45px-Flag_of_Hawaii.svg.png",
+        "name" : "Hawaii"
+    },
+    {
+        "code" : "ID",
+        "name" : "Idaho",
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/a\/a4\/Flag_of_Idaho.svg\/19px-Flag_of_Idaho.svg.png"
+    },
+    {
+        "code" : "IL",
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/0\/01\/Flag_of_Illinois.svg\/45px-Flag_of_Illinois.svg.png",
+        "name" : "Illinois"
+    },
+    {
+        "name" : "Indiana",
+        "code" : "IN",
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/a\/ac\/Flag_of_Indiana.svg\/45px-Flag_of_Indiana.svg.png"
+    },
+    {
+        "code" : "IA",
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/a\/aa\/Flag_of_Iowa.svg\/45px-Flag_of_Iowa.svg.png",
+        "name" : "Iowa"
+    },
+    {
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/d\/da\/Flag_of_Kansas.svg\/45px-Flag_of_Kansas.svg.png",
+        "name" : "Kansas",
+        "code" : "KS"
+    },
+    {
+        "code" : "KY",
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/8\/8d\/Flag_of_Kentucky.svg\/45px-Flag_of_Kentucky.svg.png",
+        "name" : "Kentucky"
+    },
+    {
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/e\/e0\/Flag_of_Louisiana.svg\/45px-Flag_of_Louisiana.svg.png",
+        "code" : "LA",
+        "name" : "Louisiana"
+    },
+    {
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/3\/35\/Flag_of_Maine.svg\/19px-Flag_of_Maine.svg.png",
+        "code" : "ME",
+        "name" : "Maine"
+    },
+    {
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/a\/a0\/Flag_of_Maryland.svg\/45px-Flag_of_Maryland.svg.png",
+        "name" : "Maryland",
+        "code" : "MD"
+    },
+    {
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/f\/f2\/Flag_of_Massachusetts.svg\/45px-Flag_of_Massachusetts.svg.png",
+        "name" : "Massachusetts",
+        "code" : "MA"
+    },
+    {
+        "code" : "MI",
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/b\/b5\/Flag_of_Michigan.svg\/45px-Flag_of_Michigan.svg.png",
+        "name" : "Michigan"
+    },
+    {
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/b\/b9\/Flag_of_Minnesota.svg\/45px-Flag_of_Minnesota.svg.png",
+        "name" : "Minnesota",
+        "code" : "MN"
+    },
+    {
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/9\/9d\/Flag_of_Mississippi_%28%22New_Magnolia_Flag%22%29.svg\/24px-Flag_of_Mississippi_%28%22New_Magnolia_Flag%22%29.svg.png",
+        "name" : "Mississippi",
+        "code" : "MS"
+    },
+    {
+        "code" : "MO",
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/5\/5a\/Flag_of_Missouri.svg\/45px-Flag_of_Missouri.svg.png",
+        "name" : "Missouri"
+    },
+    {
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/c\/cb\/Flag_of_Montana.svg\/45px-Flag_of_Montana.svg.png",
+        "code" : "MT",
+        "name" : "Montana"
+    },
+    {
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/4\/4d\/Flag_of_Nebraska.svg\/45px-Flag_of_Nebraska.svg.png",
+        "code" : "NE",
+        "name" : "Nebraska"
+    },
+    {
+        "code" : "NV",
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/f\/f1\/Flag_of_Nevada.svg\/45px-Flag_of_Nevada.svg.png",
+        "name" : "Nevada"
+    },
+    {
+        "name" : "New Hampshire",
+        "code" : "NH",
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/2\/28\/Flag_of_New_Hampshire.svg\/45px-Flag_of_New_Hampshire.svg.png"
+    },
+    {
+        "name" : "New Jersey",
+        "code" : "NJ",
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/9\/92\/Flag_of_New_Jersey.svg\/45px-Flag_of_New_Jersey.svg.png"
+    },
+    {
+        "code" : "NM",
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/c\/c3\/Flag_of_New_Mexico.svg\/45px-Flag_of_New_Mexico.svg.png",
+        "name" : "New Mexico"
+    },
+    {
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/1\/1a\/Flag_of_New_York.svg\/45px-Flag_of_New_York.svg.png",
+        "code" : "NY",
+        "name" : "New York (state)"
+    },
+    {
+        "name" : "North Carolina",
+        "code" : "NC",
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/b\/bb\/Flag_of_North_Carolina.svg\/45px-Flag_of_North_Carolina.svg.png"
+    },
+    {
+        "code" : "ND",
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/e\/ee\/Flag_of_North_Dakota.svg\/21px-Flag_of_North_Dakota.svg.png",
+        "name" : "North Dakota"
+    },
+    {
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/4\/4c\/Flag_of_Ohio.svg\/25px-Flag_of_Ohio.svg.png",
+        "name" : "Ohio",
+        "code" : "OH"
+    },
+    {
+        "name" : "Oklahoma",
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/6\/6e\/Flag_of_Oklahoma.svg\/45px-Flag_of_Oklahoma.svg.png",
+        "code" : "OK"
+    },
+    {
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/b\/b9\/Flag_of_Oregon.svg\/45px-Flag_of_Oregon.svg.png",
+        "code" : "OR",
+        "name" : "Oregon"
+    },
+    {
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/f\/f7\/Flag_of_Pennsylvania.svg\/45px-Flag_of_Pennsylvania.svg.png",
+        "name" : "Pennsylvania",
+        "code" : "PA"
+    },
+    {
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/f\/f3\/Flag_of_Rhode_Island.svg\/19px-Flag_of_Rhode_Island.svg.png",
+        "name" : "Rhode Island",
+        "code" : "RI"
+    },
+    {
+        "name" : "South Carolina",
+        "code" : "SC",
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/6\/69\/Flag_of_South_Carolina.svg\/45px-Flag_of_South_Carolina.svg.png"
+    },
+    {
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/1\/1a\/Flag_of_South_Dakota.svg\/45px-Flag_of_South_Dakota.svg.png",
+        "code" : "SD",
+        "name" : "South Dakota"
+    },
+    {
+        "code" : "TN",
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/9\/9e\/Flag_of_Tennessee.svg\/45px-Flag_of_Tennessee.svg.png",
+        "name" : "Tennessee"
+    },
+    {
+        "code" : "TX",
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/f\/f7\/Flag_of_Texas.svg\/45px-Flag_of_Texas.svg.png",
+        "name" : "Texas"
+    },
+    {
+        "name" : "Utah",
+        "code" : "UT",
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/f\/f6\/Flag_of_Utah.svg\/45px-Flag_of_Utah.svg.png"
+    },
+    {
+        "code" : "VT",
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/4\/49\/Flag_of_Vermont.svg\/45px-Flag_of_Vermont.svg.png",
+        "name" : "Vermont"
+    },
+    {
+        "name" : "Virginia",
+        "code" : "VA",
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/4\/47\/Flag_of_Virginia.svg\/22px-Flag_of_Virginia.svg.png"
+    },
+    {
+        "code" : "WA",
+        "name" : "Washington (state)",
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/5\/54\/Flag_of_Washington.svg\/45px-Flag_of_Washington.svg.png"
+    },
+    {
+        "name" : "West Virginia",
+        "code" : "WV",
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/2\/22\/Flag_of_West_Virginia.svg\/45px-Flag_of_West_Virginia.svg.png"
+    },
+    {
+        "name" : "Wisconsin",
+        "code" : "WI",
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/2\/22\/Flag_of_Wisconsin.svg\/45px-Flag_of_Wisconsin.svg.png"
+    },
+    {
+        "name" : "Wyoming",
+        "code" : "WY",
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/b\/bc\/Flag_of_Wyoming.svg\/22px-Flag_of_Wyoming.svg.png"
+    },
+    {
+        "code" : "AS",
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/8\/87\/Flag_of_American_Samoa.svg\/45px-Flag_of_American_Samoa.svg.png",
+        "name" : "American Samoa"
+    },
+    {
+        "code" : "GU",
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/0\/07\/Flag_of_Guam.svg\/45px-Flag_of_Guam.svg.png",
+        "name" : "Guam"
+    },
+    {
+        "name" : "Northern Mariana Islands",
+        "code" : "MP",
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/e\/e0\/Flag_of_the_Northern_Mariana_Islands.svg\/45px-Flag_of_the_Northern_Mariana_Islands.svg.png"
+    },
+    {
+        "name" : "Puerto Rico",
+        "code" : "PR",
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/2\/28\/Flag_of_Puerto_Rico.svg\/45px-Flag_of_Puerto_Rico.svg.png"
+    },
+    {
+        "imageURL" : "\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/f\/f8\/Flag_of_the_United_States_Virgin_Islands.svg\/45px-Flag_of_the_United_States_Virgin_Islands.svg.png",
+        "name" : "United States Virgin Islands",
+        "code" : "VI"
+    }
+]
