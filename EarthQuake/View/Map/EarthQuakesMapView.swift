@@ -7,16 +7,7 @@
 
 import SwiftUI
 import PEMapView
-
-extension AnyTransition {
-    static var slideAndFade: AnyTransition {
-        let insertion = AnyTransition.slide
-            .combined(with: .opacity)
-        let removal = AnyTransition.slide
-            .combined(with: .opacity)
-        return .asymmetric(insertion: insertion, removal: removal)
-    }
-}
+import Extensions
 
 struct EarthQuakesMapView: View {
     let quakes: [Quake]
@@ -49,8 +40,7 @@ struct EarthQuakesMapView: View {
                     Spacer()
                 }
             }
-            .padding(.horizontal, 12)
-            .padding(.vertical, 8)
+            .padding(EdgeInsets(top: 8, leading: 12, bottom: 8, trailing: 12))
         }
         .onAppear {
             self.loadArtworks()

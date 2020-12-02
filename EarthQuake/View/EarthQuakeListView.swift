@@ -16,7 +16,6 @@ public struct EarthQuakeListView: View {
     public init() { }
     
     public var body: some View {
-        
         NavigationView {
             self.contentView()
                 .navigationBarTitle(Text("Earthquakes"))
@@ -30,7 +29,10 @@ public struct EarthQuakeListView: View {
         case .error(let error):
             return Text(error.localizedDescription).toAnyView()
         default:
-            return QuakesListView(quakesTimeline: self.service.quakesTimeline, countryChanged: { country in
+            return QuakesListView(
+                quakesTimeline: self.service.quakesTimeline,
+                selectedCountry: self.service.selectedCountry,
+                countryChanged: { country in
                 self.service.fetchEarthQuakes(for: country)
             }).toAnyView()
         }
@@ -39,10 +41,12 @@ public struct EarthQuakeListView: View {
 }
 
 struct QuakesListView: View {
-    let quakesTimeline: [QuakeTimeline]
-    @State private var showCountryPicker = false
     
-    var countryChanged: ((Country) -> Void)
+    @State private var showCountryPicker = false
+
+    let quakesTimeline: [QuakeTimeline]
+    let selectedCountry: Country?
+    let countryChanged: ((Country) -> Void)
     
     var body: some View {
         List {
@@ -55,10 +59,11 @@ struct QuakesListView: View {
                     }
                 }
             }
-        }.listStyle(PlainListStyle())
+        }
+        .listStyle(PlainListStyle())
         .navigationBarItems(leading: leadingBarButtons())
         .sheet(isPresented: self.$showCountryPicker, content: {
-            CountryPickerView(isShown: $showCountryPicker) { country in
+            CountryPickerView(isShown: $showCountryPicker, selectedCountry: selectedCountry) { country in
                 self.countryChanged(country)
             }
         })

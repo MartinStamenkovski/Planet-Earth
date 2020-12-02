@@ -26,7 +26,7 @@ class EarthQuakeService: ObservableObject {
     @Published private(set) var quakesTimeline: [QuakeTimeline] = []
     @Published private(set) var state = LoadingState.loading
     
-    private var selectedCountry: Country!
+    private(set) var selectedCountry: Country!
     
     private var task: AnyCancellable?
     
@@ -38,6 +38,7 @@ class EarthQuakeService: ObservableObject {
         self.selectedCountry = country
         self.earthQuakesURL = URL(string: "https://www.volcanodiscovery.com/earthquakes/\(country.quakeQueryName)-showMore.html")
         self.state = .loading
+        
         self.task = URLSession.shared.dataTaskPublisher(for: earthQuakesURL)
             .compactMap { String(data: $0.data, encoding: .utf8) }
             .tryMap { html -> [QuakeTimeline] in
@@ -56,27 +57,6 @@ class EarthQuakeService: ObservableObject {
                 self.quakesTimeline = value
                 self.state = .success
             })
-//        URLSession.shared.dataTask(with: URL(string: "https://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States")!) { (data, response, error) in
-//            if let data = data {
-//                var array = [Dictionary<String, String?>]()
-//
-//                let stringHTML = String(data: data, encoding: .utf8)
-//                let html = try? SwiftSoup.parse(stringHTML!)
-//                let table = try? html?.getElementsByClass("sortable")
-//                let rows = try? table?.select("tbody").select("tr").array()
-//                for row in rows ?? [] {
-//                    let col = try? row.select("th[scope=row]")
-//                    let imageURL = try? col?.select("img[alt]").attr("src")
-//                    let countryName = try? col?.select("a[title]").attr("title")
-//                    guard !(imageURL?.isEmpty ?? true), !(countryName?.isEmpty ?? true) else { continue }
-//                    let code = try? row.select("td").array().first?.text()
-//                    let dict = ["imageURL" : imageURL, "name" : countryName, "code" : code]
-//                    array.append(dict)
-//                }
-//                let json = try! JSONSerialization.data(withJSONObject: array, options: [.prettyPrinted])
-//                print(String(data: json, encoding: .utf8)!)
-//            }
-//        }.resume()
     }
     
     private func parseEarthQuakesHtmlTable(from data: String) throws -> [QuakeTimeline] {

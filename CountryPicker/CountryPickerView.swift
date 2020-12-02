@@ -13,33 +13,37 @@ public struct CountryPickerView: View {
     @State private var countries: [Country] = []
     
     @Binding var isShown: Bool
-    private var countrySelectionChanged: ((Country) -> Void)
     
-    public init(isShown: Binding<Bool>, countrySelectionChanged: @escaping ((Country) -> Void)) {
+    private var onCountrySelected: ((Country) -> Void)
+    private var selectedCountry: Country?
+    
+    public init(isShown: Binding<Bool>, selectedCountry: Country?, onCountrySelected: @escaping ((Country) -> Void)) {
         self._isShown = isShown
-        self.countrySelectionChanged = countrySelectionChanged
+        self.onCountrySelected = onCountrySelected
+        self.selectedCountry = selectedCountry
     }
     
     public var body: some View {
         NavigationView {
             List {
                 Section(header: Text("Area")) {
-                    Text("Worldwide")
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .contentShape(Rectangle())
-                        .onTapGesture {
-                            self.isShown = false
-                            self.countrySelectionChanged(Country(name: "today"))
-                        }
-                    NavigationLink(destination: USAStatesView(isShown: $isShown, selectionChanged: countrySelectionChanged)) {
+                    WorldWideRow(
+                        isShown: self.$isShown,
+                        isSelected: selectedCountry?.isToday ?? false,
+                        onCountrySelected: onCountrySelected
+                    )
+                    NavigationLink(destination: USAStatesView(
+                        isShown: $isShown,
+                        onCountrySelected: onCountrySelected
+                    )) {
                         Text("United States")
                     }
                 }
                 Section(header: Text("Countries")) {
                     ForEach(countries, id: \.id) { country in
-                        CountryPickerRow(country: country) { selectedCountry in
+                        CountryPickerRow(country: country, isSelected: selectedCountry == country) { selectedCountry in
                             self.isShown = false
-                            self.countrySelectionChanged(selectedCountry)
+                            self.onCountrySelected(selectedCountry)
                         }
                     }
                 }
@@ -71,8 +75,33 @@ public struct CountryPickerView: View {
     }
 }
 
+private struct WorldWideRow: View {
+    
+    @Binding var isShown: Bool
+
+    let isSelected: Bool
+    let onCountrySelected: ((Country) -> Void)
+
+    var body: some View {
+        HStack {
+            Text("Worldwide")
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .contentShape(Rectangle())
+                .onTapGesture {
+                    self.isShown = false
+                    self.onCountrySelected(Country(name: "today"))
+                }
+            if isSelected {
+                Spacer()
+                Image(systemName: "checkmark")
+                    .font(.system(size: 15))
+                    .foregroundColor(Color.blue)
+            }
+        }
+    }
+}
 struct CountryPickerView_Previews: PreviewProvider {
     static var previews: some View {
-        CountryPickerView(isShown: .constant(true), countrySelectionChanged: { _ in })
+        CountryPickerView(isShown: .constant(true), selectedCountry: nil, onCountrySelected: { _ in })
     }
 }

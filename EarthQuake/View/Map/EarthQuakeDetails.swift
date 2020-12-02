@@ -13,6 +13,7 @@ struct EarthQuakeDetails: View {
     var quake: Quake
     
     var body: some View {
+        
         VStack(alignment: .leading, spacing: 10) {
             if let location = quake.location {
                 HStack {
@@ -60,6 +61,7 @@ struct QuakeLocationDetail: View {
         HStack {
             KFImage(location.flagURL)
                 .resizable()
+                .scaledToFit()
                 .frame(width: 16, height: 11)
             VStack(alignment: .leading, spacing: 5) {
                 Text(location.country ?? "N/A")
@@ -79,6 +81,7 @@ struct QuakeSubDetail: View {
     
     var body: some View {
         HStack {
+            
             Text(key)
                 .font(.system(size: 12))
                 .foregroundColor(Color(.secondaryLabel))

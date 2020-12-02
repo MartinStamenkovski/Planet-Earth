@@ -55,6 +55,7 @@
 		32EF59BB2573CBBB004C3856 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EF59BA2573CBBB004C3856 /* Country.swift */; };
 		32EF5A3D2573D365004C3856 /* countries.json in Resources */ = {isa = PBXBuildFile; fileRef = 32EF59B42573CB5E004C3856 /* countries.json */; };
 		32EF5A432573DEA9004C3856 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EF5A422573DEA9004C3856 /* View+Extension.swift */; };
+		32F0BB2B2578240A003B585C /* Transition+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F0BB2A2578240A003B585C /* Transition+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -194,6 +195,7 @@
 		32EF59B42573CB5E004C3856 /* countries.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = countries.json; sourceTree = "<group>"; };
 		32EF59BA2573CBBB004C3856 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		32EF5A422573DEA9004C3856 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		32F0BB2A2578240A003B585C /* Transition+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transition+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -366,6 +368,7 @@
 				324648BA25695B1F00E8D383 /* DateFormatter+Extension.swift */,
 				320E0BCA256ACC070045BC4D /* Date+Extension.swift */,
 				32EF5A422573DEA9004C3856 /* View+Extension.swift */,
+				32F0BB2A2578240A003B585C /* Transition+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -729,6 +732,7 @@
 				324648B725695B1400E8D383 /* String+Extension.swift in Sources */,
 				32EF5A432573DEA9004C3856 /* View+Extension.swift in Sources */,
 				320E0BCB256ACC080045BC4D /* Date+Extension.swift in Sources */,
+				32F0BB2B2578240A003B585C /* Transition+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
