@@ -11,6 +11,7 @@ import KingfisherSwiftUI
 public struct CountryPickerView: View {
     
     @State private var countries: [Country] = []
+    @State private var query: String = ""
     
     @Binding var isShown: Bool
     
@@ -25,25 +26,35 @@ public struct CountryPickerView: View {
     
     public var body: some View {
         NavigationView {
-            List {
-                Section(header: Text("Area")) {
-                    WorldWideRow(
-                        isShown: self.$isShown,
-                        isSelected: selectedCountry?.isToday ?? false,
-                        onCountrySelected: onCountrySelected
-                    )
-                    NavigationLink(destination: USAStatesView(
-                        isShown: $isShown,
-                        onCountrySelected: onCountrySelected
-                    )) {
-                        Text("United States")
-                    }
+            VStack {
+                HStack {
+                    Image(systemName: "magnifyingglass").foregroundColor(.gray)
+                    TextField("Search country", text: $query)
                 }
-                Section(header: Text("Countries")) {
-                    ForEach(countries, id: \.id) { country in
-                        CountryPickerRow(country: country, isSelected: selectedCountry == country) { selectedCountry in
-                            self.isShown = false
-                            self.onCountrySelected(selectedCountry)
+                .padding(8)
+                .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray.opacity(0.8), lineWidth: 0.8))
+                .padding(12)
+                List {
+                    Section(header: Text("Area")) {
+                        WorldWideRow(
+                            isShown: self.$isShown,
+                            isSelected: selectedCountry?.isToday ?? false,
+                            onCountrySelected: onCountrySelected
+                        )
+                        NavigationLink(destination: USAStatesView(
+                            isShown: $isShown,
+                            selectedState: selectedCountry,
+                            onCountrySelected: onCountrySelected
+                        )) {
+                            Text("United States")
+                        }
+                    }
+                    Section(header: Text("Countries")) {
+                        ForEach(countries.filter { query.isEmpty ? true : $0.name.lowercased().contains(query.lowercased()) }, id: \.id) { country in
+                            CountryPickerRow(country: country, isSelected: selectedCountry == country) { selectedCountry in
+                                self.isShown = false
+                                self.onCountrySelected(selectedCountry)
+                            }
                         }
                     }
                 }
@@ -78,10 +89,10 @@ public struct CountryPickerView: View {
 private struct WorldWideRow: View {
     
     @Binding var isShown: Bool
-
+    
     let isSelected: Bool
     let onCountrySelected: ((Country) -> Void)
-
+    
     var body: some View {
         HStack {
             Text("Worldwide")

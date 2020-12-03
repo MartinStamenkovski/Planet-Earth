@@ -12,16 +12,18 @@ struct USAStatesView: View {
     @State private var states: [Country] = []
     
     @Binding var isShown: Bool
+    let selectedState: Country?
     private var onCountrySelected: ((Country) -> Void)
     
-    public init(isShown: Binding<Bool>, onCountrySelected: @escaping ((Country) -> Void)) {
+    public init(isShown: Binding<Bool>, selectedState: Country?, onCountrySelected: @escaping ((Country) -> Void)) {
         self._isShown = isShown
+        self.selectedState = selectedState
         self.onCountrySelected = onCountrySelected
     }
     var body: some View {
         List {
             ForEach(states, id: \.id) { state in
-                CountryPickerRow(country: state, isSelected: false) { selectedCountry in
+                CountryPickerRow(country: state, isSelected: selectedState == state) { selectedCountry in
                     self.isShown = false
                     self.onCountrySelected(selectedCountry)
                 }

@@ -22,6 +22,7 @@ struct ContentView: View {
                     Text("Earthquakes")
                 }.tag(PETab.earthquake)
             Color.red.tabItem {
+                Image(systemName: "sun.max.fill")
                 Text("Colors")
             }
         }
