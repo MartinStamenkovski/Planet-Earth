@@ -22,7 +22,7 @@ extension URL {
         return URL(string: "http://api.openweathermap.org/data/2.5/\(part)")!
     }
     
-    public static func imageURL(name: String?) -> URL? {
+    public static func weatherIcon(name: String?) -> URL? {
         guard let iconName = name else { return nil }
         return URL(string: "http://openweathermap.org/img/wn/\(iconName)@2x.png")!
     }

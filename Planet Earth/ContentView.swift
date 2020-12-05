@@ -14,7 +14,6 @@ struct ContentView: View {
     
     enum PETab: Hashable {
         case earthquake
-        case uvIndex
         case weather
     }
     
@@ -32,11 +31,6 @@ struct ContentView: View {
                     Image(systemName: "thermometer")
                     Text("Weather")
                 }.tag(PETab.weather)
-            UVIndexView()
-                .tabItem {
-                    Image(systemName: "sun.max.fill")
-                    Text("UV Index")
-                }.tag(PETab.uvIndex)
         }
     }
 }

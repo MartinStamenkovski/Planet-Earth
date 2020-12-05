@@ -23,7 +23,7 @@ struct CurrentWeatherView: View {
                 }
             }
             HStack(spacing: 12) {
-                KFImage(.imageURL(name: weather.iconName))
+                KFImage(.weatherIcon(name: weather.iconName))
                     .cancelOnDisappear(true)
                     .resizable()
                     .frame(width: 100, height: 100)

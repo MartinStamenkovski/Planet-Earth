@@ -18,7 +18,7 @@ struct HourlyRow: View {
                 .font(.system(size: 15))
                 .foregroundColor(Color(.secondaryLabel))
             VStack {
-                KFImage(.imageURL(name: hourly.iconName))
+                KFImage(.weatherIcon(name: hourly.iconName))
                     .cancelOnDisappear(true)
                     .resizable()
                     .frame(width: 40, height: 40)

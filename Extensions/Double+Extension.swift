@@ -14,11 +14,7 @@ extension Double {
      */
     public func unitTemperature() -> String {
         let measurement = Measurement(value: self, unit: UnitTemperature.kelvin)
-        
-        let measurementFormatter = MeasurementFormatter()
-        measurementFormatter.unitStyle = .short
-        measurementFormatter.numberFormatter.maximumFractionDigits = 0
-        measurementFormatter.locale = .current
+        let measurementFormatter = MeasurementFormatter.unitTemperatureFormatter
         return measurementFormatter.string(from: measurement)
     }
     
@@ -38,13 +34,3 @@ extension Double {
     }
 }
 
-extension MeasurementFormatter {
-    
-    static let unitFormatter: MeasurementFormatter = {
-       let formatter = MeasurementFormatter()
-        formatter.locale = .current
-        formatter.numberFormatter.maximumFractionDigits = 1
-        formatter.unitStyle = .short
-        return formatter
-    }()
-}

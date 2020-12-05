@@ -32,6 +32,9 @@
 		322C7788257BFF3A00D6A3E5 /* HPWindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322C7787257BFF3A00D6A3E5 /* HPWindView.swift */; };
 		322C778F257BFF6300D6A3E5 /* SubDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322C778E257BFF6300D6A3E5 /* SubDetailView.swift */; };
 		322C779C257C169C00D6A3E5 /* HourlyRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322C779B257C169C00D6A3E5 /* HourlyRow.swift */; };
+		322C77A8257C247100D6A3E5 /* MeasurementFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322C77A7257C247100D6A3E5 /* MeasurementFormatter+Extension.swift */; };
+		322C77B8257C280200D6A3E5 /* DailyWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322C77B7257C280200D6A3E5 /* DailyWeatherView.swift */; };
+		322C77BE257C291500D6A3E5 /* DailyRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322C77BD257C291500D6A3E5 /* DailyRow.swift */; };
 		3245FBDC256C429500B94D2F /* EarthQuakesMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3245FBDB256C429500B94D2F /* EarthQuakesMapView.swift */; };
 		3246488525691EBF00E8D383 /* EarthQuake.h in Headers */ = {isa = PBXBuildFile; fileRef = 3246488325691EBF00E8D383 /* EarthQuake.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3246488825691EBF00E8D383 /* EarthQuake.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3246488125691EBF00E8D383 /* EarthQuake.framework */; };
@@ -60,10 +63,6 @@
 		325326AD2571811000720332 /* PEMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320091FF256C324600AEEEA2 /* PEMapView.swift */; };
 		325326AE2571811000720332 /* Artwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3245FBE0256C478C00B94D2F /* Artwork.swift */; };
 		325326AF2571811000720332 /* MarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3245FBE4256C488300B94D2F /* MarkerView.swift */; };
-		32540327257A9D3C00CDF38C /* UVIndex.h in Headers */ = {isa = PBXBuildFile; fileRef = 32540325257A9D3C00CDF38C /* UVIndex.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3254032A257A9D3C00CDF38C /* UVIndex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32540323257A9D3C00CDF38C /* UVIndex.framework */; };
-		3254032B257A9D3C00CDF38C /* UVIndex.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 32540323257A9D3C00CDF38C /* UVIndex.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		32540334257A9D5B00CDF38C /* UVIndexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32540333257A9D5B00CDF38C /* UVIndexView.swift */; };
 		32540342257A9FA900CDF38C /* OpenWeatherAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 32540340257A9FA900CDF38C /* OpenWeatherAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		32540345257A9FA900CDF38C /* OpenWeatherAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3254033E257A9FA900CDF38C /* OpenWeatherAPI.framework */; };
 		32540346257A9FA900CDF38C /* OpenWeatherAPI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3254033E257A9FA900CDF38C /* OpenWeatherAPI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -141,13 +140,6 @@
 			remoteGlobalIDString = 3253269D2571810200720332;
 			remoteInfo = PEMapView;
 		};
-		32540328257A9D3C00CDF38C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3213E9C225683C0A001DEF04 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 32540322257A9D3C00CDF38C;
-			remoteInfo = UVIndex;
-		};
 		32540343257A9FA900CDF38C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3213E9C225683C0A001DEF04 /* Project object */;
@@ -188,7 +180,6 @@
 				32EF59A52573CB24004C3856 /* CountryPicker.framework in Embed Frameworks */,
 				3246488925691EBF00E8D383 /* EarthQuake.framework in Embed Frameworks */,
 				322C7730257BA47700D6A3E5 /* Weather.framework in Embed Frameworks */,
-				3254032B257A9D3C00CDF38C /* UVIndex.framework in Embed Frameworks */,
 				325326A62571810200720332 /* PEMapView.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -245,6 +236,9 @@
 		322C7787257BFF3A00D6A3E5 /* HPWindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPWindView.swift; sourceTree = "<group>"; };
 		322C778E257BFF6300D6A3E5 /* SubDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubDetailView.swift; sourceTree = "<group>"; };
 		322C779B257C169C00D6A3E5 /* HourlyRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyRow.swift; sourceTree = "<group>"; };
+		322C77A7257C247100D6A3E5 /* MeasurementFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeasurementFormatter+Extension.swift"; sourceTree = "<group>"; };
+		322C77B7257C280200D6A3E5 /* DailyWeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyWeatherView.swift; sourceTree = "<group>"; };
+		322C77BD257C291500D6A3E5 /* DailyRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyRow.swift; sourceTree = "<group>"; };
 		3245FBDB256C429500B94D2F /* EarthQuakesMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthQuakesMapView.swift; sourceTree = "<group>"; };
 		3245FBE0256C478C00B94D2F /* Artwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artwork.swift; sourceTree = "<group>"; };
 		3245FBE4256C488300B94D2F /* MarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerView.swift; sourceTree = "<group>"; };
@@ -266,10 +260,6 @@
 		3253269E2571810200720332 /* PEMapView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PEMapView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		325326A02571810200720332 /* PEMapView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PEMapView.h; sourceTree = "<group>"; };
 		325326A12571810200720332 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		32540323257A9D3C00CDF38C /* UVIndex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UVIndex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		32540325257A9D3C00CDF38C /* UVIndex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UVIndex.h; sourceTree = "<group>"; };
-		32540326257A9D3C00CDF38C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		32540333257A9D5B00CDF38C /* UVIndexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UVIndexView.swift; sourceTree = "<group>"; };
 		3254033E257A9FA900CDF38C /* OpenWeatherAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OpenWeatherAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32540340257A9FA900CDF38C /* OpenWeatherAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenWeatherAPI.h; sourceTree = "<group>"; };
 		32540341257A9FA900CDF38C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -301,7 +291,6 @@
 				32EF59A42573CB24004C3856 /* CountryPicker.framework in Frameworks */,
 				3246488825691EBF00E8D383 /* EarthQuake.framework in Frameworks */,
 				322C772F257BA47700D6A3E5 /* Weather.framework in Frameworks */,
-				3254032A257A9D3C00CDF38C /* UVIndex.framework in Frameworks */,
 				325326A52571810200720332 /* PEMapView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -345,13 +334,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		32540320257A9D3C00CDF38C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		3254033B257A9FA900CDF38C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -384,7 +366,6 @@
 				3213E9CC25683C0A001DEF04 /* Planet Earth */,
 				3246488225691EBF00E8D383 /* EarthQuake */,
 				322C7729257BA47700D6A3E5 /* Weather */,
-				32540324257A9D3C00CDF38C /* UVIndex */,
 				3253269F2571810200720332 /* PEMapView */,
 				32EF599E2573CB24004C3856 /* CountryPicker */,
 				324648A925695B0400E8D383 /* Extensions */,
@@ -404,7 +385,6 @@
 				3253269E2571810200720332 /* PEMapView.framework */,
 				32EF599D2573CB24004C3856 /* CountryPicker.framework */,
 				324BC0CE25755C4500B59FF7 /* SPMFrameworks.framework */,
-				32540323257A9D3C00CDF38C /* UVIndex.framework */,
 				3254033E257A9FA900CDF38C /* OpenWeatherAPI.framework */,
 				322C7728257BA47700D6A3E5 /* Weather.framework */,
 			);
@@ -436,6 +416,7 @@
 		322C7729257BA47700D6A3E5 /* Weather */ = {
 			isa = PBXGroup;
 			children = (
+				322C77B6257C27D900D6A3E5 /* Daily */,
 				322C7795257C166700D6A3E5 /* Hourly */,
 				322C772A257BA47700D6A3E5 /* Weather.h */,
 				322C772B257BA47700D6A3E5 /* Info.plist */,
@@ -454,6 +435,15 @@
 				322C779B257C169C00D6A3E5 /* HourlyRow.swift */,
 			);
 			path = Hourly;
+			sourceTree = "<group>";
+		};
+		322C77B6257C27D900D6A3E5 /* Daily */ = {
+			isa = PBXGroup;
+			children = (
+				322C77B7257C280200D6A3E5 /* DailyWeatherView.swift */,
+				322C77BD257C291500D6A3E5 /* DailyRow.swift */,
+			);
+			path = Daily;
 			sourceTree = "<group>";
 		};
 		3245FBDF256C477300B94D2F /* Map */ = {
@@ -517,6 +507,7 @@
 				32F0BB2A2578240A003B585C /* Transition+Extension.swift */,
 				322C7779257BF22F00D6A3E5 /* Int+Extension.swift */,
 				322C7780257BF3D000D6A3E5 /* Double+Extension.swift */,
+				322C77A7257C247100D6A3E5 /* MeasurementFormatter+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -540,16 +531,6 @@
 				325326A12571810200720332 /* Info.plist */,
 			);
 			path = PEMapView;
-			sourceTree = "<group>";
-		};
-		32540324257A9D3C00CDF38C /* UVIndex */ = {
-			isa = PBXGroup;
-			children = (
-				32540325257A9D3C00CDF38C /* UVIndex.h */,
-				32540326257A9D3C00CDF38C /* Info.plist */,
-				32540333257A9D5B00CDF38C /* UVIndexView.swift */,
-			);
-			path = UVIndex;
 			sourceTree = "<group>";
 		};
 		3254033F257A9FA900CDF38C /* OpenWeatherAPI */ = {
@@ -640,14 +621,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3254031E257A9D3C00CDF38C /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				32540327257A9D3C00CDF38C /* UVIndex.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		32540339257A9FA900CDF38C /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -684,7 +657,6 @@
 				325326A42571810200720332 /* PBXTargetDependency */,
 				32EF59A32573CB24004C3856 /* PBXTargetDependency */,
 				324BC0D425755C4500B59FF7 /* PBXTargetDependency */,
-				32540329257A9D3C00CDF38C /* PBXTargetDependency */,
 				32540344257A9FA900CDF38C /* PBXTargetDependency */,
 				322C772E257BA47700D6A3E5 /* PBXTargetDependency */,
 			);
@@ -795,24 +767,6 @@
 			productReference = 3253269E2571810200720332 /* PEMapView.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		32540322257A9D3C00CDF38C /* UVIndex */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3254032E257A9D3C00CDF38C /* Build configuration list for PBXNativeTarget "UVIndex" */;
-			buildPhases = (
-				3254031E257A9D3C00CDF38C /* Headers */,
-				3254031F257A9D3C00CDF38C /* Sources */,
-				32540320257A9D3C00CDF38C /* Frameworks */,
-				32540321257A9D3C00CDF38C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = UVIndex;
-			productName = UVIndex;
-			productReference = 32540323257A9D3C00CDF38C /* UVIndex.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 		3254033D257A9FA900CDF38C /* OpenWeatherAPI */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 32540347257A9FA900CDF38C /* Build configuration list for PBXNativeTarget "OpenWeatherAPI" */;
@@ -883,10 +837,6 @@
 					3253269D2571810200720332 = {
 						CreatedOnToolsVersion = 12.2;
 					};
-					32540322257A9D3C00CDF38C = {
-						CreatedOnToolsVersion = 12.2;
-						LastSwiftMigration = 1220;
-					};
 					3254033D257A9FA900CDF38C = {
 						CreatedOnToolsVersion = 12.2;
 						LastSwiftMigration = 1220;
@@ -918,7 +868,6 @@
 				3246488025691EBF00E8D383 /* EarthQuake */,
 				324648A725695B0400E8D383 /* Extensions */,
 				3253269D2571810200720332 /* PEMapView */,
-				32540322257A9D3C00CDF38C /* UVIndex */,
 				322C7727257BA47700D6A3E5 /* Weather */,
 				3254033D257A9FA900CDF38C /* OpenWeatherAPI */,
 				32EF599C2573CB24004C3856 /* CountryPicker */,
@@ -973,13 +922,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		32540321257A9D3C00CDF38C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		3254033C257A9FA900CDF38C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1014,8 +956,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				322C7788257BFF3A00D6A3E5 /* HPWindView.swift in Sources */,
+				322C77B8257C280200D6A3E5 /* DailyWeatherView.swift in Sources */,
 				322C774D257BA49B00D6A3E5 /* WeatherView.swift in Sources */,
 				322C778F257BFF6300D6A3E5 /* SubDetailView.swift in Sources */,
+				322C77BE257C291500D6A3E5 /* DailyRow.swift in Sources */,
 				322C779C257C169C00D6A3E5 /* HourlyRow.swift in Sources */,
 				322C775B257BBA5000D6A3E5 /* CurrentWeatherView.swift in Sources */,
 				322C7773257BEFC600D6A3E5 /* HourlyWeatherView.swift in Sources */,
@@ -1042,6 +986,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				324648BB25695B1F00E8D383 /* DateFormatter+Extension.swift in Sources */,
+				322C77A8257C247100D6A3E5 /* MeasurementFormatter+Extension.swift in Sources */,
 				324648B725695B1400E8D383 /* String+Extension.swift in Sources */,
 				322C7781257BF3D000D6A3E5 /* Double+Extension.swift in Sources */,
 				32EF5A432573DEA9004C3856 /* View+Extension.swift in Sources */,
@@ -1065,14 +1010,6 @@
 				325326AE2571811000720332 /* Artwork.swift in Sources */,
 				325326AF2571811000720332 /* MarkerView.swift in Sources */,
 				325326AD2571811000720332 /* PEMapView.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3254031F257A9D3C00CDF38C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				32540334257A9D5B00CDF38C /* UVIndexView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1142,11 +1079,6 @@
 			isa = PBXTargetDependency;
 			target = 3253269D2571810200720332 /* PEMapView */;
 			targetProxy = 325326A32571810200720332 /* PBXContainerItemProxy */;
-		};
-		32540329257A9D3C00CDF38C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 32540322257A9D3C00CDF38C /* UVIndex */;
-			targetProxy = 32540328257A9D3C00CDF38C /* PBXContainerItemProxy */;
 		};
 		32540344257A9FA900CDF38C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1621,65 +1553,6 @@
 			};
 			name = Release;
 		};
-		3254032C257A9D3C00CDF38C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = UL53AFK9P6;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = UVIndex/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.stamenkovski.UVIndex;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		3254032D257A9D3C00CDF38C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = UL53AFK9P6;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = UVIndex/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.stamenkovski.UVIndex;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		32540348257A9FA900CDF38C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1860,15 +1733,6 @@
 			buildConfigurations = (
 				325326A72571810200720332 /* Debug */,
 				325326A82571810200720332 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3254032E257A9D3C00CDF38C /* Build configuration list for PBXNativeTarget "UVIndex" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3254032C257A9D3C00CDF38C /* Debug */,
-				3254032D257A9D3C00CDF38C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

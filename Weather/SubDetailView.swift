@@ -8,7 +8,7 @@
 import SwiftUI
 
 
-struct SubDetail: View {
+struct SubDetailView: View {
     
     let imageName: String
     let title: String

@@ -35,6 +35,7 @@ public struct WeatherView: View {
                 Divider()
                 HourlyWeatherView(hourly: weather.hourly)
                 Divider()
+                DailyWeatherView(daily: weather.daily)
             }.toAnyView()
         } else {
             return Text("No data available").toAnyView()
