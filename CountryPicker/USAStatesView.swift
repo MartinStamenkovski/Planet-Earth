@@ -20,6 +20,7 @@ struct USAStatesView: View {
         self.selectedState = selectedState
         self.onCountrySelected = onCountrySelected
     }
+    
     var body: some View {
         List {
             ForEach(states, id: \.id) { state in

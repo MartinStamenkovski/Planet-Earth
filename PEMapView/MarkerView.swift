@@ -21,7 +21,6 @@ public class MarkerView: MKMarkerAnnotationView {
          
             clusteringIdentifier = nil
             collisionMode = .circle
-            
         }
     }
 }

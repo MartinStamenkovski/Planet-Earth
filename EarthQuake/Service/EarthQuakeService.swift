@@ -41,21 +41,21 @@ class EarthQuakeService: ObservableObject {
         
         self.task = URLSession.shared.dataTaskPublisher(for: earthQuakesURL)
             .compactMap { String(data: $0.data, encoding: .utf8) }
-            .tryMap { html -> [QuakeTimeline] in
-                return try self.parseEarthQuakesHtmlTable(from: html)
+            .tryCompactMap {[weak self] html -> [QuakeTimeline]? in
+                return try self?.parseEarthQuakesHtmlTable(from: html)
             }
             .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { failure in
+            .sink(receiveCompletion: {[weak self] failure in
                 switch failure {
                 case .failure(let error):
-                    self.state = .error(error)
+                    self?.state = .error(error)
                     break
                 default:
                     break
                 }
-            }, receiveValue: { value in
-                self.quakesTimeline = value
-                self.state = .success
+            }, receiveValue: {[weak self] value in
+                self?.quakesTimeline = value
+                self?.state = .success
             })
     }
     

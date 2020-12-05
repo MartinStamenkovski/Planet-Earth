@@ -42,5 +42,13 @@ public extension DateFormatter {
         dateFormatter.timeZone = .current
         return dateFormatter
     }()
+    
+    static let hourlyDateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = .current
+        dateFormatter.locale = .current
+        dateFormatter.setLocalizedDateFormatFromTemplate("h")
+        return dateFormatter
+    }()
 }
 

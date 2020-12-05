@@ -19,7 +19,7 @@ public struct EarthQuakeListView: View {
         NavigationView {
             self.contentView()
                 .navigationBarTitle(Text("Earthquakes"))
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
     
     private func contentView() -> AnyView {

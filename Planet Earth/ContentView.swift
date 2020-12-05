@@ -7,24 +7,36 @@
 
 import SwiftUI
 import EarthQuake
+import UVIndex
+import Weather
 
 struct ContentView: View {
     
     enum PETab: Hashable {
         case earthquake
+        case uvIndex
+        case weather
     }
     
+    @State private var selection = PETab.earthquake
+    
     var body: some View {
-        TabView {
+        TabView(selection: $selection) {
             EarthQuakeListView()
                 .tabItem {
                     Image(systemName: "bolt.horizontal.fill")
                     Text("Earthquakes")
                 }.tag(PETab.earthquake)
-            Color.red.tabItem {
-                Image(systemName: "sun.max.fill")
-                Text("Colors")
-            }
+            WeatherView()
+                .tabItem {
+                    Image(systemName: "thermometer")
+                    Text("Weather")
+                }.tag(PETab.weather)
+            UVIndexView()
+                .tabItem {
+                    Image(systemName: "sun.max.fill")
+                    Text("UV Index")
+                }.tag(PETab.uvIndex)
         }
     }
 }
