@@ -32,5 +32,11 @@ extension Double {
         let measurement = Measurement(value: self, unit: UnitPressure.hectopascals)
         return MeasurementFormatter.unitFormatter.string(from: measurement)
     }
+    
+    public func rounded(to places: Int) -> Double {
+        guard self > 0.0 else { return 0 }
+        let divisor = pow(10.0, Double(places))
+        return (self * divisor).rounded() / divisor
+    }
 }
 

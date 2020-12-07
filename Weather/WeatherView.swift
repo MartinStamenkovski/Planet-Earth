@@ -44,9 +44,8 @@ public struct WeatherView: View {
             return VStack(spacing: 0) {
                 WeatherHeaderView(weather: weather)
                 Divider()
-                ScrollView {
+                ScrollView(showsIndicators: false) {
                     CurrentWeatherView(weather: weather)
-                    Divider()
                     Group {
                         HourlyWeatherView(hourly: weather.hourly)
                         Divider()
@@ -54,8 +53,7 @@ public struct WeatherView: View {
                         Divider()
                         SunInfoView(sunRise: weather.sunRise?.hourMedium, sunSet: weather.sunSet?.hourMedium)
                     }
-                    Divider()
-                    UVIndexView()
+                    UVIndexView(weather: weather.current)
                 }
             }.toAnyView()
         } else {

@@ -18,7 +18,7 @@ public struct Weather: Codable {
     public let current: Current
     public let hourly: [Current]
     public let daily: [DailyWeather]
-
+    
     enum CodingKeys: String, CodingKey {
         case latitude = "lat"
         case longitude = "lon"
@@ -60,7 +60,7 @@ public struct Current: Codable, Identifiable {
     public let weather: [WeatherElement]
     public let pop: Double?
     public let rain: Rain?
-
+    
     enum CodingKeys: String, CodingKey {
         case dateTime = "dt"
         case temperature = "temp"
@@ -81,13 +81,47 @@ public struct Current: Codable, Identifiable {
     public var mainDescription: String? {
         return self.weather.first?.main
     }
- 
+    
+    public var uviProtection: String {
+        switch self.uvi {
+        case 0...2:
+            return """
+            A UV index reading of 0 to 2 means low danger from the Sun's UV rays for the average person.
+
+            Wear sunglasses on bright days. If you burn easily, cover up and use broad spectrum SPF 30+ sunscreen. Bright surfaces, sand, water, and snow, will increase UV exposure.
+            """
+        case 3...5:
+            return """
+                A UV index reading of 3 to 5 means moderate risk of harm from unprotected sun exposure.
+
+                Stay in shade near midday when the Sun is strongest. If outdoors, wear sun-protective clothing, a wide-brimmed hat, and UV-blocking sunglasses. Generously apply broad spectrum SPF 30+ sunscreen every 1.5 hours, even on cloudy days, and after swimming or sweating. Bright surfaces, such as sand, water, and snow, will increase UV exposure.
+                """
+        case 6...7:
+            return """
+                A UV index reading of 6 to 7 means high risk of harm from unprotected sun exposure. Protection against skin and eye damage is needed.
+
+                Reduce time in the sun between 10 a.m. and 4 p.m. If outdoors, seek shade and wear sun-protective clothing, a wide-brimmed hat, and UV-blocking sunglasses. Generously apply broad spectrum SPF 30+ sunscreen every 1.5 hours, even on cloudy days, and after swimming or sweating. Bright surfaces, such as sand, water, and snow, will increase UV exposure.
+                """
+        case 8...10:
+            return """
+                A UV index reading of 8 to 10 means very high risk of harm from unprotected sun exposure. Take extra precautions because unprotected skin and eyes will be damaged and can burn quickly.
+
+                Minimize sun exposure between 10 a.m. and 4 p.m. If outdoors, seek shade and wear sun-protective clothing, a wide-brimmed hat, and UV-blocking sunglasses. Generously apply broad spectrum SPF 30+ sunscreen every 1.5 hours, even on cloudy days, and after swimming or sweating. Bright surfaces, such as sand, water, and snow, will increase UV exposure.
+                """
+        default:
+            return """
+                A UV index reading of 11 or more means extreme risk of harm from unprotected sun exposure. Take all precautions because unprotected skin and eyes can burn in minutes.
+
+                Try to avoid sun exposure between 10 a.m. and 4 p.m. If outdoors, seek shade and wear sun-protective clothing, a wide-brimmed hat, and UV-blocking sunglasses. Generously apply broad spectrum SPF 30+ sunscreen every 1.5 hours, even on cloudy days, and after swimming or sweating. Bright surfaces, such as sand, water, and snow, will increase UV exposure.
+                """
+        }
+    }
 }
 
 // MARK: - Rain
 public struct Rain: Codable {
     public let the1H: Double
-
+    
     enum CodingKeys: String, CodingKey {
         case the1H = "1h"
     }
@@ -98,7 +132,7 @@ public struct WeatherElement: Codable {
     public let id: Int
     public let main: String
     public let weatherDescription, icon: String
-
+    
     enum CodingKeys: String, CodingKey {
         case id, main
         case weatherDescription = "description"

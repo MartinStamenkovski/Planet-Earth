@@ -20,10 +20,11 @@ struct HPWindView: View {
                 .frame(minWidth: 0, maxWidth: .infinity)
             
             SubDetailView(imageName: "wind", title: "Wind", data: "\(weather.windSpeed.unitSpeed)")
-            .frame(minWidth: 0, maxWidth: .infinity)
+                .frame(minWidth: 0, maxWidth: .infinity)
             
             SubDetailView(imageName: "eye", title: "Visibility", data: "\(weather.visibility.unitLength)")
                 .frame(minWidth: 0, maxWidth: .infinity)
+            
         }
         .frame(minWidth: 0, maxWidth: .infinity)
         .padding(.horizontal, 6)

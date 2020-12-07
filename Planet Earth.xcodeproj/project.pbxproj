@@ -84,6 +84,8 @@
 		32FA03CC257D120F00F87B2D /* SunInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FA03CB257D120F00F87B2D /* SunInfoView.swift */; };
 		32FA03DF257D241000F87B2D /* UVIndexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FA03DE257D241000F87B2D /* UVIndexView.swift */; };
 		32FA03E9257E8FA100F87B2D /* WeatherHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FA03E8257E8FA100F87B2D /* WeatherHeaderView.swift */; };
+		32FA03FB257E9E5B00F87B2D /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FA03FA257E9E5B00F87B2D /* UIColor+Extension.swift */; };
+		32FA0401257EA0D200F87B2D /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FA0400257EA0D200F87B2D /* Color+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -284,6 +286,8 @@
 		32FA03CB257D120F00F87B2D /* SunInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunInfoView.swift; sourceTree = "<group>"; };
 		32FA03DE257D241000F87B2D /* UVIndexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UVIndexView.swift; sourceTree = "<group>"; };
 		32FA03E8257E8FA100F87B2D /* WeatherHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherHeaderView.swift; sourceTree = "<group>"; };
+		32FA03FA257E9E5B00F87B2D /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		32FA0400257EA0D200F87B2D /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -428,8 +432,8 @@
 				322C7787257BFF3A00D6A3E5 /* HPWindView.swift */,
 				32FA03DE257D241000F87B2D /* UVIndexView.swift */,
 				322C778E257BFF6300D6A3E5 /* SubDetailView.swift */,
-				322C7795257C166700D6A3E5 /* Hourly */,
 				322C77B6257C27D900D6A3E5 /* Daily */,
+				322C7795257C166700D6A3E5 /* Hourly */,
 				32FA03D5257D151800F87B2D /* Sun */,
 				322C772A257BA47700D6A3E5 /* Weather.h */,
 				322C772B257BA47700D6A3E5 /* Info.plist */,
@@ -517,6 +521,8 @@
 				322C7779257BF22F00D6A3E5 /* Int+Extension.swift */,
 				322C7780257BF3D000D6A3E5 /* Double+Extension.swift */,
 				322C77A7257C247100D6A3E5 /* MeasurementFormatter+Extension.swift */,
+				32FA03FA257E9E5B00F87B2D /* UIColor+Extension.swift */,
+				32FA0400257EA0D200F87B2D /* Color+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1006,8 +1012,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				324648BB25695B1F00E8D383 /* DateFormatter+Extension.swift in Sources */,
+				32FA0401257EA0D200F87B2D /* Color+Extension.swift in Sources */,
 				322C77A8257C247100D6A3E5 /* MeasurementFormatter+Extension.swift in Sources */,
 				324648B725695B1400E8D383 /* String+Extension.swift in Sources */,
+				32FA03FB257E9E5B00F87B2D /* UIColor+Extension.swift in Sources */,
 				322C7781257BF3D000D6A3E5 /* Double+Extension.swift in Sources */,
 				32EF5A432573DEA9004C3856 /* View+Extension.swift in Sources */,
 				322C777A257BF22F00D6A3E5 /* Int+Extension.swift in Sources */,

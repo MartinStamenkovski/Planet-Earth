@@ -15,18 +15,17 @@ struct SubDetailView: View {
     let data: String
     
     var body: some View {
-        VStack(alignment: .center, spacing: 12) {
-            Spacer()
+        VStack(alignment: .center, spacing: 0) {
             Image(systemName: imageName)
                 .scaledToFit()
                 .font(.system(size: 20))
+            Spacer(minLength: 8)
             VStack(spacing: 3) {
                 Text(title)
                     .font(.system(size: 12, weight: .semibold))
                 Text(data)
                     .font(.system(size: 12, weight: .light))
             }
-            Spacer()
         }
     }
 }
