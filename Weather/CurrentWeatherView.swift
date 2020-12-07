@@ -13,24 +13,17 @@ struct CurrentWeatherView: View {
     var weather: Weather
     
     var body: some View {
-        VStack(alignment: .center, spacing: 30) {
-            VStack(spacing: 8) {
-                Text("\(weather.timezone)")
-                    .font(.system(size: 22, weight: .semibold))
-                if let main = weather.mainDescription {
-                    Text(main)
-                        .font(.system(size: 17, weight: .light))
-                }
-            }
-            HStack(spacing: 12) {
+        VStack(alignment: .center, spacing: 15) {
+            HStack(alignment: .center, spacing: 12) {
                 KFImage(.weatherIcon(name: weather.iconName))
                     .cancelOnDisappear(true)
                     .resizable()
-                    .frame(width: 100, height: 100)
-                Text("\(weather.current.temperature.unitTemperature())")
-                    .font(.system(size: 70))
+                    .frame(width: 90, height: 90)
+                Text("\(weather.current.temperature.unitTemperature)")
+                    .font(.system(size: 60))
             }
-        }.padding()
+            HPWindView(weather: weather.current)
+        }
     }
 }
 

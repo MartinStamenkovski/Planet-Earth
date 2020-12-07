@@ -7,7 +7,6 @@
 
 import SwiftUI
 import EarthQuake
-import UVIndex
 import Weather
 
 struct ContentView: View {

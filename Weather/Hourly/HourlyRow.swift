@@ -22,7 +22,7 @@ struct HourlyRow: View {
                     .cancelOnDisappear(true)
                     .resizable()
                     .frame(width: 40, height: 40)
-                Text("\(hourly.temperature.unitTemperature())")
+                Text("\(hourly.temperature.unitTemperature)")
                     .font(.system(size: 15))
                     .foregroundColor(Color(.secondaryLabel))
             }

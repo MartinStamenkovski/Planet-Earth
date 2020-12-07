@@ -26,6 +26,6 @@ struct HPWindView: View {
                 .frame(minWidth: 0, maxWidth: .infinity)
         }
         .frame(minWidth: 0, maxWidth: .infinity)
-        .padding(.horizontal)
+        .padding(.horizontal, 6)
     }
 }

@@ -15,8 +15,8 @@ struct DailyRow: View {
     
     var body: some View {
         HStack(alignment: .center, spacing: 20) {
-            Text("Today")
-                .font(.system(size: 15, weight: Font.Weight.light))
+            Text(weather.dateTime.relativeDate)
+                .font(.system(size: 15))
             Spacer()
             DailyTemperatureView(weather: weather)
         }
@@ -36,10 +36,10 @@ struct DailyTemperatureView: View {
                 .resizable()
                 .frame(width: 30, height: 30)
             HStack(spacing: 12) {
-                Text("\(weather.dailyTemperature.max.unitTemperature())")
+                Text("\(weather.dailyTemperature.max.unitTemperature)")
                     .foregroundColor(Color(.label))
                     .frame(minWidth: 30)
-                Text("\(weather.dailyTemperature.max.unitTemperature())")
+                Text("\(weather.dailyTemperature.max.unitTemperature)")
                     .foregroundColor(Color(.secondaryLabel))
                     .frame(minWidth: 30)
             }

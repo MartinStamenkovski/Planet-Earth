@@ -15,4 +15,15 @@ extension Int {
         return dateFormatter.string(from: date)
     }
     
+    public var hourMedium: String {
+        let dateFormatter = DateFormatter.mediumTime
+        let date = Date(timeIntervalSince1970: TimeInterval(self))
+        return dateFormatter.string(from: date)
+    }
+    
+    public var relativeDate: String {
+        let dateFormatter = DateFormatter.relativeDateFormatter
+        let date = Date(timeIntervalSince1970: TimeInterval(self))
+        return dateFormatter.string(from: date)
+    }
 }

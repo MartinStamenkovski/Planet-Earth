@@ -12,7 +12,7 @@ extension Double {
     /**
      Converts the current value to Measurement with the provided UnitTemperature.
      */
-    public func unitTemperature() -> String {
+    public var unitTemperature: String {
         let measurement = Measurement(value: self, unit: UnitTemperature.kelvin)
         let measurementFormatter = MeasurementFormatter.unitTemperatureFormatter
         return measurementFormatter.string(from: measurement)

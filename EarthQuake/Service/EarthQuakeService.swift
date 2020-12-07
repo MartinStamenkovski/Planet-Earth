@@ -117,8 +117,8 @@ class EarthQuakeService: ObservableObject {
         let depth = try magnitudeAndDepthElement.text()
         
         quake.date = quakeDate
-        quake.time = quake.date?.shortTimeOnly()
-        quake.timeAgo = quake.date?.timeAgo()
+        quake.time = quake.date?.shortTimeOnly
+        quake.timeAgo = quake.date?.timeAgo
         
         quake.magnitude = magnitude
         quake.depth = depth.isEmpty ? "N/A" : depth

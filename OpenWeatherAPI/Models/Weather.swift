@@ -34,6 +34,14 @@ public struct Weather: Codable {
     public var mainDescription: String? {
         return self.current.mainDescription
     }
+    
+    public var sunRise: Int? {
+        return self.current.sunrise
+    }
+    
+    public var sunSet: Int? {
+        return self.current.sunset
+    }
 }
 
 // MARK: - Current
@@ -73,6 +81,7 @@ public struct Current: Codable, Identifiable {
     public var mainDescription: String? {
         return self.weather.first?.main
     }
+ 
 }
 
 // MARK: - Rain

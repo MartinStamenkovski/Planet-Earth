@@ -10,13 +10,25 @@ import OpenWeatherAPI
 import KingfisherSwiftUI
 import Extensions
 
+enum WeatherRow: Int, CaseIterable {
+    case current = 0
+    case hourly
+    case daily
+    case sunInfo
+    case uvIndex
+}
+
 public struct WeatherView: View {
     
     @ObservedObject var weatherService = OpenWeatherService(endPoint: .weather)
-    
+        
     public init() { }
     
     public var body: some View {
+        contentView()
+    }
+    
+    func contentView() -> AnyView {
         switch weatherService.state {
         case .success:
             return mainScrollView()
@@ -29,13 +41,22 @@ public struct WeatherView: View {
     
     func mainScrollView() -> AnyView {
         if let weather = self.weatherService.weather {
-            return ScrollView(.vertical, showsIndicators: false) {
-                CurrentWeatherView(weather: weather)
-                HPWindView(weather: weather.current)
+            return VStack(spacing: 0) {
+                WeatherHeaderView(weather: weather)
                 Divider()
-                HourlyWeatherView(hourly: weather.hourly)
-                Divider()
-                DailyWeatherView(daily: weather.daily)
+                ScrollView {
+                    CurrentWeatherView(weather: weather)
+                    Divider()
+                    Group {
+                        HourlyWeatherView(hourly: weather.hourly)
+                        Divider()
+                        DailyWeatherView(daily: weather.daily)
+                        Divider()
+                        SunInfoView(sunRise: weather.sunRise?.hourMedium, sunSet: weather.sunSet?.hourMedium)
+                    }
+                    Divider()
+                    UVIndexView()
+                }
             }.toAnyView()
         } else {
             return Text("No data available").toAnyView()

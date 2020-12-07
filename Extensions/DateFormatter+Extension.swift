@@ -35,6 +35,14 @@ public extension DateFormatter {
         return dateFormatter
     }()
     
+    static let mediumTime: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = .medium
+        dateFormatter.dateStyle = .none
+        dateFormatter.timeZone = .current
+        return dateFormatter
+    }()
+    
     static let shortEarthQuakeDate: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.timeStyle = .short
@@ -48,6 +56,16 @@ public extension DateFormatter {
         dateFormatter.timeZone = .current
         dateFormatter.locale = .current
         dateFormatter.setLocalizedDateFormatFromTemplate("h")
+        return dateFormatter
+    }()
+    
+    static let relativeDateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = .none
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeZone = .current
+        dateFormatter.locale = .current
+        dateFormatter.doesRelativeDateFormatting = true
         return dateFormatter
     }()
 }
