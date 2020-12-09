@@ -7,11 +7,13 @@
 
 import SwiftUI
 import KingfisherSwiftUI
+import SupportingViews
 
 public struct CountryPickerView: View {
     
     @State private var countries: [Country] = []
     @State private var query: String = ""
+    @State private var focused = false
     
     @Binding var isShown: Bool
     
@@ -27,13 +29,8 @@ public struct CountryPickerView: View {
     public var body: some View {
         NavigationView {
             VStack {
-                HStack {
-                    Image(systemName: "magnifyingglass").foregroundColor(.gray)
-                    TextField("Search country", text: $query)
-                }
-                .padding(8)
-                .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray.opacity(0.8), lineWidth: 0.8))
-                .padding(12)
+                SearchBar(self.$query, focusChanged: $focused)
+                    .padding(.horizontal, 6)
                 List {
                     Section(header: Text("Area")) {
                         WorldWideRow(
@@ -61,6 +58,8 @@ public struct CountryPickerView: View {
             }
             .navigationBarItems(trailing: trailingBarButtons())
             .navigationBarTitle(Text("Select Country"))
+            .navigationBarHidden(focused)
+            .animation(.easeOut)
         }.onAppear {
             self.loadCountries()
         }

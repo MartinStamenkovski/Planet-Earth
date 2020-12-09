@@ -9,14 +9,16 @@ import Foundation
 
 extension Int {
     
-    public var hour: String {
+    public func hour(timeZone: String) -> String {
         let dateFormatter = DateFormatter.hourlyDateFormatter
+        dateFormatter.timeZone = TimeZone(identifier: timeZone)
         let date = Date(timeIntervalSince1970: TimeInterval(self))
         return dateFormatter.string(from: date)
     }
     
-    public var hourMedium: String {
+    public func hourMedium(timeZone: String) -> String {
         let dateFormatter = DateFormatter.mediumTime
+        dateFormatter.timeZone = TimeZone(identifier: timeZone)
         let date = Date(timeIntervalSince1970: TimeInterval(self))
         return dateFormatter.string(from: date)
     }

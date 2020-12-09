@@ -19,30 +19,43 @@ public final class OpenWeatherService: ObservableObject {
     
     @Published private var locationManager = LocationManager()
     @Published public private(set) var state = LoadingState.loading
-
-    private(set) var uvIndex: UVIndexModel?
+    
     public private(set) var weather: Weather?
+    public private(set) var city: String?
     
     private var cancellables = Set<AnyCancellable>()
     
     public init(endPoint: OpenWeatherEndPoints) {
+        #if targetEnvironment(simulator)
         self.fetchData(
             from: URL(string: "https://api.openweathermap.org/data/2.5/onecall?lat=42&lon=21.43&exclude=alerts,minutely&appid=1401ad6496ff98b6401caab2e6cfa2d7")!,
             decodeTo: Weather.self) {[weak self] value in
             self?.weather = value
             self?.state = .success
         }
-//        self.locationManager.coordinates.sink {[weak self] coordinates in
-//            self?.fetchUVIndex(from: endPoint, coordinates: coordinates)
-//        }.store(in: &cancellables)
+        #else
+        self.locationManager.placemark.sink {[weak self] error in
+            switch error {
+            case .failure(let error):
+                self?.state = .error(error)
+                break
+            default:
+                break
+            }
+        } receiveValue: {[weak self] placemark in
+            self?.city = placemark.name
+            self?.fetchWeather(from: endPoint, coordinates: placemark.coordinate)
+        }.store(in: &cancellables)
+
+        #endif
     }
-   
+    
 }
 
 extension OpenWeatherService {
     
-    func fetchUVIndex(from: OpenWeatherEndPoints, coordinates: CLLocationCoordinate2D) {
-        var components = URLComponents(url: from.url, resolvingAgainstBaseURL: true)
+    func fetchWeather(from endPoint: OpenWeatherEndPoints, coordinates: CLLocationCoordinate2D) {
+        var components = URLComponents(url: endPoint.url, resolvingAgainstBaseURL: true)
         components?.appendQueryItems(
             [
                 "lat" : String(coordinates.latitude),
@@ -51,37 +64,24 @@ extension OpenWeatherService {
             ]
         )
         guard let url = components?.url else { return }
-        self.fetchData(from: url, decodeTo: UVIndexModel.self) {[weak self] value in
-            self?.uvIndex = value
-            self?.state = .success
-        }
-    }
-}
-
-extension OpenWeatherService {
-    
-    func fetchWeather(from endPoint: OpenWeatherEndPoints, coordinates: CLLocationCoordinate2D) {
-//        var components = URLComponents(url: endPoint.url, resolvingAgainstBaseURL: true)
-//        components?.appendQueryItems(
-//            [
-//                "lat" : String(coordinates.latitude),
-//                "lon" : String(coordinates.longitude),
-//                "appid" : "1401ad6496ff98b6401caab2e6cfa2d7"
-//            ]
-//        )
-//        guard let url = components?.url else { return }
         self.fetchData(
-            from: URL(string: "http://api.openweathermap.org/data/2.5/forecast?q=skopje&appid=1401ad6496ff98b6401caab2e6cfa2d7")!,
+            from: url,
             decodeTo: Weather.self) {[weak self] value in
             self?.weather = value
             self?.state = .success
         }
     }
+    
+    public func fetchWeather(for placemark: Placemark) {
+        self.city = placemark.name
+        self.fetchWeather(from: .weather, coordinates: placemark.coordinate)
+    }
 }
 
 extension OpenWeatherService {
     
-    private func fetchData<T>(from url: URL, decodeTo: T.Type, completion: @escaping((T) -> Void)) where T: Codable{
+    private func fetchData<T>(from url: URL, decodeTo: T.Type, completion: @escaping((T) -> Void)) where T: Codable {
+        self.state = .loading
         URLSession.shared.dataTaskPublisher(for: url)
             .compactMap {
                 return $0.data

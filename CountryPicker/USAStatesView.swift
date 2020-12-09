@@ -12,6 +12,7 @@ struct USAStatesView: View {
     @State private var states: [Country] = []
     
     @Binding var isShown: Bool
+    
     let selectedState: Country?
     private var onCountrySelected: ((Country) -> Void)
     

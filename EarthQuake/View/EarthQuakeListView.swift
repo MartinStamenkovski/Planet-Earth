@@ -78,6 +78,7 @@ struct QuakesListView: View {
             self.showCountryPicker.toggle()
         } label: {
             Image(systemName: "slider.vertical.3")
+                .font(.system(size: 20))
         }
     }
 }

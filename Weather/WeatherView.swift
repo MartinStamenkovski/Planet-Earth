@@ -21,11 +21,24 @@ enum WeatherRow: Int, CaseIterable {
 public struct WeatherView: View {
     
     @ObservedObject var weatherService = OpenWeatherService(endPoint: .weather)
-        
+    
+    @State private var showCities = false
+    
     public init() { }
     
     public var body: some View {
-        contentView()
+        VStack {
+            if showCities {
+                SavedCities { coordinates in
+                    withAnimation(.easeInOut) {
+                        self.showCities = false
+                        self.weatherService.fetchWeather(for: coordinates)
+                    }
+                }.transition(.insertBottomRemoveTopFade)
+            } else {
+                contentView().transition(.insertTopRemoveBottomFade)
+            }
+        }
     }
     
     func contentView() -> AnyView {
@@ -42,16 +55,19 @@ public struct WeatherView: View {
     func mainScrollView() -> AnyView {
         if let weather = self.weatherService.weather {
             return VStack(spacing: 0) {
-                WeatherHeaderView(weather: weather)
-                Divider()
+                WeatherHeaderView(city: weatherService.city, weather: weather, showCities: $showCities)
+                Divider().edgesIgnoringSafeArea(.horizontal)
                 ScrollView(showsIndicators: false) {
                     CurrentWeatherView(weather: weather)
                     Group {
-                        HourlyWeatherView(hourly: weather.hourly)
+                        HourlyWeatherView(hourly: weather.hourly, timeZone: weather.timezone)
                         Divider()
                         DailyWeatherView(daily: weather.daily)
                         Divider()
-                        SunInfoView(sunRise: weather.sunRise?.hourMedium, sunSet: weather.sunSet?.hourMedium)
+                        SunInfoView(
+                            sunRise: weather.sunRise?.hourMedium(timeZone: weather.timezone),
+                            sunSet: weather.sunSet?.hourMedium(timeZone: weather.timezone)
+                        )
                     }
                     UVIndexView(weather: weather.current)
                 }

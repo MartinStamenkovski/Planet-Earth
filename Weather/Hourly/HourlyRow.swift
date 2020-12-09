@@ -11,10 +11,11 @@ import KingfisherSwiftUI
 
 struct HourlyRow: View {
     let hourly: Current
+    let timeZone: String
     
     var body: some View {
         VStack(spacing: 10) {
-            Text("\(hourly.dateTime.hour)")
+            Text("\(hourly.dateTime.hour(timeZone: timeZone))")
                 .font(.system(size: 15))
                 .foregroundColor(Color(.secondaryLabel))
             VStack {

@@ -34,7 +34,7 @@ struct DailyTemperatureView: View {
             KFImage(.weatherIcon(name: weather.weather.first?.icon))
                 .cancelOnDisappear(true)
                 .resizable()
-                .frame(width: 30, height: 30)
+                .frame(width: 40, height: 40)
             HStack(spacing: 12) {
                 Text("\(weather.dailyTemperature.max.unitTemperature)")
                     .foregroundColor(Color(.label))
@@ -46,10 +46,3 @@ struct DailyTemperatureView: View {
         }
     }
 }
-
-//
-//struct DailyRow_Previews: PreviewProvider {
-//    static var previews: some View {
-//        DailyRow()
-//    }
-//}

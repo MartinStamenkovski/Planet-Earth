@@ -11,11 +11,11 @@ extension Color {
     
     public static func uvIndexColor(for uvi: Double) -> Color {
         switch uvi {
-        case 0...2:
+        case 0..<3:
             return Color(.uvLow)
-        case 3...5:
+        case 3..<6:
             return Color(.uvModerate)
-        case 6...7:
+        case 6..<8:
             return Color(.uvHigh)
         case 8...10:
             return Color(.uvVeryHigh)

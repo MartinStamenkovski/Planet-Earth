@@ -31,7 +31,6 @@ public extension DateFormatter {
         let dateFormatter = DateFormatter()
         dateFormatter.timeStyle = .short
         dateFormatter.dateStyle = .none
-        dateFormatter.timeZone = .current
         return dateFormatter
     }()
     
@@ -39,7 +38,6 @@ public extension DateFormatter {
         let dateFormatter = DateFormatter()
         dateFormatter.timeStyle = .medium
         dateFormatter.dateStyle = .none
-        dateFormatter.timeZone = .current
         return dateFormatter
     }()
     
@@ -47,14 +45,11 @@ public extension DateFormatter {
         let dateFormatter = DateFormatter()
         dateFormatter.timeStyle = .short
         dateFormatter.dateStyle = .short
-        dateFormatter.timeZone = .current
         return dateFormatter
     }()
     
     static let hourlyDateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
-        dateFormatter.timeZone = .current
-        dateFormatter.locale = .current
         dateFormatter.setLocalizedDateFormatFromTemplate("h")
         return dateFormatter
     }()
@@ -63,8 +58,6 @@ public extension DateFormatter {
         let dateFormatter = DateFormatter()
         dateFormatter.timeStyle = .none
         dateFormatter.dateStyle = .medium
-        dateFormatter.timeZone = .current
-        dateFormatter.locale = .current
         dateFormatter.doesRelativeDateFormatting = true
         return dateFormatter
     }()
