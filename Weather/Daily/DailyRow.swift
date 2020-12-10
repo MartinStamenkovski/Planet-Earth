@@ -17,6 +17,7 @@ struct DailyRow: View {
         HStack(alignment: .center, spacing: 20) {
             Text(weather.dateTime.relativeDate)
                 .font(.system(size: 15))
+                .foregroundColor(.white)
             Spacer()
             DailyTemperatureView(weather: weather)
         }
@@ -37,11 +38,11 @@ struct DailyTemperatureView: View {
                 .frame(width: 40, height: 40)
             HStack(spacing: 12) {
                 Text("\(weather.dailyTemperature.max.unitTemperature)")
-                    .foregroundColor(Color(.label))
                     .frame(minWidth: 30)
+                    .foregroundColor(.white)
                 Text("\(weather.dailyTemperature.max.unitTemperature)")
-                    .foregroundColor(Color(.secondaryLabel))
                     .frame(minWidth: 30)
+                    .foregroundColor(Color.white.opacity(0.7))
             }
         }
     }

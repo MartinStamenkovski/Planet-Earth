@@ -21,19 +21,22 @@ struct WeatherHeaderView: View {
                 VStack(spacing: 6) {
                     Text(city ?? "")
                         .font(.system(size: 20, weight: .semibold))
+                        .foregroundColor(.white)
                     if let main = weather.mainDescription {
                         Text(main)
                             .font(.system(size: 12, weight: .light))
+                            .foregroundColor(.white)
                     }
                 }.padding(.trailing, -20)
                 Spacer()
                 Button {
-                    withAnimation(.easeOut) {
+                    withAnimation(Animation.easeInOut(duration: 0.2)) {
                         self.showCities = true
                     }
                 } label: {
                     Image(systemName: "magnifyingglass")
                         .font(.system(size: 20))
+                        .foregroundColor(.white)
                 }
             }.frame(minWidth: 0, maxWidth: .infinity)
             .padding(.horizontal, 8)

@@ -27,6 +27,7 @@ public final class OpenWeatherService: ObservableObject {
     
     public init(endPoint: OpenWeatherEndPoints) {
         #if targetEnvironment(simulator)
+        self.city = "Skopje"
         self.fetchData(
             from: URL(string: "https://api.openweathermap.org/data/2.5/onecall?lat=42&lon=21.43&exclude=alerts,minutely&appid=1401ad6496ff98b6401caab2e6cfa2d7")!,
             decodeTo: Weather.self) {[weak self] value in
@@ -46,7 +47,6 @@ public final class OpenWeatherService: ObservableObject {
             self?.city = placemark.name
             self?.fetchWeather(from: endPoint, coordinates: placemark.coordinate)
         }.store(in: &cancellables)
-
         #endif
     }
     

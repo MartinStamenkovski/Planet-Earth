@@ -21,6 +21,7 @@ struct CurrentWeatherView: View {
                     .frame(width: 90, height: 90)
                 Text("\(weather.current.temperature.unitTemperature)")
                     .font(.system(size: 60))
+                    .foregroundColor(.white)
             }
             HPWindView(weather: weather.current)
                 .frame(minWidth: 0, maxWidth: .infinity)

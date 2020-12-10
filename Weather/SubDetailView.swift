@@ -19,12 +19,15 @@ struct SubDetailView: View {
             Image(systemName: imageName)
                 .scaledToFit()
                 .font(.system(size: 20))
+                .foregroundColor(.white)
             Spacer(minLength: 8)
             VStack(spacing: 3) {
                 Text(title)
                     .font(.system(size: 12, weight: .semibold))
+                    .foregroundColor(.white)
                 Text(data)
                     .font(.system(size: 12, weight: .light))
+                    .foregroundColor(.white)
             }
         }
     }

@@ -9,21 +9,24 @@ import SwiftUI
 
 
 public struct SearchBar: UIViewRepresentable {
+    
     @Binding var text: String
     @Binding var focusChanged: Bool
-    
+    let focusDelay: TimeInterval
     var onTextChanged: ((String) -> Void)?
     
-    public init(_ text: Binding<String>, focusChanged: Binding<Bool>) {
+    public init(_ text: Binding<String>, focusChanged: Binding<Bool>, focusDelay: TimeInterval = 0) {
         self._text = text
         self._focusChanged = focusChanged
+        self.focusDelay = focusDelay
         self.onTextChanged = nil
     }
     
-    public init(_ text: Binding<String>, focusChanged: Binding<Bool>, _ onTextChanged: @escaping ((String) -> Void)) {
+    public init(_ text: Binding<String>, focusChanged: Binding<Bool>, focusDelay: TimeInterval = 0, _ onTextChanged: @escaping ((String) -> Void)) {
         self._text = text
         self._focusChanged = focusChanged
         self.onTextChanged = onTextChanged
+        self.focusDelay = focusDelay
     }
     
     public class Coordinator: NSObject, UISearchBarDelegate {
@@ -72,7 +75,9 @@ public struct SearchBar: UIViewRepresentable {
     public func updateUIView(_ uiView: UISearchBar, context: UIViewRepresentableContext<SearchBar>) {
         uiView.text = text
         if focusChanged {
-            uiView.becomeFirstResponder()
+            DispatchQueue.main.asyncAfter(deadline: .now() + focusDelay) {
+                uiView.becomeFirstResponder()
+            }
         }
     }
 }

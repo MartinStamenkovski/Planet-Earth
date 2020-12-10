@@ -16,4 +16,12 @@ public extension UIColor {
     static let uvVeryHigh = UIColor(red: 229/255, green: 50/255, blue: 16/255, alpha: 1)
     static let uvExtreme = UIColor(red: 181/255, green: 103/255, blue: 164/255, alpha: 1)
 
+    static let clear = UIColor(red: 28/255, green: 156/255, blue: 246/255, alpha: 1)
+    
+    static let heavyCloud = UIColor(red: 102/255, green: 102/255, blue: 102/255, alpha: 1)
+    static let lightCloud = UIColor(red: 192/255, green: 192/255, blue: 192/255, alpha: 1)
+
+    static let rain = UIColor(red: 94/255, green: 157/255, blue: 200/255, alpha: 1)
+
+    static let snow = UIColor(red: 51/255, green: 102/255, blue: 153/255, alpha: 1)
 }

@@ -28,7 +28,7 @@ public struct SavedCities: View {
     public var body: some View {
         NavigationView {
             VStack {
-                SearchBar(self.$textChanged, focusChanged: $focused) { query in
+                SearchBar(self.$textChanged, focusChanged: $focused, focusDelay: 0.3) { query in
                     self.searchBarTextChanged(query)
                 }.padding(.horizontal, 6)
                 List {

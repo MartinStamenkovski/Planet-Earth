@@ -9,6 +9,7 @@ import SwiftUI
 import OpenWeatherAPI
 import KingfisherSwiftUI
 import Extensions
+import SupportingViews
 
 enum WeatherRow: Int, CaseIterable {
     case current = 0
@@ -27,16 +28,25 @@ public struct WeatherView: View {
     public init() { }
     
     public var body: some View {
-        VStack {
-            if showCities {
-                SavedCities { coordinates in
-                    withAnimation(.easeInOut) {
-                        self.showCities = false
-                        self.weatherService.fetchWeather(for: coordinates)
-                    }
-                }.transition(.insertBottomRemoveTopFade)
-            } else {
-                contentView().transition(.insertTopRemoveBottomFade)
+        ZStack {
+            LinearGradientView(
+                colors: [
+                    Color(.sRGB, red: 78/255, green: 128/255, blue: 222/255, opacity: 1),
+                    Color(.sRGB, red: 124/255, green: 169/255, blue: 240/255, opacity: 1),
+                ],
+                radius: 200
+            ).edgesIgnoringSafeArea(.all)
+            VStack {
+                if showCities {
+                    SavedCities { placemark in
+                        withAnimation(Animation.easeOut(duration: 0.2)) {
+                            self.showCities = false
+                            self.weatherService.fetchWeather(for: placemark)
+                        }
+                    }.transition(.insertBottomRemoveTopFade)
+                } else {
+                    contentView().transition(.insertTopRemoveBottomFade)
+                }
             }
         }
     }
@@ -84,3 +94,4 @@ struct WeatherView_Previews: PreviewProvider {
         WeatherView()
     }
 }
+

@@ -26,11 +26,12 @@ struct UVIndexView: View {
                         .foregroundColor(Color.uvIndexColor(for: weather.uvi))
                     Text("UV Index")
                         .font(.system(size: 20))
-                        .foregroundColor(Color(.secondaryLabel))
+                        .foregroundColor(Color.white.opacity(0.8))
                 }
             }.frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
             Text(weather.uviProtection)
                 .font(.system(size: 10, weight: .medium))
+                .foregroundColor(.white)
         }.padding(8)
         Divider()
     }
