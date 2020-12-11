@@ -49,7 +49,7 @@ public struct SavedCitiesView: View {
                             let placemark = Placemark(from: city)
                             self.onCitySelected(placemark)
                         }
-                    }
+                    }.onDelete(perform: removeCities(at:))
                 }
                 .listStyle(PlainListStyle())
                 .navigationBarTitle(Text("Cities"))
@@ -67,7 +67,7 @@ public struct SavedCitiesView: View {
             self.showSearchCity = true
         } label: {
             Image(systemName: "plus")
-                .font(.system(size: 20))
+                .font(.system(size: 22))
         }
     }
     
@@ -77,6 +77,13 @@ public struct SavedCitiesView: View {
         newCity.country = placemark.country
         newCity.latitude = placemark.coordinate.latitude
         newCity.longitude = placemark.coordinate.longitude
+        NSPersist.shared.save(context: managedObjectContext)
+    }
+    
+    private func removeCities(at offset: IndexSet) {
+        for index in offset {
+            self.managedObjectContext.delete(cities[index])
+        }
         NSPersist.shared.save(context: managedObjectContext)
     }
 }

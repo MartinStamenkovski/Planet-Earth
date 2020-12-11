@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 import CoreLocation
+import SwiftUI
 
 public enum LoadingState {
     case loading
@@ -54,7 +55,7 @@ public final class OpenWeatherService: ObservableObject {
 
 extension OpenWeatherService {
     
-    func fetchWeather(from endPoint: OpenWeatherEndPoints, coordinates: CLLocationCoordinate2D) {
+    func fetchWeather(from endPoint: OpenWeatherEndPoints, coordinates: CLLocationCoordinate2D, delay: Double = 0) {
         var components = URLComponents(url: endPoint.url, resolvingAgainstBaseURL: true)
         components?.appendQueryItems(
             [
@@ -66,28 +67,34 @@ extension OpenWeatherService {
         guard let url = components?.url else { return }
         self.fetchData(
             from: url,
-            decodeTo: Weather.self) {[weak self] value in
+            decodeTo: Weather.self,
+            delay: delay) {[weak self] value in
             self?.weather = value
-            self?.state = .success
+            withAnimation(Animation.easeInOut.delay(0.1)) {
+                self?.state = .success
+            }
         }
     }
     
-    public func fetchWeather(for placemark: Placemark) {
+    public func fetchWeather(for placemark: Placemark, delay: Double = 0) {
         self.city = placemark.name
-        self.fetchWeather(from: .weather, coordinates: placemark.coordinate)
+        self.fetchWeather(from: .weather, coordinates: placemark.coordinate, delay: delay)
     }
 }
 
 extension OpenWeatherService {
     
-    private func fetchData<T>(from url: URL, decodeTo: T.Type, completion: @escaping((T) -> Void)) where T: Codable {
+    private func fetchData<T>(from url: URL, decodeTo: T.Type, delay: Double = 0, completion: @escaping((T) -> Void)) where T: Codable {
         self.state = .loading
         URLSession.shared.dataTaskPublisher(for: url)
             .compactMap {
                 return $0.data
             }
             .decode(type: T.self, decoder: JSONDecoder())
-            .receive(on: DispatchQueue.main)
+            .delay(
+                for: .seconds(delay),
+                scheduler: RunLoop.main
+            )
             .sink {[weak self] failure in
                 switch failure {
                 case .failure(let error):

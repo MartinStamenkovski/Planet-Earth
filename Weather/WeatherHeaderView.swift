@@ -10,8 +10,10 @@ import OpenWeatherAPI
 import Extensions
 
 struct WeatherHeaderView: View {
+    
     let city: String?
     let weather: Weather
+    
     @Binding var showCities: Bool
     
     var body: some View {
@@ -25,7 +27,7 @@ struct WeatherHeaderView: View {
                         Text(main)
                             .font(.system(size: 12, weight: .light))
                     }
-                }.padding(.trailing, -20)
+                }.padding(.trailing, -22)
                 Spacer()
                 Button {
                     withAnimation(Animation.easeInOut(duration: 0.3)) {
@@ -33,7 +35,7 @@ struct WeatherHeaderView: View {
                     }
                 } label: {
                     Image(systemName: "building.2.crop.circle")
-                        .font(.system(size: 20))
+                        .font(.system(size: 22))
                 }
             }.frame(minWidth: 0, maxWidth: .infinity)
             .padding(.horizontal, 10)

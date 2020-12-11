@@ -31,13 +31,13 @@ public struct WeatherView: View {
         VStack {
             if showCities {
                 SavedCitiesView { placemark in
-                    withAnimation(Animation.easeOut(duration: 0.3)) {
+                    withAnimation(Animation.easeInOut(duration: 0.3)) {
                         self.showCities = false
-                        self.weatherService.fetchWeather(for: placemark)
+                        self.weatherService.fetchWeather(for: placemark, delay: 0.35)
                     }
-                }.transition(.insertBottomRemoveTopFade)
+                }.transition(.move(edge: .bottom))
             } else {
-                contentView().transition(.insertTopRemoveBottomFade)
+                contentView().transition(.insertTopRemoveTopFade)
             }
         }
     }
@@ -49,7 +49,7 @@ public struct WeatherView: View {
         case .error(let error):
             return Text(error.localizedDescription).toAnyView()
         default:
-            return Text("Loading").toAnyView()
+            return Text("Loading").transition(.scale).toAnyView()
         }
     }
     

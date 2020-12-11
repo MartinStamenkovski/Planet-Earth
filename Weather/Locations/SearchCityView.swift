@@ -7,7 +7,6 @@
 
 import SwiftUI
 import OpenWeatherAPI
-import CoreLocation
 import SupportingViews
 
 struct SearchCityView: View {
@@ -69,10 +68,9 @@ struct SearchCityView: View {
     
     func trailingBarButtons() -> some View {
         Button {
-            
+            self.isShown = false
         } label: {
-            Image(systemName: "plus")
-                .font(.system(size: 20))
+            Text("Done")
         }
     }
     

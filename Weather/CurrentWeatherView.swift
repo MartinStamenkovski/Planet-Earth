@@ -13,7 +13,7 @@ struct CurrentWeatherView: View {
     var weather: Weather
     
     var body: some View {
-        VStack(alignment: .center, spacing: 25) {
+        VStack(alignment: .center, spacing: 30) {
             HStack(alignment: .center, spacing: 12) {
                 KFImage(.weatherIcon(name: weather.iconName, size: .x4))
                     .cancelOnDisappear(true)
