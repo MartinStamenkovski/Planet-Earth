@@ -61,8 +61,7 @@ public class LocationManager: NSObject, ObservableObject {
                     if let name = item.name,
                        let location = item.placemark.location {
                         let placemark = Placemark(
-                            name: name,
-                            coordinate: location.coordinate,
+                            coordinate: location.coordinate, name: name,
                             country: item.placemark.country
                         )
                         searchedCities.append(placemark)
@@ -97,8 +96,8 @@ extension LocationManager: CLLocationManagerDelegate {
             self.geocoder.reverseGeocodeLocation(location) {[weak self] (placemarks, error) in
                 if let placemark = placemarks?.first, let placemarkLocation = placemark.location {
                     self?.currentPlacemark = Placemark(
-                        name: placemark.administrativeArea,
                         coordinate: placemarkLocation.coordinate,
+                        name: placemark.administrativeArea,
                         country: placemark.country
                     )
                     manager.stopUpdatingLocation()

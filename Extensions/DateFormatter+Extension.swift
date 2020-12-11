@@ -54,11 +54,9 @@ public extension DateFormatter {
         return dateFormatter
     }()
     
-    static let relativeDateFormatter: DateFormatter = {
+    static let shortDayDateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
-        dateFormatter.timeStyle = .none
-        dateFormatter.dateStyle = .medium
-        dateFormatter.doesRelativeDateFormatting = true
+        dateFormatter.setLocalizedDateFormatFromTemplate("EEE d")
         return dateFormatter
     }()
 }

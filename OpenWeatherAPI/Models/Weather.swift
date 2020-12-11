@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Extensions
 
 // MARK: - Weather
 public struct Weather: Codable {

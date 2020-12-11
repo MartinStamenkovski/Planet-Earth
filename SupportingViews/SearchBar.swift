@@ -78,6 +78,8 @@ public struct SearchBar: UIViewRepresentable {
             DispatchQueue.main.asyncAfter(deadline: .now() + focusDelay) {
                 uiView.becomeFirstResponder()
             }
+        } else {
+            uiView.resignFirstResponder()
         }
     }
 }

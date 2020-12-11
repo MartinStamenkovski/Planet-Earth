@@ -1,8 +1,8 @@
 //
-//  SavedLocations.swift
+//  SearchCityView.swift
 //  Weather
 //
-//  Created by Martin Stamenkovski on 8.12.20.
+//  Created by Martin Stamenkovski on 11.12.20.
 //
 
 import SwiftUI
@@ -10,8 +10,8 @@ import OpenWeatherAPI
 import CoreLocation
 import SupportingViews
 
-public struct SavedCities: View {
-    
+struct SearchCityView: View {
+    @Binding var isShown: Bool
     public let onCitySelected: ((Placemark) -> Void)
     
     private var locationManager = LocationManager()
@@ -21,7 +21,8 @@ public struct SavedCities: View {
     
     @State private var cities: [Placemark] = []
     
-    public init(onCitySelected: @escaping ((Placemark) -> Void)) {
+    public init(isShown: Binding<Bool>, onCitySelected: @escaping ((Placemark) -> Void)) {
+        self._isShown = isShown
         self.onCitySelected = onCitySelected
     }
     
@@ -38,9 +39,11 @@ public struct SavedCities: View {
                             Text(placemark.country ?? "")
                                 .font(.system(size: 13))
                                 .foregroundColor(Color(.secondaryLabel))
-                        }.frame(maxWidth: .infinity, alignment: .leading)
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
                         .contentShape(Rectangle())
                         .onTapGesture {
+                            self.isShown = false
                             self.onCitySelected(placemark)
                         }
                     }
@@ -50,8 +53,7 @@ public struct SavedCities: View {
             .navigationBarTitle(Text("Cities"))
             .navigationBarItems(trailing: trailingBarButtons())
             .navigationBarHidden(focused)
-            .animation(.easeOut)
-            .transition(.move(edge: .top))
+            .animation(.easeInOut)
         }.navigationViewStyle(StackNavigationViewStyle())
     }
     
@@ -64,6 +66,7 @@ public struct SavedCities: View {
             self.cities = cities
         }
     }
+    
     func trailingBarButtons() -> some View {
         Button {
             
@@ -75,8 +78,8 @@ public struct SavedCities: View {
     
 }
 
-struct SavedLocations_Previews: PreviewProvider {
+struct SearchCityView_Previews: PreviewProvider {
     static var previews: some View {
-        SavedCities(onCitySelected: { _ in })
+        SearchCityView(isShown: .constant(false), onCitySelected: { _ in })
     }
 }

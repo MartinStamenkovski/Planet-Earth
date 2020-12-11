@@ -17,6 +17,13 @@
 		3213E9D425683C0D001DEF04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3213E9D325683C0D001DEF04 /* Assets.xcassets */; };
 		3213E9D725683C0D001DEF04 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3213E9D625683C0D001DEF04 /* Preview Assets.xcassets */; };
 		3213E9DA25683C0D001DEF04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3213E9D825683C0D001DEF04 /* LaunchScreen.storyboard */; };
+		3215BB1025839E19001DF416 /* WeatherIconModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3215BB0F25839E19001DF416 /* WeatherIconModifier.swift */; };
+		3215BB382583AF7B001DF416 /* PEDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 3215BB362583AF7B001DF416 /* PEDatabase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3215BB3B2583AF7B001DF416 /* PEDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3215BB342583AF7B001DF416 /* PEDatabase.framework */; };
+		3215BB3C2583AF7B001DF416 /* PEDatabase.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3215BB342583AF7B001DF416 /* PEDatabase.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3215BB482583AF89001DF416 /* PEDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3215BB462583AF89001DF416 /* PEDatabase.xcdatamodeld */; };
+		3215BB502583AFAB001DF416 /* NSPersist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3215BB4F2583AFAB001DF416 /* NSPersist.swift */; };
+		3215BB5E2583B375001DF416 /* SearchCityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3215BB5D2583B375001DF416 /* SearchCityView.swift */; };
 		322C7711257B971600D6A3E5 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322C7710257B971600D6A3E5 /* Weather.swift */; };
 		322C7718257B9AD100D6A3E5 /* DailyWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322C7717257B9AD100D6A3E5 /* DailyWeather.swift */; };
 		322C772C257BA47700D6A3E5 /* Weather.h in Headers */ = {isa = PBXBuildFile; fileRef = 322C772A257BA47700D6A3E5 /* Weather.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -79,7 +86,7 @@
 		32EF59BB2573CBBB004C3856 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EF59BA2573CBBB004C3856 /* Country.swift */; };
 		32EF5A3D2573D365004C3856 /* countries.json in Resources */ = {isa = PBXBuildFile; fileRef = 32EF59B42573CB5E004C3856 /* countries.json */; };
 		32EF5A432573DEA9004C3856 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EF5A422573DEA9004C3856 /* View+Extension.swift */; };
-		32F069E4257FD30200E51E6C /* SavedCities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F069E3257FD30200E51E6C /* SavedCities.swift */; };
+		32F069E4257FD30200E51E6C /* SavedCitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F069E3257FD30200E51E6C /* SavedCitiesView.swift */; };
 		32F069EE257FFD1F00E51E6C /* Placemark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F069ED257FFD1F00E51E6C /* Placemark.swift */; };
 		32F069FC25800B9100E51E6C /* SupportingViews.h in Headers */ = {isa = PBXBuildFile; fileRef = 32F069FA25800B9100E51E6C /* SupportingViews.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		32F069FF25800B9100E51E6C /* SupportingViews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32F069F825800B9100E51E6C /* SupportingViews.framework */; };
@@ -95,6 +102,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		3215BB392583AF7B001DF416 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3213E9C225683C0A001DEF04 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3215BB332583AF7B001DF416;
+			remoteInfo = PEDatabase;
+		};
 		322C772D257BA47700D6A3E5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3213E9C225683C0A001DEF04 /* Project object */;
@@ -197,6 +211,7 @@
 				324648B025695B0400E8D383 /* Extensions.framework in Embed Frameworks */,
 				32EF59A52573CB24004C3856 /* CountryPicker.framework in Embed Frameworks */,
 				3246488925691EBF00E8D383 /* EarthQuake.framework in Embed Frameworks */,
+				3215BB3C2583AF7B001DF416 /* PEDatabase.framework in Embed Frameworks */,
 				322C7730257BA47700D6A3E5 /* Weather.framework in Embed Frameworks */,
 				32F06A0025800B9100E51E6C /* SupportingViews.framework in Embed Frameworks */,
 				325326A62571810200720332 /* PEMapView.framework in Embed Frameworks */,
@@ -242,6 +257,13 @@
 		3213E9D625683C0D001DEF04 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3213E9D925683C0D001DEF04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3213E9DB25683C0D001DEF04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3215BB0F25839E19001DF416 /* WeatherIconModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherIconModifier.swift; sourceTree = "<group>"; };
+		3215BB342583AF7B001DF416 /* PEDatabase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PEDatabase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3215BB362583AF7B001DF416 /* PEDatabase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PEDatabase.h; sourceTree = "<group>"; };
+		3215BB372583AF7B001DF416 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3215BB472583AF89001DF416 /* PEDatabase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PEDatabase.xcdatamodel; sourceTree = "<group>"; };
+		3215BB4F2583AFAB001DF416 /* NSPersist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPersist.swift; sourceTree = "<group>"; };
+		3215BB5D2583B375001DF416 /* SearchCityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCityView.swift; sourceTree = "<group>"; };
 		322C7710257B971600D6A3E5 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		322C7717257B9AD100D6A3E5 /* DailyWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyWeather.swift; sourceTree = "<group>"; };
 		322C7728257BA47700D6A3E5 /* Weather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Weather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -295,7 +317,7 @@
 		32EF59B42573CB5E004C3856 /* countries.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = countries.json; sourceTree = "<group>"; };
 		32EF59BA2573CBBB004C3856 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		32EF5A422573DEA9004C3856 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
-		32F069E3257FD30200E51E6C /* SavedCities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCities.swift; sourceTree = "<group>"; };
+		32F069E3257FD30200E51E6C /* SavedCitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCitiesView.swift; sourceTree = "<group>"; };
 		32F069ED257FFD1F00E51E6C /* Placemark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placemark.swift; sourceTree = "<group>"; };
 		32F069F825800B9100E51E6C /* SupportingViews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SupportingViews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32F069FA25800B9100E51E6C /* SupportingViews.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SupportingViews.h; sourceTree = "<group>"; };
@@ -320,9 +342,17 @@
 				324648AF25695B0400E8D383 /* Extensions.framework in Frameworks */,
 				32EF59A42573CB24004C3856 /* CountryPicker.framework in Frameworks */,
 				3246488825691EBF00E8D383 /* EarthQuake.framework in Frameworks */,
+				3215BB3B2583AF7B001DF416 /* PEDatabase.framework in Frameworks */,
 				322C772F257BA47700D6A3E5 /* Weather.framework in Frameworks */,
 				32F069FF25800B9100E51E6C /* SupportingViews.framework in Frameworks */,
 				325326A52571810200720332 /* PEMapView.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3215BB312583AF7B001DF416 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,8 +438,9 @@
 				32EF599E2573CB24004C3856 /* CountryPicker */,
 				324648A925695B0400E8D383 /* Extensions */,
 				3254033F257A9FA900CDF38C /* OpenWeatherAPI */,
-				324BC0CF25755C4500B59FF7 /* SPMFrameworks */,
 				32F069F925800B9100E51E6C /* SupportingViews */,
+				324BC0CF25755C4500B59FF7 /* SPMFrameworks */,
+				3215BB352583AF7B001DF416 /* PEDatabase */,
 				3213E9CB25683C0A001DEF04 /* Products */,
 				32EF59C02573CCB6004C3856 /* Frameworks */,
 			);
@@ -427,6 +458,7 @@
 				3254033E257A9FA900CDF38C /* OpenWeatherAPI.framework */,
 				322C7728257BA47700D6A3E5 /* Weather.framework */,
 				32F069F825800B9100E51E6C /* SupportingViews.framework */,
+				3215BB342583AF7B001DF416 /* PEDatabase.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -453,9 +485,29 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		3215BB0E25839E08001DF416 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				3215BB0F25839E19001DF416 /* WeatherIconModifier.swift */,
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
+		3215BB352583AF7B001DF416 /* PEDatabase */ = {
+			isa = PBXGroup;
+			children = (
+				3215BB362583AF7B001DF416 /* PEDatabase.h */,
+				3215BB372583AF7B001DF416 /* Info.plist */,
+				3215BB462583AF89001DF416 /* PEDatabase.xcdatamodeld */,
+				3215BB4F2583AFAB001DF416 /* NSPersist.swift */,
+			);
+			path = PEDatabase;
+			sourceTree = "<group>";
+		};
 		322C7729257BA47700D6A3E5 /* Weather */ = {
 			isa = PBXGroup;
 			children = (
+				3215BB0E25839E08001DF416 /* Modifiers */,
 				32F069E2257FD2E200E51E6C /* Locations */,
 				322C774C257BA49B00D6A3E5 /* WeatherView.swift */,
 				32FA03E8257E8FA100F87B2D /* WeatherHeaderView.swift */,
@@ -607,12 +659,12 @@
 			children = (
 				32EF59B42573CB5E004C3856 /* countries.json */,
 				327E0E662576C26500C18484 /* usa.json */,
-				32EF599F2573CB24004C3856 /* CountryPicker.h */,
-				32EF59A02573CB24004C3856 /* Info.plist */,
 				327E0E732576C90900C18484 /* USAStatesView.swift */,
 				32EF59AD2573CB38004C3856 /* CountryPickerView.swift */,
 				327E0E6B2576C2C500C18484 /* CountryPickerRow.swift */,
 				32EF59BA2573CBBB004C3856 /* Country.swift */,
+				32EF599F2573CB24004C3856 /* CountryPicker.h */,
+				32EF59A02573CB24004C3856 /* Info.plist */,
 			);
 			path = CountryPicker;
 			sourceTree = "<group>";
@@ -627,7 +679,8 @@
 		32F069E2257FD2E200E51E6C /* Locations */ = {
 			isa = PBXGroup;
 			children = (
-				32F069E3257FD30200E51E6C /* SavedCities.swift */,
+				32F069E3257FD30200E51E6C /* SavedCitiesView.swift */,
+				3215BB5D2583B375001DF416 /* SearchCityView.swift */,
 			);
 			path = Locations;
 			sourceTree = "<group>";
@@ -654,6 +707,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		3215BB2F2583AF7B001DF416 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3215BB382583AF7B001DF416 /* PEDatabase.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		322C7723257BA47700D6A3E5 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -741,6 +802,7 @@
 				32540344257A9FA900CDF38C /* PBXTargetDependency */,
 				322C772E257BA47700D6A3E5 /* PBXTargetDependency */,
 				32F069FE25800B9100E51E6C /* PBXTargetDependency */,
+				3215BB3A2583AF7B001DF416 /* PBXTargetDependency */,
 			);
 			name = "Planet Earth";
 			packageProductDependencies = (
@@ -748,6 +810,24 @@
 			productName = "Planet Earth";
 			productReference = 3213E9CA25683C0A001DEF04 /* Planet Earth.app */;
 			productType = "com.apple.product-type.application";
+		};
+		3215BB332583AF7B001DF416 /* PEDatabase */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3215BB3D2583AF7B001DF416 /* Build configuration list for PBXNativeTarget "PEDatabase" */;
+			buildPhases = (
+				3215BB2F2583AF7B001DF416 /* Headers */,
+				3215BB302583AF7B001DF416 /* Sources */,
+				3215BB312583AF7B001DF416 /* Frameworks */,
+				3215BB322583AF7B001DF416 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PEDatabase;
+			productName = PEDatabase;
+			productReference = 3215BB342583AF7B001DF416 /* PEDatabase.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 		322C7727257BA47700D6A3E5 /* Weather */ = {
 			isa = PBXNativeTarget;
@@ -919,6 +999,10 @@
 					3213E9C925683C0A001DEF04 = {
 						CreatedOnToolsVersion = 12.2;
 					};
+					3215BB332583AF7B001DF416 = {
+						CreatedOnToolsVersion = 12.2;
+						LastSwiftMigration = 1220;
+					};
 					322C7727257BA47700D6A3E5 = {
 						CreatedOnToolsVersion = 12.2;
 						LastSwiftMigration = 1220;
@@ -977,6 +1061,7 @@
 				32EF599C2573CB24004C3856 /* CountryPicker */,
 				324BC0CD25755C4500B59FF7 /* SPMFrameworks */,
 				32F069F725800B9100E51E6C /* SupportingViews */,
+				3215BB332583AF7B001DF416 /* PEDatabase */,
 			);
 		};
 /* End PBXProject section */
@@ -989,6 +1074,13 @@
 				3213E9DA25683C0D001DEF04 /* LaunchScreen.storyboard in Resources */,
 				3213E9D725683C0D001DEF04 /* Preview Assets.xcassets in Resources */,
 				3213E9D425683C0D001DEF04 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3215BB322583AF7B001DF416 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1063,12 +1155,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3215BB302583AF7B001DF416 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3215BB482583AF89001DF416 /* PEDatabase.xcdatamodeld in Sources */,
+				3215BB502583AFAB001DF416 /* NSPersist.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		322C7724257BA47700D6A3E5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				322C7788257BFF3A00D6A3E5 /* HPWindView.swift in Sources */,
+				3215BB1025839E19001DF416 /* WeatherIconModifier.swift in Sources */,
 				322C77B8257C280200D6A3E5 /* DailyWeatherView.swift in Sources */,
+				3215BB5E2583B375001DF416 /* SearchCityView.swift in Sources */,
 				322C774D257BA49B00D6A3E5 /* WeatherView.swift in Sources */,
 				322C778F257BFF6300D6A3E5 /* SubDetailView.swift in Sources */,
 				322C77BE257C291500D6A3E5 /* DailyRow.swift in Sources */,
@@ -1077,7 +1180,7 @@
 				322C779C257C169C00D6A3E5 /* HourlyRow.swift in Sources */,
 				322C775B257BBA5000D6A3E5 /* CurrentWeatherView.swift in Sources */,
 				32FA03E9257E8FA100F87B2D /* WeatherHeaderView.swift in Sources */,
-				32F069E4257FD30200E51E6C /* SavedCities.swift in Sources */,
+				32F069E4257FD30200E51E6C /* SavedCitiesView.swift in Sources */,
 				322C7773257BEFC600D6A3E5 /* HourlyWeatherView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1167,6 +1270,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		3215BB3A2583AF7B001DF416 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3215BB332583AF7B001DF416 /* PEDatabase */;
+			targetProxy = 3215BB392583AF7B001DF416 /* PBXContainerItemProxy */;
+		};
 		322C772E257BA47700D6A3E5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 322C7727257BA47700D6A3E5 /* Weather */;
@@ -1396,6 +1504,65 @@
 			};
 			name = Release;
 		};
+		3215BB3E2583AF7B001DF416 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = UL53AFK9P6;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = PEDatabase/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.stamenkovski.PEDatabase;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		3215BB3F2583AF7B001DF416 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = UL53AFK9P6;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = PEDatabase/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.stamenkovski.PEDatabase;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		322C7732257BA47700D6A3E5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1415,6 +1582,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.stamenkovski.Weather;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1445,6 +1613,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.stamenkovski.Weather;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1474,6 +1643,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.stamenkovski.EarthQuake;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1504,6 +1674,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.stamenkovski.EarthQuake;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1533,6 +1704,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.stamenkovski.Extensions;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1563,6 +1735,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.stamenkovski.Extensions;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1591,6 +1764,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.stamenkovski.SPMFrameworks;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1619,6 +1793,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.stamenkovski.SPMFrameworks;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1647,6 +1822,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.stamenkovski.PEMapView;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1675,6 +1851,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.stamenkovski.PEMapView;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1704,6 +1881,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.stamenkovski.OpenWeatherAPI;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1734,6 +1912,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.stamenkovski.OpenWeatherAPI;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1763,6 +1942,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.stamenkovski.CountryPicker;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1793,6 +1973,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.stamenkovski.CountryPicker;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1822,6 +2003,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.stamenkovski.SupportingViews;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1852,6 +2034,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.stamenkovski.SupportingViews;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1879,6 +2062,15 @@
 			buildConfigurations = (
 				3213E9DF25683C0D001DEF04 /* Debug */,
 				3213E9E025683C0D001DEF04 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3215BB3D2583AF7B001DF416 /* Build configuration list for PBXNativeTarget "PEDatabase" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3215BB3E2583AF7B001DF416 /* Debug */,
+				3215BB3F2583AF7B001DF416 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1988,6 +2180,19 @@
 			productName = SwiftSoup;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		3215BB462583AF89001DF416 /* PEDatabase.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3215BB472583AF89001DF416 /* PEDatabase.xcdatamodel */,
+			);
+			currentVersion = 3215BB472583AF89001DF416 /* PEDatabase.xcdatamodel */;
+			path = PEDatabase.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3213E9C225683C0A001DEF04 /* Project object */;
 }

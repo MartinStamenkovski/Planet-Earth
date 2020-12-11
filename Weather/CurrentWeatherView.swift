@@ -15,17 +15,18 @@ struct CurrentWeatherView: View {
     var body: some View {
         VStack(alignment: .center, spacing: 25) {
             HStack(alignment: .center, spacing: 12) {
-                KFImage(.weatherIcon(name: weather.iconName))
+                KFImage(.weatherIcon(name: weather.iconName, size: .x4))
                     .cancelOnDisappear(true)
                     .resizable()
-                    .frame(width: 90, height: 90)
+                    .scaledToFill()
+                    .frame(width: 80, height: 80)
+                    .modifier(WeatherIconBackground())
                 Text("\(weather.current.temperature.unitTemperature)")
                     .font(.system(size: 60))
-                    .foregroundColor(.white)
             }
             HPWindView(weather: weather.current)
                 .frame(minWidth: 0, maxWidth: .infinity)
-        }
+        }.padding(.top, 8)
         Divider()
     }
 }

@@ -29,12 +29,10 @@ struct SunDetailView: View {
     var body: some View {
         VStack(alignment: .center, spacing: 10) {
             Text(title)
-                .foregroundColor(.white)
             Image(systemName: imageName)
                 .font(.system(size: 25))
                 .foregroundColor(Color.orange)
             Text(data)
-                .foregroundColor(.white)
         }.frame(minWidth: 0, maxWidth: .infinity)
     }
 }

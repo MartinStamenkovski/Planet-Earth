@@ -16,8 +16,7 @@ struct DailyRow: View {
     var body: some View {
         HStack(alignment: .center, spacing: 20) {
             Text(weather.dateTime.relativeDate)
-                .font(.system(size: 15))
-                .foregroundColor(.white)
+                .font(.system(size: 17))
             Spacer()
             DailyTemperatureView(weather: weather)
         }
@@ -32,18 +31,21 @@ struct DailyTemperatureView: View {
     
     var body: some View {
         HStack(spacing: 20) {
-            KFImage(.weatherIcon(name: weather.weather.first?.icon))
+            KFImage(.weatherIcon(name: weather.weather.first?.icon, size: .x4))
                 .cancelOnDisappear(true)
                 .resizable()
                 .frame(width: 40, height: 40)
+                .modifier(WeatherIconBackground())
             HStack(spacing: 12) {
                 Text("\(weather.dailyTemperature.max.unitTemperature)")
-                    .frame(minWidth: 30)
-                    .foregroundColor(.white)
+                    .frame(minWidth: 35, alignment: .center)
+                    .foregroundColor(Color(.label))
                 Text("\(weather.dailyTemperature.max.unitTemperature)")
-                    .frame(minWidth: 30)
-                    .foregroundColor(Color.white.opacity(0.7))
+                    .frame(minWidth: 35, alignment: .center)
+                    .foregroundColor(Color(.label).opacity(0.7))
             }
-        }
+        }.padding(4)
     }
 }
+
+

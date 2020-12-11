@@ -24,8 +24,14 @@ extension Int {
     }
     
     public var relativeDate: String {
-        let dateFormatter = DateFormatter.relativeDateFormatter
         let date = Date(timeIntervalSince1970: TimeInterval(self))
+        if Calendar.current.isDateInToday(date) {
+            return "Today"
+        }
+        if Calendar.current.isDateInTomorrow(date) {
+            return "Tomorrow"
+        }
+        let dateFormatter = DateFormatter.shortDayDateFormatter
         return dateFormatter.string(from: date)
     }
 }

@@ -20,7 +20,11 @@ public struct LinearGradientView: View {
     public var body: some View {
     
         let gradient = Gradient(colors: colors)
-        let linearGradient = LinearGradient(gradient: gradient, startPoint: .top, endPoint: .bottom)
+        let linearGradient = LinearGradient(
+            gradient: gradient,
+            startPoint: .top,
+            endPoint: .bottom
+        )
         
         let background = Rectangle()
             .fill(linearGradient)
