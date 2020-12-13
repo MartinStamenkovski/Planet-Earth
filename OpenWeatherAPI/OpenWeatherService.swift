@@ -9,6 +9,8 @@ import Foundation
 import Combine
 import CoreLocation
 import SwiftUI
+import Extensions
+import Helpers
 
 public enum LoadingState {
     case loading
@@ -19,43 +21,49 @@ public enum LoadingState {
 public final class OpenWeatherService: ObservableObject {
     
     @Published private var locationManager = LocationManager()
+
     @Published public private(set) var state = LoadingState.loading
-    
+
+    @Published public private(set) var savedCitiesWeather: [Weather] = []
+
     public private(set) var weather: Weather?
-    public private(set) var city: String?
+    
+    public private(set) var currentLocation: Placemark?
+    public private(set) var selectedPlacemark: Placemark?
     
     private var cancellables = Set<AnyCancellable>()
     
     public init(endPoint: OpenWeatherEndPoints) {
         #if targetEnvironment(simulator)
-        self.city = "Skopje"
-        self.fetchData(
-            from: URL(string: "https://api.openweathermap.org/data/2.5/onecall?lat=42&lon=21.43&exclude=alerts,minutely&appid=1401ad6496ff98b6401caab2e6cfa2d7")!,
-            decodeTo: Weather.self) {[weak self] value in
-            self?.weather = value
-            self?.state = .success
-        }
+        
+        self.currentLocation = Placemark(
+            coordinate: CLLocationCoordinate2D(latitude: 42, longitude: 21.43),
+            name: "Skopje",
+            country: "North Macedonia"
+        )
+        self.selectedPlacemark = self.currentLocation
+        self.fetchWeather(from: .weather, coordinates: CLLocationCoordinate2D(latitude: 42, longitude: 21.43))
         #else
-        self.locationManager.placemark.sink {[weak self] error in
-            switch error {
+        self.locationManager.placemark.sink{ [weak self] result in
+            switch result {
             case .failure(let error):
                 self?.state = .error(error)
                 break
-            default:
+            case .success(let placemark):
+                self?.currentLocation = placemark
+                self?.selectedPlacemark = placemark
+                self?.fetchWeather(from: endPoint, coordinates: placemark.coordinate)
                 break
             }
-        } receiveValue: {[weak self] placemark in
-            self?.city = placemark.name
-            self?.fetchWeather(from: endPoint, coordinates: placemark.coordinate)
         }.store(in: &cancellables)
         #endif
     }
-    
 }
 
+//MARK: Call open weather API request.
 extension OpenWeatherService {
     
-    func fetchWeather(from endPoint: OpenWeatherEndPoints, coordinates: CLLocationCoordinate2D, delay: Double = 0) {
+    func constructOpenWeatherURL(for endPoint: OpenWeatherEndPoints, coordinates: CLLocationCoordinate2D) -> URL? {
         var components = URLComponents(url: endPoint.url, resolvingAgainstBaseURL: true)
         components?.appendQueryItems(
             [
@@ -64,54 +72,80 @@ extension OpenWeatherService {
                 "appid" : "1401ad6496ff98b6401caab2e6cfa2d7"
             ]
         )
-        guard let url = components?.url else { return }
+        return components?.url
+    }
+    
+    func fetchWeather(from endPoint: OpenWeatherEndPoints, coordinates: CLLocationCoordinate2D, delay: Double = 0) {
+        
+        guard let url = self.constructOpenWeatherURL(for: endPoint, coordinates: coordinates) else { return }
         self.fetchData(
             from: url,
             decodeTo: Weather.self,
             delay: delay) {[weak self] value in
             self?.weather = value
-            withAnimation(Animation.easeInOut.delay(0.1)) {
+            withAnimation(.easeInOut) {
                 self?.state = .success
             }
         }
     }
     
     public func fetchWeather(for placemark: Placemark, delay: Double = 0) {
-        self.city = placemark.name
+        self.selectedPlacemark = placemark
         self.fetchWeather(from: .weather, coordinates: placemark.coordinate, delay: delay)
+    }
+    
+    public func fetchWeather(for placemarks: [Placemark], delay: Double = 0) {
+        self.savedCitiesWeather.removeAll()
+        
+        var publishers = [AnyPublisher<Weather, Error>]()
+        
+        for placemark in placemarks {
+            guard let url = self.constructOpenWeatherURL(for: .weather, coordinates: placemark.coordinate) else { continue }
+            publishers.append(
+                URLSession.shared.dataTaskPublisherWithError(for: url)
+                    .decode(type: Weather.self, decoder: JSONDecoder())
+                    .eraseToAnyPublisher()
+            )
+        }
+        
+        Publishers.MergeMany(publishers)
+            .receive(on: RunLoop.main)
+            .sink { _ in
+                
+            } receiveValue: { weather in
+                self.savedCitiesWeather.append(weather)
+            }.store(in: &cancellables)
+    }
+    
+    public func weatherFor(latitude: Double, longitude: Double) -> Weather? {
+        //print(savedCitiesWeather)
+        let weather = self.savedCitiesWeather.first(where:  { $0.latitude == latitude && $0.longitude == longitude })
+        print(weather)
+        return weather
     }
 }
 
+
+//MARK: Create & Execute open weather api request.
 extension OpenWeatherService {
     
     private func fetchData<T>(from url: URL, decodeTo: T.Type, delay: Double = 0, completion: @escaping((T) -> Void)) where T: Codable {
         self.state = .loading
-        URLSession.shared.dataTaskPublisher(for: url)
-            .compactMap {
-                return $0.data
-            }
+        URLSession.shared.dataTaskPublisherWithError(for: url)
             .decode(type: T.self, decoder: JSONDecoder())
             .delay(
                 for: .seconds(delay),
                 scheduler: RunLoop.main
-            )
-            .sink {[weak self] failure in
-                switch failure {
+            ).sink {[weak self] result in
+                switch result {
+                case .success(let data):
+                    completion(data)
+                    break
                 case .failure(let error):
                     self?.state = .error(error)
                     break
-                default:
-                    break
                 }
-            } receiveValue: { value in
-                completion(value)
-            }.store(in: &cancellables)
-    }
-}
-
-extension URLComponents {
-    
-    mutating func appendQueryItems(_ items: [String: String?]) {
-        self.queryItems = items.map { URLQueryItem(name: $0, value: $1)}
+            }
+            .store(in: &cancellables)
     }
 }

@@ -31,7 +31,7 @@ struct DailyTemperatureView: View {
     
     var body: some View {
         HStack(spacing: 20) {
-            KFImage(.weatherIcon(name: weather.weather.first?.icon, size: .x4))
+            KFImage(.weatherIcon(name: weather.iconName, size: .x4))
                 .cancelOnDisappear(true)
                 .resizable()
                 .frame(width: 40, height: 40)
@@ -40,7 +40,7 @@ struct DailyTemperatureView: View {
                 Text("\(weather.dailyTemperature.max.unitTemperature)")
                     .frame(minWidth: 35, alignment: .center)
                     .foregroundColor(Color(.label))
-                Text("\(weather.dailyTemperature.max.unitTemperature)")
+                Text("\(weather.dailyTemperature.min.unitTemperature)")
                     .frame(minWidth: 35, alignment: .center)
                     .foregroundColor(Color(.label).opacity(0.7))
             }

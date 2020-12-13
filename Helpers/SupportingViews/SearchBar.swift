@@ -6,8 +6,6 @@
 //
 
 import SwiftUI
-
-
 public struct SearchBar: UIViewRepresentable {
     
     @Binding var text: String

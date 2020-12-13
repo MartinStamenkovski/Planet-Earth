@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 // MARK: - Daily
 public struct DailyWeather: Codable, Identifiable {
     
@@ -32,6 +33,10 @@ public struct DailyWeather: Codable, Identifiable {
         case windSpeed = "wind_speed"
         case windDegree = "wind_deg"
         case weather, clouds, pop, uvi, rain
+    }
+    
+    public var iconName: String? {
+        return self.weather.first?.icon
     }
 }
 

@@ -38,7 +38,7 @@ struct USAStatesView: View {
     }
     
     private func loadStates() {
-        let currentBundle = Bundle(identifier: "com.stamenkovski.CountryPicker")!
+        let currentBundle = Bundle(identifier: "com.stamenkovski.Helpers")!
         let countriesJSON = currentBundle.url(forResource: "usa.json", withExtension: nil)!
         do {
             let data = try Data(contentsOf: countriesJSON, options: [])

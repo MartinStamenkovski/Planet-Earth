@@ -8,27 +8,31 @@
 import SwiftUI
 import OpenWeatherAPI
 import CoreLocation
-import SupportingViews
+import Helpers
 import CoreData
 import PEDatabase
 
 public struct SavedCitiesView: View {
     
+    @Environment(\.managedObjectContext) var managedObjectContext
+
     @FetchRequest(
         entity: City.entity(),
         sortDescriptors: [NSSortDescriptor(keyPath: \City.name, ascending: true)],
         animation: Animation.spring()
     ) var cities: FetchedResults<City>
     
-    @Environment(\.managedObjectContext) var managedObjectContext
 
-    public let onCitySelected: ((Placemark) -> Void)
+    @ObservedObject var weatherService: OpenWeatherService
+    
+    let onCitySelected: ((Placemark) -> Void)
     
     private var locationManager = LocationManager()
     
     @State private var showSearchCity = false
         
-    public init(onCitySelected: @escaping ((Placemark) -> Void)) {
+    public init(service: OpenWeatherService, onCitySelected: @escaping ((Placemark) -> Void)) {
+        self.weatherService = service
         self.onCitySelected = onCitySelected
     }
     
@@ -36,14 +40,26 @@ public struct SavedCitiesView: View {
         NavigationView {
             VStack {
                 List {
-                    ForEach(cities) { city in
-                        VStack(alignment: .leading, spacing: 10) {
-                            Text(city.name ?? "")
-                            Text(city.country ?? "")
+                    if let currentLocation = self.weatherService.currentLocation {
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text(currentLocation.name ?? "")
+                            Text("My Location")
                                 .font(.system(size: 13))
                                 .foregroundColor(Color(.secondaryLabel))
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            self.onCitySelected(currentLocation)
+                        }
+                    }
+                    ForEach(cities) { city in
+                        HStack {
+                            SavedCityRow(city: city)
+                            if let weather = self.weatherService.weatherFor(latitude: city.latitude, longitude: city.longitude)  {
+                                Text("\(weather.current.temperature.unitTemperature)")
+                            }
+                        }
                         .contentShape(Rectangle())
                         .onTapGesture {
                             let placemark = Placemark(from: city)
@@ -59,7 +75,9 @@ public struct SavedCitiesView: View {
                     self.saveNewCity(from: placemark)
                 }
             })
-        }.navigationViewStyle(StackNavigationViewStyle())
+        }.navigationViewStyle(StackNavigationViewStyle()).onAppear {
+            self.weatherService.fetchWeather(for: cities.map { Placemark(from: $0) })
+        }
     }
     
     private func trailingBarButtons() -> some View {
@@ -90,6 +108,21 @@ public struct SavedCitiesView: View {
 
 struct SavedLocations_Previews: PreviewProvider {
     static var previews: some View {
-        SavedCitiesView(onCitySelected: { _ in })
+        SavedCitiesView(service: .init(endPoint: .weather), onCitySelected: { _ in })
+    }
+}
+
+struct SavedCityRow: View {
+    
+    let city: City
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text(city.name ?? "")
+            Text(city.country ?? "")
+                .font(.system(size: 13))
+                .foregroundColor(Color(.secondaryLabel))
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
     }
 }

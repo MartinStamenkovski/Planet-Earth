@@ -11,7 +11,7 @@ import Extensions
 
 struct WeatherHeaderView: View {
     
-    let city: String?
+    let placemark: Placemark?
     let weather: Weather
     
     @Binding var showCities: Bool
@@ -21,7 +21,7 @@ struct WeatherHeaderView: View {
             HStack(alignment: .top) {
                 Spacer()
                 VStack(spacing: 6) {
-                    Text(city ?? "")
+                    Text(placemark?.name ?? "")
                         .font(.system(size: 20, weight: .semibold))
                     if let main = weather.mainDescription {
                         Text(main)

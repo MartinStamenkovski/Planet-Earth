@@ -9,7 +9,7 @@ import SwiftUI
 import OpenWeatherAPI
 import KingfisherSwiftUI
 import Extensions
-import SupportingViews
+import Helpers
 
 enum WeatherRow: Int, CaseIterable {
     case current = 0
@@ -30,7 +30,7 @@ public struct WeatherView: View {
     public var body: some View {
         VStack {
             if showCities {
-                SavedCitiesView { placemark in
+                SavedCitiesView(service: weatherService) { placemark in
                     withAnimation(Animation.easeInOut(duration: 0.3)) {
                         self.showCities = false
                         self.weatherService.fetchWeather(for: placemark, delay: 0.35)
@@ -56,7 +56,7 @@ public struct WeatherView: View {
     func mainScrollView() -> AnyView {
         if let weather = self.weatherService.weather {
             return VStack(spacing: 0) {
-                WeatherHeaderView(city: weatherService.city, weather: weather, showCities: $showCities)
+                WeatherHeaderView(placemark: weatherService.selectedPlacemark, weather: weather, showCities: $showCities)
                 Divider().edgesIgnoringSafeArea(.horizontal)
                 ScrollView(showsIndicators: false) {
                     CurrentWeatherView(weather: weather)

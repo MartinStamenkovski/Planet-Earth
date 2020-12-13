@@ -7,7 +7,6 @@
 
 import SwiftUI
 import KingfisherSwiftUI
-import SupportingViews
 
 public struct CountryPickerView: View {
     
@@ -59,14 +58,14 @@ public struct CountryPickerView: View {
             .navigationBarItems(trailing: trailingBarButtons())
             .navigationBarTitle(Text("Select Country"))
             .navigationBarHidden(focused)
-            .animation(.easeOut)
+            .animation(.easeInOut)
         }.onAppear {
             self.loadCountries()
         }
     }
     
     private func loadCountries() {
-        let currentBundle = Bundle(identifier: "com.stamenkovski.CountryPicker")!
+        let currentBundle = Bundle(identifier: "com.stamenkovski.Helpers")!
         let countriesJSON = currentBundle.url(forResource: "countries.json", withExtension: nil)!
         do {
             let data = try Data(contentsOf: countriesJSON, options: [])

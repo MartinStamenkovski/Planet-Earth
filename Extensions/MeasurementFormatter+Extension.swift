@@ -15,6 +15,7 @@ extension MeasurementFormatter {
         formatter.locale = .current
         formatter.numberFormatter.maximumFractionDigits = 1
         formatter.unitStyle = .short
+        
         return formatter
     }()
     

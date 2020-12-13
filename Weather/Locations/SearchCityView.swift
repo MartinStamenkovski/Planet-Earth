@@ -7,13 +7,13 @@
 
 import SwiftUI
 import OpenWeatherAPI
-import SupportingViews
+import Helpers
 
 struct SearchCityView: View {
     @Binding var isShown: Bool
-    public let onCitySelected: ((Placemark) -> Void)
+    let onCitySelected: ((Placemark) -> Void)
     
-    private var locationManager = LocationManager()
+    var locationManager = LocationManager()
     
     @State private var textChanged: String = ""
     @State private var focused: Bool = true
@@ -33,7 +33,7 @@ struct SearchCityView: View {
                 }.padding(.horizontal, 6)
                 List {
                     ForEach(cities) { placemark in
-                        VStack(alignment: .leading, spacing: 10) {
+                        VStack(alignment: .leading, spacing: 8) {
                             Text(placemark.name ?? "")
                             Text(placemark.country ?? "")
                                 .font(.system(size: 13))

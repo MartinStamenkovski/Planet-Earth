@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import CountryPicker
+import Helpers
 import Extensions
 
 public struct EarthQuakeListView: View {
