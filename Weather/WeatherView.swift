@@ -10,6 +10,9 @@ import OpenWeatherAPI
 import KingfisherSwiftUI
 import Extensions
 import Helpers
+import PEMapView
+import CoreLocation
+import MapKit
 
 enum WeatherRow: Int, CaseIterable {
     case current = 0
@@ -71,6 +74,8 @@ public struct WeatherView: View {
                         )
                     }
                     UVIndexView(weather: weather.current)
+                    MapWeatherView(region: .constant(weather.region))
+                    Divider()
                 }
             }.toAnyView()
         } else {

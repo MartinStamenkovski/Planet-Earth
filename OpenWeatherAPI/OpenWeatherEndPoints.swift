@@ -16,11 +16,6 @@ public enum OpenWeatherEndPoints: String {
     }
 }
 
-@frozen
-public enum OpenWeatherIconSize: String {
-    case x2 = "2x"
-    case x4 = "4x"
-}
 
 extension URL {
     static func baseURL(with part: String) -> URL {

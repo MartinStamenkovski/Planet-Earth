@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import MapKit
+import CoreLocation
 
 // MARK: - Weather
 public struct Weather: Codable {
@@ -41,6 +43,12 @@ public struct Weather: Codable {
     
     public var sunSet: Int? {
         return self.current.sunset
+    }
+    
+    public var region: MKCoordinateRegion {
+        MKCoordinateRegion(
+            center: CLLocationCoordinate2D(latitude: latitude, longitude: longitude),
+            span: MKCoordinateSpan(latitudeDelta: 2.5489, longitudeDelta: 3.4098))
     }
 }
 

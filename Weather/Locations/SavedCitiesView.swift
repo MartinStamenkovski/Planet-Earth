@@ -75,8 +75,9 @@ public struct SavedCitiesView: View {
                     self.saveNewCity(from: placemark)
                 }
             })
-        }.navigationViewStyle(StackNavigationViewStyle()).onAppear {
-            self.weatherService.fetchWeather(for: cities.map { Placemark(from: $0) })
+        }.navigationViewStyle(StackNavigationViewStyle())
+        .onAppear {
+            //self.weatherService.fetchWeather(for: cities.map { Placemark(from: $0) })
         }
     }
     
