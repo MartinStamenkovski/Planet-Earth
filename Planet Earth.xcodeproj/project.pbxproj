@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		32009204256C35C000AEEEA2 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32009203256C35C000AEEEA2 /* ActivityIndicator.swift */; };
 		3205F7D925703BBB00EA714D /* EarthQuakeDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3205F7D825703BBB00EA714D /* EarthQuakeDetails.swift */; };
 		320711832586495F00CA0AC3 /* Helpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 320711812586495F00CA0AC3 /* Helpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		320711862586495F00CA0AC3 /* Helpers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3207117F2586495F00CA0AC3 /* Helpers.framework */; };
@@ -25,6 +24,8 @@
 		320712322586644800CA0AC3 /* OpenWeatherTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320712312586644800CA0AC3 /* OpenWeatherTile.swift */; };
 		320E0BC02569A8AE0045BC4D /* QuakeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320E0BBF2569A8AE0045BC4D /* QuakeRow.swift */; };
 		320E0BCB256ACC080045BC4D /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320E0BCA256ACC070045BC4D /* Date+Extension.swift */; };
+		3212E3DD258E4D0F0062EE8F /* PEError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3212E3DC258E4D0F0062EE8F /* PEError.swift */; };
+		3212E3E8258E79670062EE8F /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32009203256C35C000AEEEA2 /* ActivityIndicator.swift */; };
 		3213E9CE25683C0A001DEF04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3213E9CD25683C0A001DEF04 /* AppDelegate.swift */; };
 		3213E9D025683C0A001DEF04 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3213E9CF25683C0A001DEF04 /* SceneDelegate.swift */; };
 		3213E9D225683C0A001DEF04 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3213E9D125683C0A001DEF04 /* ContentView.swift */; };
@@ -250,6 +251,7 @@
 		320712312586644800CA0AC3 /* OpenWeatherTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherTile.swift; sourceTree = "<group>"; };
 		320E0BBF2569A8AE0045BC4D /* QuakeRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuakeRow.swift; sourceTree = "<group>"; };
 		320E0BCA256ACC070045BC4D /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		3212E3DC258E4D0F0062EE8F /* PEError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PEError.swift; sourceTree = "<group>"; };
 		3213E9CA25683C0A001DEF04 /* Planet Earth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Planet Earth.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3213E9CD25683C0A001DEF04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3213E9CF25683C0A001DEF04 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -417,6 +419,7 @@
 		320711802586495F00CA0AC3 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				3212E3DB258E4D020062EE8F /* ErrorHandler */,
 				32EF599E2573CB24004C3856 /* CountryPicker */,
 				320711D825864C2D00CA0AC3 /* Location */,
 				320711D125864C2000CA0AC3 /* SupportingViews */,
@@ -429,6 +432,7 @@
 		320711D125864C2000CA0AC3 /* SupportingViews */ = {
 			isa = PBXGroup;
 			children = (
+				32009203256C35C000AEEEA2 /* ActivityIndicator.swift */,
 				32F06A0925800BA100E51E6C /* SearchBar.swift */,
 				32F278292582966F00FD5E15 /* LinearGradientView.swift */,
 			);
@@ -450,6 +454,14 @@
 				320E0BBF2569A8AE0045BC4D /* QuakeRow.swift */,
 			);
 			path = Row;
+			sourceTree = "<group>";
+		};
+		3212E3DB258E4D020062EE8F /* ErrorHandler */ = {
+			isa = PBXGroup;
+			children = (
+				3212E3DC258E4D0F0062EE8F /* PEError.swift */,
+			);
+			path = ErrorHandler;
 			sourceTree = "<group>";
 		};
 		3213E9C125683C0A001DEF04 = {
@@ -598,7 +610,6 @@
 			children = (
 				3245FBDF256C477300B94D2F /* Map */,
 				324648932569207200E8D383 /* EarthQuakeListView.swift */,
-				32009203256C35C000AEEEA2 /* ActivityIndicator.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1050,14 +1061,14 @@
 			projectRoot = "";
 			targets = (
 				3213E9C925683C0A001DEF04 /* Planet Earth */,
-				3246488025691EBF00E8D383 /* EarthQuake */,
+				324BC0CD25755C4500B59FF7 /* SPMFrameworks */,
+				3207117E2586495F00CA0AC3 /* Helpers */,
 				324648A725695B0400E8D383 /* Extensions */,
+				3215BB332583AF7B001DF416 /* PEDatabase */,
+				3254033D257A9FA900CDF38C /* OpenWeatherAPI */,
 				3253269D2571810200720332 /* PEMapView */,
 				322C7727257BA47700D6A3E5 /* Weather */,
-				3254033D257A9FA900CDF38C /* OpenWeatherAPI */,
-				324BC0CD25755C4500B59FF7 /* SPMFrameworks */,
-				3215BB332583AF7B001DF416 /* PEDatabase */,
-				3207117E2586495F00CA0AC3 /* Helpers */,
+				3246488025691EBF00E8D383 /* EarthQuake */,
 			);
 		};
 /* End PBXProject section */
@@ -1139,8 +1150,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				320711FF2586500F00CA0AC3 /* CountryPickerView.swift in Sources */,
+				3212E3DD258E4D0F0062EE8F /* PEError.swift in Sources */,
 				320711B125864B2300CA0AC3 /* LinearGradientView.swift in Sources */,
 				320711F72586500B00CA0AC3 /* Country.swift in Sources */,
+				3212E3E8258E79670062EE8F /* ActivityIndicator.swift in Sources */,
 				320711C425864B2F00CA0AC3 /* SearchBar.swift in Sources */,
 				320712002586500F00CA0AC3 /* USAStatesView.swift in Sources */,
 				320711FE2586500F00CA0AC3 /* CountryPickerRow.swift in Sources */,
@@ -1198,7 +1211,6 @@
 				3205F7D925703BBB00EA714D /* EarthQuakeDetails.swift in Sources */,
 				324648A125693CB300E8D383 /* QuakeTimeline.swift in Sources */,
 				320E0BC02569A8AE0045BC4D /* QuakeRow.swift in Sources */,
-				32009204256C35C000AEEEA2 /* ActivityIndicator.swift in Sources */,
 				3246489E256933B800E8D383 /* Quake.swift in Sources */,
 				324648942569207200E8D383 /* EarthQuakeListView.swift in Sources */,
 			);

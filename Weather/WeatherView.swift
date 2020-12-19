@@ -14,13 +14,6 @@ import PEMapView
 import CoreLocation
 import MapKit
 
-enum WeatherRow: Int, CaseIterable {
-    case current = 0
-    case hourly
-    case daily
-    case sunInfo
-    case uvIndex
-}
 
 public struct WeatherView: View {
     
@@ -50,10 +43,13 @@ public struct WeatherView: View {
         case .success:
             return mainScrollView()
         case .error(let error):
-            return Text(error.localizedDescription).toAnyView()
+            return self.showErrorView(for: error)
         default:
-            return Text("Loading").transition(.scale).toAnyView()
+            return ActivityIndicator(.constant(true), color: .systemBlue)
+                .transition(.scale)
+                .toAnyView()
         }
+        
     }
     
     func mainScrollView() -> AnyView {
@@ -83,6 +79,22 @@ public struct WeatherView: View {
         }
     }
     
+    
+    private func showErrorView(for error: PEError) -> AnyView  {
+        NavigationView {
+            PEErrorView(error: error) {
+                self.weatherService.retryWeatherRequest()
+            }
+            .navigationBarItems(trailing: Button {
+                withAnimation(Animation.easeInOut(duration: 0.3)) {
+                    self.showCities = true
+                }
+            } label: {
+                Image(systemName: "building.2.crop.circle")
+                    .font(.system(size: 22))
+            })
+        }.toAnyView()
+    }
 }
 
 struct WeatherView_Previews: PreviewProvider {
@@ -90,4 +102,3 @@ struct WeatherView_Previews: PreviewProvider {
         WeatherView()
     }
 }
-

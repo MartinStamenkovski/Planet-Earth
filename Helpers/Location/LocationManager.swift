@@ -9,8 +9,10 @@ import CoreLocation
 import Combine
 import MapKit
 
-public enum LocationPermissionError: Error {
-    case denied
+@frozen
+public enum LocationError: Error {
+    case permissionDenied
+    case searchFailed(Error)
 }
 
 public class LocationManager: NSObject, ObservableObject {
@@ -20,7 +22,7 @@ public class LocationManager: NSObject, ObservableObject {
     private let searchRequest = MKLocalSearch.Request()
     private var localSearch: MKLocalSearch?
     
-    var placemark: PassthroughSubject<Placemark, Error> = PassthroughSubject()
+    var placemark: PassthroughSubject<Placemark, LocationError> = PassthroughSubject()
     
     private var currentPlacemark: Placemark? {
         willSet {
@@ -54,6 +56,10 @@ public class LocationManager: NSObject, ObservableObject {
             self.localSearch = MKLocalSearch(request: self.searchRequest)
             
             self.localSearch?.start { (response, error) in
+                if let error = error {
+                    self.placemark.send(completion: .failure(LocationError.searchFailed(error)))
+                    return
+                }
                 guard let response = response else {
                     return
                 }
@@ -61,7 +67,8 @@ public class LocationManager: NSObject, ObservableObject {
                     if let name = item.name,
                        let location = item.placemark.location {
                         let placemark = Placemark(
-                            coordinate: location.coordinate, name: name,
+                            coordinate: location.coordinate,
+                            name: name,
                             country: item.placemark.country
                         )
                         searchedCities.append(placemark)
@@ -84,7 +91,7 @@ extension LocationManager: CLLocationManagerDelegate {
             manager.requestWhenInUseAuthorization()
             break
         case .restricted, .denied:
-            self.placemark.send(completion: .failure(LocationPermissionError.denied))
+            self.placemark.send(completion: .failure(.permissionDenied))
             break
         @unknown default:
             break

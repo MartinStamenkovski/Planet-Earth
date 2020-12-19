@@ -12,17 +12,17 @@ import SwiftUI
 import Extensions
 import Helpers
 
-public enum LoadingState {
+public enum OpenWeatherState {
     case loading
     case success
-    case error(Error)
+    case error(PEError)
 }
 
 public final class OpenWeatherService: ObservableObject {
     
-    @Published private var locationManager = LocationManager()
+    private var locationManager = LocationManager()
 
-    @Published public private(set) var state = LoadingState.loading
+    @Published public private(set) var state = OpenWeatherState.loading
 
     @Published public private(set) var savedCitiesWeather: [Weather] = []
 
@@ -34,29 +34,39 @@ public final class OpenWeatherService: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     
     public init(endPoint: OpenWeatherEndPoints) {
-        #if targetEnvironment(simulator)
+//        #if targetEnvironment(simulator)
+//
+//        self.currentLocation = Placemark(
+//            coordinate: CLLocationCoordinate2D(latitude: 42, longitude: 21.43),
+//            name: "Skopje",
+//            country: "North Macedonia"
+//        )
+//        self.selectedPlacemark = self.currentLocation
+//        self.fetchWeather(from: .weather, coordinates: CLLocationCoordinate2D(latitude: 42, longitude: 21.43))
+//        #else
+//
+//        #endif
         
-        self.currentLocation = Placemark(
-            coordinate: CLLocationCoordinate2D(latitude: 42, longitude: 21.43),
-            name: "Skopje",
-            country: "North Macedonia"
-        )
-        self.selectedPlacemark = self.currentLocation
-        self.fetchWeather(from: .weather, coordinates: CLLocationCoordinate2D(latitude: 42, longitude: 21.43))
-        #else
         self.locationManager.placemark.sink{ [weak self] result in
             switch result {
             case .failure(let error):
-                self?.state = .error(error)
+                switch error {
+                case .permissionDenied:
+                    let message = "Location permission is needed to show you weather at your current location"
+                    self?.state = .error(.permissionDenied(message))
+                    break
+                default:
+                    break
+                }
                 break
             case .success(let placemark):
                 self?.currentLocation = placemark
+                guard self?.selectedPlacemark == nil else { return }
                 self?.selectedPlacemark = placemark
                 self?.fetchWeather(from: endPoint, coordinates: placemark.coordinate)
                 break
             }
         }.store(in: &cancellables)
-        #endif
     }
 }
 
@@ -94,34 +104,9 @@ extension OpenWeatherService {
         self.fetchWeather(from: .weather, coordinates: placemark.coordinate, delay: delay)
     }
     
-    public func fetchWeather(for placemarks: [Placemark], delay: Double = 0) {
-        self.savedCitiesWeather.removeAll()
-        
-        var publishers = [AnyPublisher<Weather, Error>]()
-        
-        for placemark in placemarks {
-            guard let url = self.constructOpenWeatherURL(for: .weather, coordinates: placemark.coordinate) else { continue }
-            publishers.append(
-                URLSession.shared.dataTaskPublisherWithError(for: url)
-                    .decode(type: Weather.self, decoder: JSONDecoder())
-                    .eraseToAnyPublisher()
-            )
-        }
-        
-        Publishers.MergeMany(publishers)
-            .receive(on: RunLoop.main)
-            .sink { _ in
-                
-            } receiveValue: { weather in
-                self.savedCitiesWeather.append(weather)
-            }.store(in: &cancellables)
-    }
-    
-    public func weatherFor(latitude: Double, longitude: Double) -> Weather? {
-        //print(savedCitiesWeather)
-        let weather = self.savedCitiesWeather.first(where:  { $0.latitude == latitude && $0.longitude == longitude })
-        print(weather)
-        return weather
+    public func retryWeatherRequest() {
+        guard let placemark = self.selectedPlacemark else { return }
+        self.fetchWeather(for: placemark, delay: 0)
     }
 }
 
@@ -142,7 +127,7 @@ extension OpenWeatherService {
                     completion(data)
                     break
                 case .failure(let error):
-                    self?.state = .error(error)
+                    self?.state = .error(.message(error.localizedDescription))
                     break
                 }
             }

@@ -16,12 +16,12 @@ struct QuakeRow: View {
         HStack(alignment: .center, spacing: 8) {
             QuakeLocationView(location: quake.location)
             Spacer()
-            HStack(spacing: 12) {
+            HStack(spacing: 10) {
                 QuakeTimeView(quake: quake)
                 Text(quake.magnitude ?? "N/A")
                     .font(.system(size: 22, weight: .bold))
                     .foregroundColor(Color(quake.magnitudeColor))
-                    .frame(minWidth: 32)
+                    .frame(minWidth: 36)
             }
         }
     }

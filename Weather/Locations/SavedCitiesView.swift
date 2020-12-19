@@ -24,13 +24,11 @@ public struct SavedCitiesView: View {
     
 
     @ObservedObject var weatherService: OpenWeatherService
-    
-    let onCitySelected: ((Placemark) -> Void)
-    
-    private var locationManager = LocationManager()
-    
+            
     @State private var showSearchCity = false
         
+    let onCitySelected: ((Placemark) -> Void)
+
     public init(service: OpenWeatherService, onCitySelected: @escaping ((Placemark) -> Void)) {
         self.weatherService = service
         self.onCitySelected = onCitySelected
@@ -56,9 +54,6 @@ public struct SavedCitiesView: View {
                     ForEach(cities) { city in
                         HStack {
                             SavedCityRow(city: city)
-                            if let weather = self.weatherService.weatherFor(latitude: city.latitude, longitude: city.longitude)  {
-                                Text("\(weather.current.temperature.unitTemperature)")
-                            }
                         }
                         .contentShape(Rectangle())
                         .onTapGesture {
@@ -76,9 +71,7 @@ public struct SavedCitiesView: View {
                 }
             })
         }.navigationViewStyle(StackNavigationViewStyle())
-        .onAppear {
-            //self.weatherService.fetchWeather(for: cities.map { Placemark(from: $0) })
-        }
+       
     }
     
     private func trailingBarButtons() -> some View {

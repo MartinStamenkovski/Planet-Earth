@@ -10,15 +10,16 @@ import OpenWeatherAPI
 import Helpers
 
 struct SearchCityView: View {
+    
     @Binding var isShown: Bool
+
+    @State private var textChanged: String = ""
+    @State private var focused: Bool = true
+    @State private var cities: [Placemark] = []
+    
     let onCitySelected: ((Placemark) -> Void)
     
     var locationManager = LocationManager()
-    
-    @State private var textChanged: String = ""
-    @State private var focused: Bool = true
-    
-    @State private var cities: [Placemark] = []
     
     public init(isShown: Binding<Bool>, onCitySelected: @escaping ((Placemark) -> Void)) {
         self._isShown = isShown

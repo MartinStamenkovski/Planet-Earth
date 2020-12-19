@@ -25,9 +25,11 @@ public struct EarthQuakeListView: View {
     private func contentView() -> AnyView {
         switch service.state {
         case .loading:
-            return ActivityIndicator(isAnimating: .constant(true)).toAnyView()
+            return ActivityIndicator(.constant(true), color: .systemBlue).toAnyView()
         case .error(let error):
-            return Text(error.localizedDescription).toAnyView()
+            return PEErrorView(error: error) {
+                self.service.fetchEarthQuakes()
+            }.toAnyView()
         default:
             return QuakesListView(
                 quakesTimeline: self.service.quakesTimeline,

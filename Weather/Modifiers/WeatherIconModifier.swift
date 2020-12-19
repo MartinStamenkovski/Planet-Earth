@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct WeatherIconBackground: ViewModifier {
-    @Environment(\.colorScheme) var colorScheme
-
+    
     func body(content: Content) -> some View {
         content
             .background(
