@@ -56,7 +56,7 @@ public struct WeatherView: View {
         if let weather = self.weatherService.weather {
             return VStack(spacing: 0) {
                 WeatherHeaderView(placemark: weatherService.selectedPlacemark, weather: weather, showCities: $showCities)
-                Divider().edgesIgnoringSafeArea(.horizontal)
+                Divider().edgesIgnoringSafeArea(.all)
                 ScrollView(showsIndicators: false) {
                     CurrentWeatherView(weather: weather)
                     Group {
@@ -85,15 +85,19 @@ public struct WeatherView: View {
             PEErrorView(error: error) {
                 self.weatherService.retryWeatherRequest()
             }
-            .navigationBarItems(trailing: Button {
-                withAnimation(Animation.easeInOut(duration: 0.3)) {
-                    self.showCities = true
-                }
-            } label: {
-                Image(systemName: "building.2.crop.circle")
-                    .font(.system(size: 22))
-            })
+            .navigationBarItems(trailing: trailingBarItems())
         }.toAnyView()
+    }
+    
+    private func trailingBarItems() -> some View {
+        return Button {
+           withAnimation(Animation.easeInOut(duration: 0.3)) {
+               self.showCities = true
+           }
+       } label: {
+           Image(systemName: "building.2.crop.circle")
+               .font(.system(size: 22))
+       }.toAnyView()
     }
 }
 

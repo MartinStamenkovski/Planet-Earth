@@ -16,20 +16,21 @@ struct ContentView: View {
         case weather
     }
     
-    @State private var selection = PETab.earthquake
+    @State private var selection = PETab.weather
     
     var body: some View {
         TabView(selection: $selection) {
-            EarthQuakeListView()
-                .tabItem {
-                    Image(systemName: "bolt.horizontal.fill")
-                    Text("Earthquakes")
-                }.tag(PETab.earthquake)
             WeatherView()
                 .tabItem {
                     Image(systemName: "thermometer")
                     Text("Weather")
                 }.tag(PETab.weather)
+            
+            EarthQuakeListView()
+                .tabItem {
+                    Image(systemName: "bolt.horizontal.fill")
+                    Text("Earthquakes")
+                }.tag(PETab.earthquake)
         }
     }
 }

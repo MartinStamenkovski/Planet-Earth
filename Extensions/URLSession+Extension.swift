@@ -30,7 +30,7 @@ extension URLSession {
             return message
         }
     }
-    
+   
     public func dataTaskPublisherWithError(for url: URL) -> AnyPublisher<Data, APIError> {
         return self.dataTaskPublisher(for: url).tryCompactMap { data, response in
             guard let httpResponse = response as? HTTPURLResponse

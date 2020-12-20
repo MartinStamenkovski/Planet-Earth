@@ -13,18 +13,12 @@ import Extensions
 import CoreLocation
 import Helpers
 
-public enum LoadingState {
-    case loading
-    case success
-    case error(PEError)
-}
-
 class EarthQuakeService: ObservableObject {
     
     private var earthQuakesURL: URL!
     
     private(set) var quakesTimeline: [QuakeTimeline] = []
-    @Published private(set) var state = LoadingState.loading
+    @Published private(set) var state = ViewState.loading
     
     private(set) var selectedCountry: Country!
     
@@ -149,7 +143,7 @@ class EarthQuakeService: ObservableObject {
         
         location.detailInfo = try locationElement.select("a.sl").remove().attr("href")
         
-        try locationElement.select("a").remove()
+        try locationElement.select("a[href=#]").remove()
         
         let locationName = try locationElement.text()
             .replacingOccurrences(of: "-", with: "")

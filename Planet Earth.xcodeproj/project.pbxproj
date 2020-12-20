@@ -22,6 +22,9 @@
 		3207122A2586514800CA0AC3 /* countries.json in Resources */ = {isa = PBXBuildFile; fileRef = 32EF59B42573CB5E004C3856 /* countries.json */; };
 		3207122B2586514800CA0AC3 /* usa.json in Resources */ = {isa = PBXBuildFile; fileRef = 327E0E662576C26500C18484 /* usa.json */; };
 		320712322586644800CA0AC3 /* OpenWeatherTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320712312586644800CA0AC3 /* OpenWeatherTile.swift */; };
+		320DC813258F653300EE7267 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3254035D257AA96C00CDF38C /* LocationManager.swift */; };
+		320DC81E258F654B00EE7267 /* Placemark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F069ED257FFD1F00E51E6C /* Placemark.swift */; };
+		320DC82A258F70AE00EE7267 /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320DC829258F70AE00EE7267 /* ViewState.swift */; };
 		320E0BC02569A8AE0045BC4D /* QuakeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320E0BBF2569A8AE0045BC4D /* QuakeRow.swift */; };
 		320E0BCB256ACC080045BC4D /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320E0BCA256ACC070045BC4D /* Date+Extension.swift */; };
 		3212E3DD258E4D0F0062EE8F /* PEError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3212E3DC258E4D0F0062EE8F /* PEError.swift */; };
@@ -91,14 +94,12 @@
 		32540346257A9FA900CDF38C /* OpenWeatherAPI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3254033E257A9FA900CDF38C /* OpenWeatherAPI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		32540350257A9FB900CDF38C /* OpenWeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3254034F257A9FB900CDF38C /* OpenWeatherService.swift */; };
 		32540357257AA09900CDF38C /* OpenWeatherEndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32540356257AA09900CDF38C /* OpenWeatherEndPoints.swift */; };
-		3254035E257AA96C00CDF38C /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3254035D257AA96C00CDF38C /* LocationManager.swift */; };
 		3283B51225867AD300E7A81B /* OpenWeatherIconSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3283B51125867AD300E7A81B /* OpenWeatherIconSize.swift */; };
 		3283B51E25867AF100E7A81B /* OpenWeatherLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3283B51D25867AF100E7A81B /* OpenWeatherLayer.swift */; };
 		3283B531258680D200E7A81B /* MapWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3283B530258680D200E7A81B /* MapWeatherView.swift */; };
 		3283B538258681EC00E7A81B /* MapLayerTypeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3283B537258681EC00E7A81B /* MapLayerTypeRow.swift */; };
 		32EF5A432573DEA9004C3856 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EF5A422573DEA9004C3856 /* View+Extension.swift */; };
 		32F069E4257FD30200E51E6C /* SavedCitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F069E3257FD30200E51E6C /* SavedCitiesView.swift */; };
-		32F069EE257FFD1F00E51E6C /* Placemark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F069ED257FFD1F00E51E6C /* Placemark.swift */; };
 		32F0BB2B2578240A003B585C /* Transition+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F0BB2A2578240A003B585C /* Transition+Extension.swift */; };
 		32FA03CC257D120F00F87B2D /* SunInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FA03CB257D120F00F87B2D /* SunInfoView.swift */; };
 		32FA03DF257D241000F87B2D /* UVIndexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FA03DE257D241000F87B2D /* UVIndexView.swift */; };
@@ -249,6 +250,7 @@
 		320711812586495F00CA0AC3 /* Helpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Helpers.h; sourceTree = "<group>"; };
 		320711822586495F00CA0AC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		320712312586644800CA0AC3 /* OpenWeatherTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherTile.swift; sourceTree = "<group>"; };
+		320DC829258F70AE00EE7267 /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
 		320E0BBF2569A8AE0045BC4D /* QuakeRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuakeRow.swift; sourceTree = "<group>"; };
 		320E0BCA256ACC070045BC4D /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		3212E3DC258E4D0F0062EE8F /* PEError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PEError.swift; sourceTree = "<group>"; };
@@ -448,6 +450,30 @@
 			path = Location;
 			sourceTree = "<group>";
 		};
+		320DC830258F71CD00EE7267 /* CurrentWeather */ = {
+			isa = PBXGroup;
+			children = (
+				322C774C257BA49B00D6A3E5 /* WeatherView.swift */,
+				32FA03E8257E8FA100F87B2D /* WeatherHeaderView.swift */,
+				322C775A257BBA5000D6A3E5 /* CurrentWeatherView.swift */,
+				3283B52925867FC700E7A81B /* WeatherDetails */,
+				3283B52F2586809B00E7A81B /* WeatherMapLayer */,
+				322C7795257C166700D6A3E5 /* Hourly */,
+				322C77B6257C27D900D6A3E5 /* Daily */,
+				32FA03D5257D151800F87B2D /* Sun */,
+				3215BB0E25839E08001DF416 /* Modifiers */,
+				32F069E2257FD2E200E51E6C /* Locations */,
+			);
+			path = CurrentWeather;
+			sourceTree = "<group>";
+		};
+		320DC83B258F71F500EE7267 /* AirPollution */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AirPollution;
+			sourceTree = "<group>";
+		};
 		320E0BC32569A8B10045BC4D /* Row */ = {
 			isa = PBXGroup;
 			children = (
@@ -460,6 +486,7 @@
 			isa = PBXGroup;
 			children = (
 				3212E3DC258E4D0F0062EE8F /* PEError.swift */,
+				320DC829258F70AE00EE7267 /* ViewState.swift */,
 			);
 			path = ErrorHandler;
 			sourceTree = "<group>";
@@ -541,16 +568,8 @@
 		322C7729257BA47700D6A3E5 /* Weather */ = {
 			isa = PBXGroup;
 			children = (
-				322C774C257BA49B00D6A3E5 /* WeatherView.swift */,
-				32FA03E8257E8FA100F87B2D /* WeatherHeaderView.swift */,
-				322C775A257BBA5000D6A3E5 /* CurrentWeatherView.swift */,
-				3283B52925867FC700E7A81B /* WeatherDetails */,
-				3283B52F2586809B00E7A81B /* WeatherMapLayer */,
-				322C7795257C166700D6A3E5 /* Hourly */,
-				322C77B6257C27D900D6A3E5 /* Daily */,
-				32FA03D5257D151800F87B2D /* Sun */,
-				3215BB0E25839E08001DF416 /* Modifiers */,
-				32F069E2257FD2E200E51E6C /* Locations */,
+				320DC83B258F71F500EE7267 /* AirPollution */,
+				320DC830258F71CD00EE7267 /* CurrentWeather */,
 				322C772A257BA47700D6A3E5 /* Weather.h */,
 				322C772B257BA47700D6A3E5 /* Info.plist */,
 			);
@@ -1152,11 +1171,14 @@
 				320711FF2586500F00CA0AC3 /* CountryPickerView.swift in Sources */,
 				3212E3DD258E4D0F0062EE8F /* PEError.swift in Sources */,
 				320711B125864B2300CA0AC3 /* LinearGradientView.swift in Sources */,
+				320DC82A258F70AE00EE7267 /* ViewState.swift in Sources */,
 				320711F72586500B00CA0AC3 /* Country.swift in Sources */,
+				320DC81E258F654B00EE7267 /* Placemark.swift in Sources */,
 				3212E3E8258E79670062EE8F /* ActivityIndicator.swift in Sources */,
 				320711C425864B2F00CA0AC3 /* SearchBar.swift in Sources */,
 				320712002586500F00CA0AC3 /* USAStatesView.swift in Sources */,
 				320711FE2586500F00CA0AC3 /* CountryPickerRow.swift in Sources */,
+				320DC813258F653300EE7267 /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1261,10 +1283,8 @@
 				3283B51E25867AF100E7A81B /* OpenWeatherLayer.swift in Sources */,
 				32540350257A9FB900CDF38C /* OpenWeatherService.swift in Sources */,
 				3283B51225867AD300E7A81B /* OpenWeatherIconSize.swift in Sources */,
-				32F069EE257FFD1F00E51E6C /* Placemark.swift in Sources */,
 				322C7718257B9AD100D6A3E5 /* DailyWeather.swift in Sources */,
 				32540357257AA09900CDF38C /* OpenWeatherEndPoints.swift in Sources */,
-				3254035E257AA96C00CDF38C /* LocationManager.swift in Sources */,
 				322C7711257B971600D6A3E5 /* Weather.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

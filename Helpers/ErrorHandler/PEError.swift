@@ -8,7 +8,7 @@
 import SwiftUI
 import Extensions
 
-public enum PEError {
+public enum PEError: Error {
     case permissionDenied(String)
     case message(String)
 }

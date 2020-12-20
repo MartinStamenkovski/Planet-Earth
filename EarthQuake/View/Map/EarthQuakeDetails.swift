@@ -14,7 +14,7 @@ struct EarthQuakeDetails: View {
     
     var body: some View {
         
-        VStack(alignment: .leading, spacing: 10) {
+        VStack(alignment: .leading, spacing: 6) {
             if let location = quake.location {
                 HStack {
                     QuakeLocationDetail(location: location)
@@ -34,16 +34,16 @@ struct EarthQuakeDetails: View {
                             .font(.system(size: 12, weight: .medium))
                             .foregroundColor(Color(.label))
                     }
-                }
+                }.frame(height: 20)
                 Divider()
                 HStack {
                     QuakeSubDetail(key: "Date:", value: quake.date?.earthQuakeDateToCurrentLocale)
                     if let timeAgo = quake.timeAgo {
                         Spacer()
                         Text(timeAgo)
-                            .font(.system(size: 12))
+                            .font(.system(size: 12, weight: .medium))
                     }
-                }
+                }.frame(height: 20)
             }
         }
         .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)

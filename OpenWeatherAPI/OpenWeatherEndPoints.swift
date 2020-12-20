@@ -9,11 +9,14 @@ import Foundation
 
 @frozen
 public enum OpenWeatherEndPoints: String {
+    
     case weather = "onecall"
+    case airPollution = "air_pollution"
     
     var url: URL {
         return .baseURL(with: self.rawValue)
     }
+    
 }
 
 

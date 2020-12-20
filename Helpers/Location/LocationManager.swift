@@ -9,28 +9,15 @@ import CoreLocation
 import Combine
 import MapKit
 
-@frozen
-public enum LocationError: Error {
-    case permissionDenied
-    case searchFailed(Error)
-}
-
 public class LocationManager: NSObject, ObservableObject {
     
     private let locationManager = CLLocationManager()
     private let geocoder = CLGeocoder()
+    
     private let searchRequest = MKLocalSearch.Request()
     private var localSearch: MKLocalSearch?
     
-    var placemark: PassthroughSubject<Placemark, LocationError> = PassthroughSubject()
-    
-    private var currentPlacemark: Placemark? {
-        willSet {
-            if let value = newValue {
-                self.placemark.send(value)
-            }
-        }
-    }
+    public let placemark: PassthroughSubject<Result<Placemark, PEError>, Never> = PassthroughSubject()
     
     lazy var mkLocalSearchQueue: OperationQueue = {
         let operation = OperationQueue()
@@ -57,7 +44,7 @@ public class LocationManager: NSObject, ObservableObject {
             
             self.localSearch?.start { (response, error) in
                 if let error = error {
-                    self.placemark.send(completion: .failure(LocationError.searchFailed(error)))
+                    self.placemark.send(.failure(.message(error.localizedDescription)))
                     return
                 }
                 guard let response = response else {
@@ -91,7 +78,8 @@ extension LocationManager: CLLocationManagerDelegate {
             manager.requestWhenInUseAuthorization()
             break
         case .restricted, .denied:
-            self.placemark.send(completion: .failure(.permissionDenied))
+            let message = "Location permission is needed to show you weather data at your current location"
+            self.placemark.send(.failure(.permissionDenied(message)))
             break
         @unknown default:
             break
@@ -102,11 +90,12 @@ extension LocationManager: CLLocationManagerDelegate {
         if let location = locations.last {
             self.geocoder.reverseGeocodeLocation(location) {[weak self] (placemarks, error) in
                 if let placemark = placemarks?.first, let placemarkLocation = placemark.location {
-                    self?.currentPlacemark = Placemark(
+                    let placemark = Placemark(
                         coordinate: placemarkLocation.coordinate,
                         name: placemark.administrativeArea,
                         country: placemark.country
                     )
+                    self?.placemark.send(.success(placemark))
                     manager.stopUpdatingLocation()
                 }
             }

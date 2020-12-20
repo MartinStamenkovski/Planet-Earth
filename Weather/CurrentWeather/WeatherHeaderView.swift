@@ -8,6 +8,7 @@
 import SwiftUI
 import OpenWeatherAPI
 import Extensions
+import Helpers
 
 struct WeatherHeaderView: View {
     
@@ -18,16 +19,19 @@ struct WeatherHeaderView: View {
     
     var body: some View {
         VStack {
-            HStack(alignment: .top) {
+            HStack(alignment: .top, spacing: nil) {
                 Spacer()
                 VStack(spacing: 6) {
                     Text(placemark?.name ?? "")
+                        .lineLimit(1)
                         .font(.system(size: 20, weight: .semibold))
                     if let main = weather.mainDescription {
                         Text(main)
                             .font(.system(size: 12, weight: .light))
                     }
-                }.padding(.trailing, -22)
+                }
+                .padding(.trailing, 10)
+                .padding(.leading, 32)
                 Spacer()
                 Button {
                     withAnimation(Animation.easeInOut(duration: 0.3)) {
@@ -37,7 +41,8 @@ struct WeatherHeaderView: View {
                     Image(systemName: "building.2.crop.circle")
                         .font(.system(size: 22))
                 }
-            }.frame(minWidth: 0, maxWidth: .infinity)
+            }
+            .frame(minWidth: 0, maxWidth: .infinity)
             .padding(.horizontal, 10)
         }
         .frame(minWidth: 0, maxWidth: .infinity)
