@@ -41,10 +41,10 @@ public struct WeatherView: View {
     func contentView() -> AnyView {
         switch weatherService.state {
         case .success:
-            return mainScrollView()
+            return scrollView()
         case .error(let error):
             return self.showErrorView(for: error)
-        default:
+        case .loading:
             return ActivityIndicator(.constant(true), color: .systemBlue)
                 .transition(.scale)
                 .toAnyView()
@@ -52,7 +52,7 @@ public struct WeatherView: View {
         
     }
     
-    func mainScrollView() -> AnyView {
+    func scrollView() -> AnyView {
         if let weather = self.weatherService.weather {
             return VStack(spacing: 0) {
                 WeatherHeaderView(placemark: weatherService.selectedPlacemark, weather: weather, showCities: $showCities)

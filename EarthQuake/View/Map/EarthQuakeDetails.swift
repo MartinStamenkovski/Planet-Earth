@@ -81,7 +81,6 @@ struct QuakeSubDetail: View {
     
     var body: some View {
         HStack {
-            
             Text(key)
                 .font(.system(size: 12))
                 .foregroundColor(Color(.secondaryLabel))

@@ -11,8 +11,9 @@ import Foundation
 public enum OpenWeatherEndPoints: String {
     
     case weather = "onecall"
-    case airPollution = "air_pollution"
     
+    case airPollution = "air_pollution"
+    case airPollutionForecast = "air_pollution/forecast"
     var url: URL {
         return .baseURL(with: self.rawValue)
     }

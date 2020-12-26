@@ -12,8 +12,9 @@ import Weather
 struct ContentView: View {
     
     enum PETab: Hashable {
-        case earthquake
         case weather
+        case airPollution
+        case earthquake
     }
     
     @State private var selection = PETab.weather
@@ -25,6 +26,12 @@ struct ContentView: View {
                     Image(systemName: "thermometer")
                     Text("Weather")
                 }.tag(PETab.weather)
+            
+            PollutionView()
+                .tabItem {
+                    Image(systemName: "aqi.low")
+                    Text("Air Quality")
+                }.tag(PETab.airPollution)
             
             EarthQuakeListView()
                 .tabItem {

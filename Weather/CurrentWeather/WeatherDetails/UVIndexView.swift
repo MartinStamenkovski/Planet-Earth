@@ -20,8 +20,8 @@ struct UVIndexView: View {
                 Image(systemName: "sun.max")
                     .font(.system(size: 25))
                     .foregroundColor(Color.orange)
-                HStack(spacing: 0) {
-                    Text("\(weather.uvi, specifier: "%.1f") ")
+                HStack(spacing: 4) {
+                    Text("\(weather.uvi, specifier: "%.1f")")
                         .font(.system(size: 25, weight: .semibold))
                         .foregroundColor(Color.uvIndexColor(for: weather.uvi))
                     Text("UV Index")

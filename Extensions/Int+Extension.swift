@@ -34,4 +34,14 @@ extension Int {
         let dateFormatter = DateFormatter.shortDayDateFormatter
         return dateFormatter.string(from: date)
     }
+    
+    public var toDateMedium: String {
+        let date = Date(timeIntervalSince1970: TimeInterval(self))
+        return DateFormatter.dateFormatterMedium.string(from: date)
+    }
+    
+    public var toDateShort: String {
+        let date = Date(timeIntervalSince1970: TimeInterval(self))
+        return DateFormatter.dateFormatterShort.string(from: date)
+    }
 }

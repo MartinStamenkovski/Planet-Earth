@@ -27,42 +27,6 @@ struct QuakeRow: View {
     }
 }
 
-struct QuakeLocationView: View {
-    var location: QuakeLocation?
-    
-    var body: some View {
-        VStack(alignment: .leading, spacing: 5) {
-            HStack {
-                KFImage(location?.flagURL)
-                    .cancelOnDisappear(true)
-                    .resizable()
-                    .frame(width: 16, height: 11)
-                
-                Text(location?.country ?? "N/A")
-                    .font(.system(size: 17))
-            }
-            Text(location?.name ?? "N/A")
-                .font(.system(size: 13))
-                .foregroundColor(Color.secondary)
-        }
-    }
-    
-}
-
-struct QuakeTimeView: View {
-    var quake: Quake
-    
-    var body: some View {
-        VStack(alignment: .trailing, spacing: 5) {
-            Text(quake.time ?? "N/A")
-                .font(.system(size: 13))
-            Text(quake.timeAgo ?? "N/A")
-                .font(.system(size: 10))
-                .foregroundColor(.secondary)
-        }
-    }
-}
-
 struct QuakeRow_Previews: PreviewProvider {
     static var previews: some View {
         QuakeRow(quake: .init())

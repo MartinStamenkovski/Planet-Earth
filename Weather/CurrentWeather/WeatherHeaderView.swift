@@ -39,7 +39,8 @@ struct WeatherHeaderView: View {
                     }
                 } label: {
                     Image(systemName: "building.2.crop.circle")
-                        .font(.system(size: 22))
+                        .resizable()
+                        .frame(width: 22, height: 22, alignment: .top)
                 }
             }
             .frame(minWidth: 0, maxWidth: .infinity)

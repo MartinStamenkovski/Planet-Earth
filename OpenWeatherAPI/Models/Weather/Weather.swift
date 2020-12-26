@@ -126,25 +126,3 @@ public struct Current: Codable, Identifiable {
     }
 }
 
-// MARK: - Rain
-public struct Rain: Codable {
-    public let the1H: Double
-    
-    enum CodingKeys: String, CodingKey {
-        case the1H = "1h"
-    }
-}
-
-// MARK: - WeatherElement
-public struct WeatherElement: Codable {
-    public let id: Int
-    public let main: String
-    public let weatherDescription, icon: String
-    
-    enum CodingKeys: String, CodingKey {
-        case id, main
-        case weatherDescription = "description"
-        case icon
-    }
-}
-

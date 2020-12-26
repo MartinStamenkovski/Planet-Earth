@@ -25,6 +25,21 @@
 		320DC813258F653300EE7267 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3254035D257AA96C00CDF38C /* LocationManager.swift */; };
 		320DC81E258F654B00EE7267 /* Placemark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F069ED257FFD1F00E51E6C /* Placemark.swift */; };
 		320DC82A258F70AE00EE7267 /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320DC829258F70AE00EE7267 /* ViewState.swift */; };
+		320DC842258F962600EE7267 /* Pollution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320DC841258F962600EE7267 /* Pollution.swift */; };
+		320DC849258FD2AE00EE7267 /* PollutionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320DC848258FD2AE00EE7267 /* PollutionView.swift */; };
+		320DC864258FF48B00EE7267 /* MainPollutionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320DC863258FF48B00EE7267 /* MainPollutionView.swift */; };
+		320DC87125927AA600EE7267 /* QuakeLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320DC87025927AA600EE7267 /* QuakeLocationView.swift */; };
+		320DC87D25927AC800EE7267 /* QuakeTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320DC87C25927AC800EE7267 /* QuakeTimeView.swift */; };
+		320DC88525927D2700EE7267 /* Rain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320DC88425927D2700EE7267 /* Rain.swift */; };
+		320DC88C25927D4100EE7267 /* WeatherElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320DC88B25927D4100EE7267 /* WeatherElement.swift */; };
+		320DC89425927D6200EE7267 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320DC89325927D6200EE7267 /* Main.swift */; };
+		320DC89B25927D6F00EE7267 /* PollutionComponentKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320DC89A25927D6F00EE7267 /* PollutionComponentKey.swift */; };
+		320DC8A225927D9800EE7267 /* PollutionElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320DC8A125927D9800EE7267 /* PollutionElement.swift */; };
+		320DC8A92597699500EE7267 /* GassesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320DC8A82597699500EE7267 /* GassesView.swift */; };
+		320DC8B625976E1200EE7267 /* GasRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320DC8B525976E1200EE7267 /* GasRow.swift */; };
+		320DC8C72597802400EE7267 /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320DC8C62597802300EE7267 /* LineView.swift */; };
+		320DC8EF25978B5500EE7267 /* SPMFrameworks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 324BC0CE25755C4500B59FF7 /* SPMFrameworks.framework */; };
+		320DC8F025978B5500EE7267 /* SPMFrameworks.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 324BC0CE25755C4500B59FF7 /* SPMFrameworks.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		320E0BC02569A8AE0045BC4D /* QuakeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320E0BBF2569A8AE0045BC4D /* QuakeRow.swift */; };
 		320E0BCB256ACC080045BC4D /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320E0BCA256ACC070045BC4D /* Date+Extension.swift */; };
 		3212E3DD258E4D0F0062EE8F /* PEError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3212E3DC258E4D0F0062EE8F /* PEError.swift */; };
@@ -49,8 +64,6 @@
 		322C7730257BA47700D6A3E5 /* Weather.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 322C7728257BA47700D6A3E5 /* Weather.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		322C774D257BA49B00D6A3E5 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322C774C257BA49B00D6A3E5 /* WeatherView.swift */; };
 		322C775B257BBA5000D6A3E5 /* CurrentWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322C775A257BBA5000D6A3E5 /* CurrentWeatherView.swift */; };
-		322C7768257BC62D00D6A3E5 /* SPMFrameworks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 324BC0CE25755C4500B59FF7 /* SPMFrameworks.framework */; };
-		322C7769257BC62D00D6A3E5 /* SPMFrameworks.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 324BC0CE25755C4500B59FF7 /* SPMFrameworks.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		322C7773257BEFC600D6A3E5 /* HourlyWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322C7772257BEFC600D6A3E5 /* HourlyWeatherView.swift */; };
 		322C777A257BF22F00D6A3E5 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322C7779257BF22F00D6A3E5 /* Int+Extension.swift */; };
 		322C7781257BF3D000D6A3E5 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322C7780257BF3D000D6A3E5 /* Double+Extension.swift */; };
@@ -101,6 +114,8 @@
 		32EF5A432573DEA9004C3856 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EF5A422573DEA9004C3856 /* View+Extension.swift */; };
 		32F069E4257FD30200E51E6C /* SavedCitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F069E3257FD30200E51E6C /* SavedCitiesView.swift */; };
 		32F0BB2B2578240A003B585C /* Transition+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F0BB2A2578240A003B585C /* Transition+Extension.swift */; };
+		32F941B72597C2B400A3684E /* PollutionForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F941B62597C2B400A3684E /* PollutionForecastView.swift */; };
+		32F941BE2597C2FC00A3684E /* ForecastRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F941BD2597C2FC00A3684E /* ForecastRow.swift */; };
 		32FA03CC257D120F00F87B2D /* SunInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FA03CB257D120F00F87B2D /* SunInfoView.swift */; };
 		32FA03DF257D241000F87B2D /* UVIndexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FA03DE257D241000F87B2D /* UVIndexView.swift */; };
 		32FA03E9257E8FA100F87B2D /* WeatherHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FA03E8257E8FA100F87B2D /* WeatherHeaderView.swift */; };
@@ -206,7 +221,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				322C7769257BC62D00D6A3E5 /* SPMFrameworks.framework in Embed Frameworks */,
+				320DC8F025978B5500EE7267 /* SPMFrameworks.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,6 +266,19 @@
 		320711822586495F00CA0AC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		320712312586644800CA0AC3 /* OpenWeatherTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherTile.swift; sourceTree = "<group>"; };
 		320DC829258F70AE00EE7267 /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
+		320DC841258F962600EE7267 /* Pollution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pollution.swift; sourceTree = "<group>"; };
+		320DC848258FD2AE00EE7267 /* PollutionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollutionView.swift; sourceTree = "<group>"; };
+		320DC863258FF48B00EE7267 /* MainPollutionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPollutionView.swift; sourceTree = "<group>"; };
+		320DC87025927AA600EE7267 /* QuakeLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuakeLocationView.swift; sourceTree = "<group>"; };
+		320DC87C25927AC800EE7267 /* QuakeTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuakeTimeView.swift; sourceTree = "<group>"; };
+		320DC88425927D2700EE7267 /* Rain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rain.swift; sourceTree = "<group>"; };
+		320DC88B25927D4100EE7267 /* WeatherElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherElement.swift; sourceTree = "<group>"; };
+		320DC89325927D6200EE7267 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
+		320DC89A25927D6F00EE7267 /* PollutionComponentKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollutionComponentKey.swift; sourceTree = "<group>"; };
+		320DC8A125927D9800EE7267 /* PollutionElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollutionElement.swift; sourceTree = "<group>"; };
+		320DC8A82597699500EE7267 /* GassesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GassesView.swift; sourceTree = "<group>"; };
+		320DC8B525976E1200EE7267 /* GasRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasRow.swift; sourceTree = "<group>"; };
+		320DC8C62597802300EE7267 /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
 		320E0BBF2569A8AE0045BC4D /* QuakeRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuakeRow.swift; sourceTree = "<group>"; };
 		320E0BCA256ACC070045BC4D /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		3212E3DC258E4D0F0062EE8F /* PEError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PEError.swift; sourceTree = "<group>"; };
@@ -331,6 +359,8 @@
 		32F06A0925800BA100E51E6C /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		32F0BB2A2578240A003B585C /* Transition+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transition+Extension.swift"; sourceTree = "<group>"; };
 		32F278292582966F00FD5E15 /* LinearGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearGradientView.swift; sourceTree = "<group>"; };
+		32F941B62597C2B400A3684E /* PollutionForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollutionForecastView.swift; sourceTree = "<group>"; };
+		32F941BD2597C2FC00A3684E /* ForecastRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastRow.swift; sourceTree = "<group>"; };
 		32FA03CB257D120F00F87B2D /* SunInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunInfoView.swift; sourceTree = "<group>"; };
 		32FA03DE257D241000F87B2D /* UVIndexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UVIndexView.swift; sourceTree = "<group>"; };
 		32FA03E8257E8FA100F87B2D /* WeatherHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherHeaderView.swift; sourceTree = "<group>"; };
@@ -373,7 +403,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				322C7768257BC62D00D6A3E5 /* SPMFrameworks.framework in Frameworks */,
+				320DC8EF25978B5500EE7267 /* SPMFrameworks.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +467,7 @@
 				32009203256C35C000AEEEA2 /* ActivityIndicator.swift */,
 				32F06A0925800BA100E51E6C /* SearchBar.swift */,
 				32F278292582966F00FD5E15 /* LinearGradientView.swift */,
+				320DC8C62597802300EE7267 /* LineView.swift */,
 			);
 			path = SupportingViews;
 			sourceTree = "<group>";
@@ -462,7 +493,6 @@
 				322C77B6257C27D900D6A3E5 /* Daily */,
 				32FA03D5257D151800F87B2D /* Sun */,
 				3215BB0E25839E08001DF416 /* Modifiers */,
-				32F069E2257FD2E200E51E6C /* Locations */,
 			);
 			path = CurrentWeather;
 			sourceTree = "<group>";
@@ -470,8 +500,52 @@
 		320DC83B258F71F500EE7267 /* AirPollution */ = {
 			isa = PBXGroup;
 			children = (
+				320DC848258FD2AE00EE7267 /* PollutionView.swift */,
+				320DC863258FF48B00EE7267 /* MainPollutionView.swift */,
+				320DC8AF25976A6C00EE7267 /* Gasses */,
+				32F941B52597C28F00A3684E /* Forecast */,
 			);
 			path = AirPollution;
+			sourceTree = "<group>";
+		};
+		320DC86F25927A9400EE7267 /* SupportingViews */ = {
+			isa = PBXGroup;
+			children = (
+				320DC87025927AA600EE7267 /* QuakeLocationView.swift */,
+				320DC87C25927AC800EE7267 /* QuakeTimeView.swift */,
+			);
+			path = SupportingViews;
+			sourceTree = "<group>";
+		};
+		320DC88325927CFA00EE7267 /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				322C7710257B971600D6A3E5 /* Weather.swift */,
+				322C7717257B9AD100D6A3E5 /* DailyWeather.swift */,
+				320DC88425927D2700EE7267 /* Rain.swift */,
+				320DC88B25927D4100EE7267 /* WeatherElement.swift */,
+			);
+			path = Weather;
+			sourceTree = "<group>";
+		};
+		320DC89225927D5300EE7267 /* Pollution */ = {
+			isa = PBXGroup;
+			children = (
+				320DC841258F962600EE7267 /* Pollution.swift */,
+				320DC89325927D6200EE7267 /* Main.swift */,
+				320DC8A125927D9800EE7267 /* PollutionElement.swift */,
+				320DC89A25927D6F00EE7267 /* PollutionComponentKey.swift */,
+			);
+			path = Pollution;
+			sourceTree = "<group>";
+		};
+		320DC8AF25976A6C00EE7267 /* Gasses */ = {
+			isa = PBXGroup;
+			children = (
+				320DC8A82597699500EE7267 /* GassesView.swift */,
+				320DC8B525976E1200EE7267 /* GasRow.swift */,
+			);
+			path = Gasses;
 			sourceTree = "<group>";
 		};
 		320E0BC32569A8B10045BC4D /* Row */ = {
@@ -570,6 +644,7 @@
 			children = (
 				320DC83B258F71F500EE7267 /* AirPollution */,
 				320DC830258F71CD00EE7267 /* CurrentWeather */,
+				32F069E2257FD2E200E51E6C /* Locations */,
 				322C772A257BA47700D6A3E5 /* Weather.h */,
 				322C772B257BA47700D6A3E5 /* Info.plist */,
 			);
@@ -608,6 +683,7 @@
 			children = (
 				32464897256920C300E8D383 /* View */,
 				320E0BC32569A8B10045BC4D /* Row */,
+				320DC86F25927A9400EE7267 /* SupportingViews */,
 				3246489C2569339300E8D383 /* Model */,
 				32464896256920B800E8D383 /* Service */,
 				3246488325691EBF00E8D383 /* EarthQuake.h */,
@@ -703,8 +779,8 @@
 		3254038E257AD32200CDF38C /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				322C7710257B971600D6A3E5 /* Weather.swift */,
-				322C7717257B9AD100D6A3E5 /* DailyWeather.swift */,
+				320DC89225927D5300EE7267 /* Pollution */,
+				320DC88325927CFA00EE7267 /* Weather */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -755,6 +831,15 @@
 				3215BB5D2583B375001DF416 /* SearchCityView.swift */,
 			);
 			path = Locations;
+			sourceTree = "<group>";
+		};
+		32F941B52597C28F00A3684E /* Forecast */ = {
+			isa = PBXGroup;
+			children = (
+				32F941B62597C2B400A3684E /* PollutionForecastView.swift */,
+				32F941BD2597C2FC00A3684E /* ForecastRow.swift */,
+			);
+			path = Forecast;
 			sourceTree = "<group>";
 		};
 		32FA03D5257D151800F87B2D /* Sun */ = {
@@ -1081,13 +1166,13 @@
 			targets = (
 				3213E9C925683C0A001DEF04 /* Planet Earth */,
 				324BC0CD25755C4500B59FF7 /* SPMFrameworks */,
-				3207117E2586495F00CA0AC3 /* Helpers */,
 				324648A725695B0400E8D383 /* Extensions */,
+				3207117E2586495F00CA0AC3 /* Helpers */,
 				3215BB332583AF7B001DF416 /* PEDatabase */,
-				3254033D257A9FA900CDF38C /* OpenWeatherAPI */,
 				3253269D2571810200720332 /* PEMapView */,
-				322C7727257BA47700D6A3E5 /* Weather */,
+				3254033D257A9FA900CDF38C /* OpenWeatherAPI */,
 				3246488025691EBF00E8D383 /* EarthQuake */,
+				322C7727257BA47700D6A3E5 /* Weather */,
 			);
 		};
 /* End PBXProject section */
@@ -1176,6 +1261,7 @@
 				320DC81E258F654B00EE7267 /* Placemark.swift in Sources */,
 				3212E3E8258E79670062EE8F /* ActivityIndicator.swift in Sources */,
 				320711C425864B2F00CA0AC3 /* SearchBar.swift in Sources */,
+				320DC8C72597802400EE7267 /* LineView.swift in Sources */,
 				320712002586500F00CA0AC3 /* USAStatesView.swift in Sources */,
 				320711FE2586500F00CA0AC3 /* CountryPickerRow.swift in Sources */,
 				320DC813258F653300EE7267 /* LocationManager.swift in Sources */,
@@ -1210,14 +1296,20 @@
 				322C77B8257C280200D6A3E5 /* DailyWeatherView.swift in Sources */,
 				3215BB5E2583B375001DF416 /* SearchCityView.swift in Sources */,
 				322C774D257BA49B00D6A3E5 /* WeatherView.swift in Sources */,
+				32F941BE2597C2FC00A3684E /* ForecastRow.swift in Sources */,
 				3283B538258681EC00E7A81B /* MapLayerTypeRow.swift in Sources */,
 				322C778F257BFF6300D6A3E5 /* SubDetailView.swift in Sources */,
 				322C77BE257C291500D6A3E5 /* DailyRow.swift in Sources */,
 				32FA03CC257D120F00F87B2D /* SunInfoView.swift in Sources */,
 				32FA03DF257D241000F87B2D /* UVIndexView.swift in Sources */,
+				32F941B72597C2B400A3684E /* PollutionForecastView.swift in Sources */,
+				320DC8B625976E1200EE7267 /* GasRow.swift in Sources */,
+				320DC8A92597699500EE7267 /* GassesView.swift in Sources */,
 				322C779C257C169C00D6A3E5 /* HourlyRow.swift in Sources */,
+				320DC849258FD2AE00EE7267 /* PollutionView.swift in Sources */,
 				3283B531258680D200E7A81B /* MapWeatherView.swift in Sources */,
 				322C775B257BBA5000D6A3E5 /* CurrentWeatherView.swift in Sources */,
+				320DC864258FF48B00EE7267 /* MainPollutionView.swift in Sources */,
 				32FA03E9257E8FA100F87B2D /* WeatherHeaderView.swift in Sources */,
 				32F069E4257FD30200E51E6C /* SavedCitiesView.swift in Sources */,
 				322C7773257BEFC600D6A3E5 /* HourlyWeatherView.swift in Sources */,
@@ -1229,10 +1321,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				32464899256920D900E8D383 /* EarthQuakeService.swift in Sources */,
+				320DC87D25927AC800EE7267 /* QuakeTimeView.swift in Sources */,
 				3245FBDC256C429500B94D2F /* EarthQuakesMapView.swift in Sources */,
 				3205F7D925703BBB00EA714D /* EarthQuakeDetails.swift in Sources */,
 				324648A125693CB300E8D383 /* QuakeTimeline.swift in Sources */,
 				320E0BC02569A8AE0045BC4D /* QuakeRow.swift in Sources */,
+				320DC87125927AA600EE7267 /* QuakeLocationView.swift in Sources */,
 				3246489E256933B800E8D383 /* Quake.swift in Sources */,
 				324648942569207200E8D383 /* EarthQuakeListView.swift in Sources */,
 			);
@@ -1280,12 +1374,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				320DC89425927D6200EE7267 /* Main.swift in Sources */,
+				320DC89B25927D6F00EE7267 /* PollutionComponentKey.swift in Sources */,
 				3283B51E25867AF100E7A81B /* OpenWeatherLayer.swift in Sources */,
 				32540350257A9FB900CDF38C /* OpenWeatherService.swift in Sources */,
+				320DC842258F962600EE7267 /* Pollution.swift in Sources */,
 				3283B51225867AD300E7A81B /* OpenWeatherIconSize.swift in Sources */,
 				322C7718257B9AD100D6A3E5 /* DailyWeather.swift in Sources */,
 				32540357257AA09900CDF38C /* OpenWeatherEndPoints.swift in Sources */,
 				322C7711257B971600D6A3E5 /* Weather.swift in Sources */,
+				320DC8A225927D9800EE7267 /* PollutionElement.swift in Sources */,
+				320DC88525927D2700EE7267 /* Rain.swift in Sources */,
+				320DC88C25927D4100EE7267 /* WeatherElement.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1382,6 +1482,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.stamenkovski.Helpers;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1410,6 +1511,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.stamenkovski.Helpers;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1599,6 +1701,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.stamenkovski.PEDatabase;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1629,6 +1732,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.stamenkovski.PEDatabase;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1659,6 +1763,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.stamenkovski.Weather;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1690,6 +1795,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.stamenkovski.Weather;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1720,6 +1826,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.stamenkovski.EarthQuake;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1751,6 +1858,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.stamenkovski.EarthQuake;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1781,6 +1889,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.stamenkovski.Extensions;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1812,6 +1921,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.stamenkovski.Extensions;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1841,6 +1951,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.stamenkovski.SPMFrameworks;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1870,6 +1981,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.stamenkovski.SPMFrameworks;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1899,6 +2011,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.stamenkovski.PEMapView;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1928,6 +2041,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.stamenkovski.PEMapView;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1958,6 +2072,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.stamenkovski.OpenWeatherAPI;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1989,6 +2104,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.stamenkovski.OpenWeatherAPI;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";

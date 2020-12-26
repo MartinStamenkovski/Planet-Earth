@@ -15,10 +15,13 @@ import Helpers
 public final class OpenWeatherService: ObservableObject {
     
     private var locationManager = LocationManager()
-
+    
     @Published public private(set) var state = ViewState.loading
-
+    
     public private(set) var weather: Weather?
+    
+    public private(set) var currentPollution: Pollution?
+    public private(set) var pollutionForecast: Pollution?
     
     public private(set) var currentLocation: Placemark?
     public private(set) var selectedPlacemark: Placemark?
@@ -27,12 +30,13 @@ public final class OpenWeatherService: ObservableObject {
     
     public init(endPoint: OpenWeatherEndPoints) {
         #if targetEnvironment(simulator)
-
+        
         self.currentLocation = Placemark(
             coordinate: CLLocationCoordinate2D(latitude: 42, longitude: 21.43),
             name: "Skopje",
             country: "North Macedonia"
         )
+        
         self.selectedPlacemark = self.currentLocation
         self.fetchOpenWeatherData(from: endPoint, placemark: self.currentLocation!)
         #else
@@ -79,15 +83,13 @@ extension OpenWeatherService {
                 withAnimation(.easeInOut) {
                     self?.state = .success
                 }
-            }.store(in: &cancellables)
-        default:
-            let weather = self.fetchData(from: url, decodeTo: Weather.self)
-            let daily = self.fetchData(from: url, decodeTo: DailyWeather.self)
-            
+            }
+        case .airPollution, .airPollutionForecast:
+            self.fetchAirPollution(for: placemark)
             break
         }
     }
- 
+    
 }
 
 //MARK: Current Weather
@@ -104,18 +106,56 @@ extension OpenWeatherService {
     }
 }
 
+//MARK: Air Pollution
+extension OpenWeatherService {
+    
+    public func fetchAirPollution(for placemark: Placemark) {
+        
+        guard let currentAirPollutionURL = self.constructOpenWeatherURL(for: .airPollution, placemark: placemark)
+        else { return }
+        guard let airPollutionForecastURL = self.constructOpenWeatherURL(for: .airPollutionForecast, placemark: placemark)
+        else { return }
+        
+        self.state = .loading
+        
+        let currentAirPollutionRequest = URLSession.shared
+            .dataTaskPublisherWithError(for: currentAirPollutionURL)
+            .decode(type: Pollution.self, decoder: JSONDecoder())
+        
+        let airPollutionForecastRequest = URLSession.shared
+            .dataTaskPublisherWithError(for: airPollutionForecastURL)
+            .decode(type: Pollution.self, decoder: JSONDecoder())
+        
+        Publishers.Zip(currentAirPollutionRequest, airPollutionForecastRequest)
+            .receive(on: RunLoop.main)
+            .sink {[weak self] response in
+                switch response {
+                case .success((let pollution, let forecast)):
+                    self?.currentPollution = pollution
+                    self?.pollutionForecast = forecast
+                    self?.state = .success
+                    break
+                case .failure(let error):
+                    print(error)
+                    self?.state = .error(.message(error.localizedDescription))
+                    break
+                }
+            }.store(in: &cancellables)
+    }
+}
+
 //MARK: Create & Execute open weather api request.
 extension OpenWeatherService {
     
-    private func fetchData<T>(from url: URL, decodeTo: T.Type, delay: Double = 0, completion: ((T) -> Void)? = nil) -> AnyCancellable where T: Codable {
+    private func fetchData<T>(from url: URL, decodeTo: T.Type, delay: Double = 0, completion: ((T) -> Void)? = nil)  where T: Codable {
         self.state = .loading
-         return URLSession.shared.dataTaskPublisherWithError(for: url)
+        URLSession.shared.dataTaskPublisherWithError(for: url)
             .decode(type: T.self, decoder: JSONDecoder())
             .delay(
                 for: .seconds(delay),
                 scheduler: RunLoop.main
-            ).sink {[weak self] result in
-                switch result {
+            ).sink {[weak self] response in
+                switch response {
                 case .success(let data):
                     completion?(data)
                     break
@@ -123,6 +163,6 @@ extension OpenWeatherService {
                     self?.state = .error(.message(error.localizedDescription))
                     break
                 }
-            }
+            }.store(in: &cancellables)
     }
 }
