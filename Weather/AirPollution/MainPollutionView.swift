@@ -6,36 +6,44 @@
 //
 
 import SwiftUI
-import OpenWeatherAPI
 import Extensions
+import Helpers
+import OpenWeatherAPI
 
 struct MainPollutionView: View {
     
     let pollution: PollutionElement
+    let placemark: Placemark?
     
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
             VStack(spacing: 8) {
-                Text("Skopje")
-                    .font(.system(size: 22))
-                    .foregroundColor(.white)
+                Text("\(placemark?.thoroughfare ?? "N/A")")
+                    .font(.system(size: 17, weight: .medium))
+                    .foregroundColor(.black)
                     .padding(4)
                 Divider()
                 VStack(spacing: 6) {
                     Text("Air Quality")
-                        .foregroundColor(.white)
+                        .foregroundColor(Color(.darkGray))
                     Text(pollution.main.aqiDescription.uppercased())
                         .font(.system(size: 28, weight: .heavy))
-                        .foregroundColor(.white)
+                        .foregroundColor(.black)
                 }.padding(8)
             }
             .padding(8)
             .background(pollution.main.aqi.color)
             .cornerRadius(12)
             
-            Text("\(pollution.dateTime.toDateMedium)")
-                .font(.system(size: 15))
-                .padding(8)
+            VStack {
+                Text("\(pollution.main.aqi.precautions)")
+                    .font(.system(size: 15))
+                Divider()
+                Text("\(pollution.dateTime.toDateMedium)")
+                    .font(.system(size: 15))
+                    .foregroundColor(Color(.secondaryLabel))
+                    
+            }.padding(8)
         }
         .background(Color(.systemBackground))
         .cornerRadius(12)

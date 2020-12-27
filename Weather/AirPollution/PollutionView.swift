@@ -11,7 +11,7 @@ import Helpers
 
 public struct PollutionView: View {
     
-    @ObservedObject var weatherService = OpenWeatherService(endPoint: .airPollution)
+    @ObservedObject var weatherService = OpenWeatherService<(Pollution, Pollution)>(endPoint: .airPollution)
 
     public init() { }
     
@@ -25,8 +25,8 @@ public struct PollutionView: View {
     
     private func contentView() -> AnyView {
         switch weatherService.state {
-        case .success:
-            return self.scrollView()
+        case .success((let pollution, let forecast)):
+            return configureScrollView(for: pollution, forecast: forecast)
         case .error(let error):
             return self.showErrorView(for: error)
         case .loading:
@@ -34,23 +34,21 @@ public struct PollutionView: View {
         }
     }
     
-    private func scrollView() -> AnyView {
-        if let currentPollution = self.weatherService.currentPollution?.pollutionElements.first,
-           let pollutionForecast = self.weatherService.pollutionForecast {
+    private func configureScrollView(for pollution: Pollution, forecast: Pollution) -> AnyView {
+        if let pollutionElement = pollution.pollutionElements.first {
             return ScrollView(showsIndicators: false) {
                 VStack {
-                    MainPollutionView(pollution: currentPollution)
+                    MainPollutionView(pollution: pollutionElement, placemark: weatherService.selectedPlacemark)
                     Divider()
-                    GassesView(gasses: currentPollution.components)
+                    GassesView(gasses: pollutionElement.components)
                     Divider()
-                    PollutionForecastView(pollution: pollutionForecast)
+                    PollutionForecastView(pollution: forecast)
                 }
             }.toAnyView()
-        } else {
-            return PEErrorView(error: .message("No data available")) {
-                
-            }.toAnyView()
         }
+        return PEErrorView(error: .message("No data available")) {
+            
+        }.toAnyView()
     }
     
     private func showErrorView(for error: PEError) -> AnyView  {

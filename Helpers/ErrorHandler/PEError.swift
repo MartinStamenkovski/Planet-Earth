@@ -15,9 +15,9 @@ public enum PEError: Error {
 
 public struct PEErrorView: View {
     let error: PEError
-    let onRetry: (() -> Void)
+    let onRetry: (() -> Void)?
     
-    public init(error: PEError, onRetry: @escaping (() -> Void)) {
+    public init(error: PEError, onRetry: (() -> Void)? = nil) {
         self.error = error
         self.onRetry = onRetry
     }
@@ -37,7 +37,7 @@ public struct PEErrorView: View {
                 Text(message)
                     .font(.system(size: 17, weight: .semibold))
                 Button("Retry") {
-                    self.onRetry()
+                    self.onRetry?()
                 }
             }.toAnyView()
         }

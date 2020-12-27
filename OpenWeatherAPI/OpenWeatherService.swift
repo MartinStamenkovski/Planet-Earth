@@ -12,16 +12,11 @@ import SwiftUI
 import Extensions
 import Helpers
 
-public final class OpenWeatherService: ObservableObject {
+public final class OpenWeatherService<T>: ObservableObject {
     
     private var locationManager = LocationManager()
     
-    @Published public private(set) var state = ViewState.loading
-    
-    public private(set) var weather: Weather?
-    
-    public private(set) var currentPollution: Pollution?
-    public private(set) var pollutionForecast: Pollution?
+    @Published public private(set) var state = ViewState<T>.loading
     
     public private(set) var currentLocation: Placemark?
     public private(set) var selectedPlacemark: Placemark?
@@ -78,10 +73,9 @@ extension OpenWeatherService {
         guard let url = self.constructOpenWeatherURL(for: endPoint, placemark: placemark) else { return }
         switch endPoint {
         case .weather:
-            self.fetchData(from: url, decodeTo: Weather.self, delay: delay) {[weak self] value in
-                self?.weather = value
+            self.fetchData(from: url, decodeTo: Weather.self, delay: delay) {[weak self] weather in
                 withAnimation(.easeInOut) {
-                    self?.state = .success
+                    self?.state = .success(weather as! T)
                 }
             }
         case .airPollution, .airPollutionForecast:
@@ -131,12 +125,9 @@ extension OpenWeatherService {
             .sink {[weak self] response in
                 switch response {
                 case .success((let pollution, let forecast)):
-                    self?.currentPollution = pollution
-                    self?.pollutionForecast = forecast
-                    self?.state = .success
+                    self?.state = .success((pollution, forecast) as! T)
                     break
                 case .failure(let error):
-                    print(error)
                     self?.state = .error(.message(error.localizedDescription))
                     break
                 }

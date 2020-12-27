@@ -17,8 +17,7 @@ class EarthQuakeService: ObservableObject {
     
     private var earthQuakesURL: URL!
     
-    private(set) var quakesTimeline: [QuakeTimeline] = []
-    @Published private(set) var state = ViewState.loading
+    @Published private(set) var state = ViewState<[QuakeTimeline]>.loading
     
     private(set) var selectedCountry: Country!
     
@@ -44,8 +43,7 @@ class EarthQuakeService: ObservableObject {
                     self?.state = .error(.message(error.localizedDescription))
                     break
                 case .success(let timeline):
-                    self?.quakesTimeline = timeline
-                    self?.state = .success
+                    self?.state = .success(timeline)
                     break
                 }
             })

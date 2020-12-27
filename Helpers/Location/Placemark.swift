@@ -15,11 +15,13 @@ public struct Placemark: Identifiable {
     public let name: String?
     public let coordinate: CLLocationCoordinate2D
     public let country: String?
+    public let thoroughfare: String?
     
-    public init(coordinate: CLLocationCoordinate2D, name: String?, country: String?) {
+    public init(coordinate: CLLocationCoordinate2D, name: String?, country: String?, thoroughfare: String?) {
         self.coordinate = coordinate
         self.name = name
         self.country = country
+        self.thoroughfare = thoroughfare
     }
     
     public init(from city: City) {
@@ -29,5 +31,6 @@ public struct Placemark: Identifiable {
         )
         self.name = city.name
         self.country = city.country
+        self.thoroughfare = nil
     }
 }

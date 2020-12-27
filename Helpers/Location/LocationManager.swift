@@ -56,7 +56,8 @@ public class LocationManager: NSObject, ObservableObject {
                         let placemark = Placemark(
                             coordinate: location.coordinate,
                             name: name,
-                            country: item.placemark.country
+                            country: item.placemark.country,
+                            thoroughfare: item.placemark.thoroughfare
                         )
                         searchedCities.append(placemark)
                     }
@@ -90,12 +91,14 @@ extension LocationManager: CLLocationManagerDelegate {
         if let location = locations.last {
             self.geocoder.reverseGeocodeLocation(location) {[weak self] (placemarks, error) in
                 if let placemark = placemarks?.first, let placemarkLocation = placemark.location {
-                    let placemark = Placemark(
+                  
+                    let currentPlacemark = Placemark(
                         coordinate: placemarkLocation.coordinate,
                         name: placemark.administrativeArea,
-                        country: placemark.country
+                        country: placemark.country,
+                        thoroughfare: placemark.thoroughfare
                     )
-                    self?.placemark.send(.success(placemark))
+                    self?.placemark.send(.success(currentPlacemark))
                     manager.stopUpdatingLocation()
                 }
             }

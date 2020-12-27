@@ -8,8 +8,8 @@
 import Foundation
 
 @frozen
-public enum ViewState {
+public enum ViewState<T> {
     case loading
-    case success
+    case success(T)
     case error(PEError)
 }

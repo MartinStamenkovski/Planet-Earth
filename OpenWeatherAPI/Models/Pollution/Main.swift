@@ -40,6 +40,21 @@ public enum AQI: Int, Codable {
         }
     }
     
+    public var precautions: String {
+        switch self {
+        case .good:
+            return "Everyone can continue their outdoor activities normally."
+        case .fair:
+            return "Only very few hypersensitive people should reduce outdoor activities."
+        case .moderate:
+            return "Children, seniors and individuals with respiratory or heart diseases should avoid sustained and high-intensity outdoor exercises. General population should moderately reduce outdoor activities."
+        case .poor:
+            return "Children, seniors and individuals with heart or lung diseases should stay indoors and avoid outdoor activities. General population should reduce outdoor activities."
+        case .veryPoor:
+            return "Children, seniors and the sick should stay indoors and avoid physical exertion. General population should avoid outdoor activities."
+        }
+    }
+    
     public var color: Color {
         switch self {
         case .good:

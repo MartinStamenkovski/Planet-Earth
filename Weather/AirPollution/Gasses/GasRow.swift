@@ -12,7 +12,7 @@ struct GasRow: View {
     let gasValue: Double
     
     var body: some View {
-        HStack(spacing: 8) {
+        HStack(spacing: 12) {
             Text(gasType.replacingOccurrences(of: "_", with: ".").uppercased())
                 .font(.system(size: 17, weight: .medium))
             Spacer()
@@ -22,6 +22,13 @@ struct GasRow: View {
                 Text("μg/m3")
                     .font(.system(size: 17))
             }
+            Button {
+                
+            } label: {
+                Image(systemName: "info.circle")
+                    .font(.system(size: 20))
+            }
+
         }
         .padding(8)
     }

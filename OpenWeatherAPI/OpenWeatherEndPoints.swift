@@ -14,6 +14,7 @@ public enum OpenWeatherEndPoints: String {
     
     case airPollution = "air_pollution"
     case airPollutionForecast = "air_pollution/forecast"
+    
     var url: URL {
         return .baseURL(with: self.rawValue)
     }
@@ -22,6 +23,7 @@ public enum OpenWeatherEndPoints: String {
 
 
 extension URL {
+    
     static func baseURL(with part: String) -> URL {
         return URL(string: "http://api.openweathermap.org/data/2.5/\(part)")!
     }
@@ -30,4 +32,5 @@ extension URL {
         guard let iconName = name else { return nil }
         return URL(string: "http://openweathermap.org/img/wn/\(iconName)@\(size.rawValue).png")!
     }
+    
 }

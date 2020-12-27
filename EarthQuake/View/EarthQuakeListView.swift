@@ -30,9 +30,9 @@ public struct EarthQuakeListView: View {
             return PEErrorView(error: error) {
                 self.service.fetchEarthQuakes()
             }.toAnyView()
-        default:
+        case .success(let quakeTimeline):
             return QuakesListView(
-                quakesTimeline: self.service.quakesTimeline,
+                quakesTimeline: quakeTimeline,
                 selectedCountry: self.service.selectedCountry,
                 countryChanged: { country in
                 self.service.fetchEarthQuakes(for: country)

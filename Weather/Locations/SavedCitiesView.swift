@@ -21,16 +21,14 @@ public struct SavedCitiesView: View {
         sortDescriptors: [NSSortDescriptor(keyPath: \City.name, ascending: true)],
         animation: Animation.spring()
     ) var cities: FetchedResults<City>
-    
-
-    @ObservedObject var weatherService: OpenWeatherService
-            
+                
     @State private var showSearchCity = false
-        
+    
+    let currentLocation: Placemark?
     let onCitySelected: ((Placemark) -> Void)
 
-    public init(service: OpenWeatherService, onCitySelected: @escaping ((Placemark) -> Void)) {
-        self.weatherService = service
+    public init(currentLocation: Placemark?, onCitySelected: @escaping ((Placemark) -> Void)) {
+        self.currentLocation = currentLocation
         self.onCitySelected = onCitySelected
     }
     
@@ -38,7 +36,7 @@ public struct SavedCitiesView: View {
         NavigationView {
             VStack {
                 List {
-                    if let currentLocation = self.weatherService.currentLocation {
+                    if let currentLocation = self.currentLocation {
                         VStack(alignment: .leading, spacing: 8) {
                             Text(currentLocation.name ?? "")
                             Text("My Location")
@@ -102,7 +100,7 @@ public struct SavedCitiesView: View {
 
 struct SavedLocations_Previews: PreviewProvider {
     static var previews: some View {
-        SavedCitiesView(service: .init(endPoint: .weather), onCitySelected: { _ in })
+        SavedCitiesView(currentLocation: nil, onCitySelected: { _ in })
     }
 }
 
