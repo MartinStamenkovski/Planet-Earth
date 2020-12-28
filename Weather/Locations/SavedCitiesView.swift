@@ -64,7 +64,7 @@ public struct SavedCitiesView: View {
                 .navigationBarTitle(Text("Cities"))
                 .navigationBarItems(trailing: trailingBarButtons())
             }.sheet(isPresented: $showSearchCity, content: {
-                SearchCityView(isShown: $showSearchCity) { placemark in
+                SearchLocationView(isShown: $showSearchCity) { placemark in
                     self.saveNewCity(from: placemark)
                 }
             })

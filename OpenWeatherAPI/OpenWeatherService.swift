@@ -27,12 +27,11 @@ public final class OpenWeatherService<T>: ObservableObject {
         #if targetEnvironment(simulator)
         
         self.currentLocation = Placemark(
-            coordinate: CLLocationCoordinate2D(latitude: 42, longitude: 21.43),
+            coordinate: CLLocationCoordinate2D(latitude: 42, longitude: 21),
             name: "Skopje",
-            country: "North Macedonia"
+            country: "North Macedonia",
+            thoroughfare: "Debug Street"
         )
-        
-        self.selectedPlacemark = self.currentLocation
         self.fetchOpenWeatherData(from: endPoint, placemark: self.currentLocation!)
         #else
         self.locationManager.placemark.sink{ [weak self] result in
@@ -44,7 +43,6 @@ public final class OpenWeatherService<T>: ObservableObject {
             case .success(let placemark):
                 self?.currentLocation = placemark
                 guard self?.selectedPlacemark == nil else { return }
-                self?.selectedPlacemark = placemark
                 self?.fetchOpenWeatherData(from: endPoint, placemark: placemark)
                 break
             }
@@ -71,6 +69,9 @@ extension OpenWeatherService {
     func fetchOpenWeatherData(from endPoint: OpenWeatherEndPoints, placemark: Placemark, delay: Double = 0) {
         
         guard let url = self.constructOpenWeatherURL(for: endPoint, placemark: placemark) else { return }
+        
+        self.selectedPlacemark = placemark
+        
         switch endPoint {
         case .weather:
             self.fetchData(from: url, decodeTo: Weather.self, delay: delay) {[weak self] weather in
@@ -104,12 +105,14 @@ extension OpenWeatherService {
 extension OpenWeatherService {
     
     public func fetchAirPollution(for placemark: Placemark) {
-        
+
         guard let currentAirPollutionURL = self.constructOpenWeatherURL(for: .airPollution, placemark: placemark)
         else { return }
         guard let airPollutionForecastURL = self.constructOpenWeatherURL(for: .airPollutionForecast, placemark: placemark)
         else { return }
-        
+
+        self.selectedPlacemark = placemark
+
         self.state = .loading
         
         let currentAirPollutionRequest = URLSession.shared
@@ -132,6 +135,11 @@ extension OpenWeatherService {
                     break
                 }
             }.store(in: &cancellables)
+    }
+    
+    public func retryAirPollutionRequest() {
+        guard let placemark = self.selectedPlacemark else { return }
+        self.fetchAirPollution(for: placemark)
     }
 }
 

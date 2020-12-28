@@ -9,12 +9,12 @@ import SwiftUI
 import OpenWeatherAPI
 import Helpers
 
-struct SearchCityView: View {
+struct SearchLocationView: View {
     
     @Binding var isShown: Bool
 
     @State private var textChanged: String = ""
-    @State private var focused: Bool = true
+    @State private var searchBarFocused: Bool = true
     @State private var cities: [Placemark] = []
     
     let onCitySelected: ((Placemark) -> Void)
@@ -29,7 +29,7 @@ struct SearchCityView: View {
     public var body: some View {
         NavigationView {
             VStack {
-                SearchBar(self.$textChanged, focusChanged: $focused, focusDelay: 0.3) { query in
+                SearchBar(self.$textChanged, focusChanged: $searchBarFocused, focusDelay: 0.3) { query in
                     self.searchBarTextChanged(query)
                 }.padding(.horizontal, 6)
                 List {
@@ -43,6 +43,7 @@ struct SearchCityView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .contentShape(Rectangle())
                         .onTapGesture {
+                            self.searchBarFocused = false
                             self.isShown = false
                             self.onCitySelected(placemark)
                         }
@@ -50,9 +51,9 @@ struct SearchCityView: View {
                 }
                 .listStyle(PlainListStyle())
             }
-            .navigationBarTitle(Text("Cities"))
+            .navigationBarTitle(Text("Search Places"))
             .navigationBarItems(trailing: trailingBarButtons())
-            .navigationBarHidden(focused)
+            .navigationBarHidden(searchBarFocused)
             .animation(.easeInOut)
         }.navigationViewStyle(StackNavigationViewStyle())
     }
@@ -79,6 +80,6 @@ struct SearchCityView: View {
 
 struct SearchCityView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchCityView(isShown: .constant(false), onCitySelected: { _ in })
+        SearchLocationView(isShown: .constant(false), onCitySelected: { _ in })
     }
 }

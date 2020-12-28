@@ -6,10 +6,14 @@
 //
 
 import SwiftUI
+import Helpers
+import OpenWeatherAPI
 
 struct GasRow: View {
     let gasType: String
     let gasValue: Double
+    
+    @State private var showSafari = false
     
     var body: some View {
         HStack(spacing: 12) {
@@ -23,14 +27,20 @@ struct GasRow: View {
                     .font(.system(size: 17))
             }
             Button {
-                
+                self.showSafari = true
             } label: {
                 Image(systemName: "info.circle")
                     .font(.system(size: 20))
             }
 
         }
+        .sheet(isPresented: $showSafari) {
+            if let url = PollutionComponentKey(rawValue: gasType)?.wikiURL {
+                SFSafariView(url: url)
+            }
+        }
         .padding(8)
+        
     }
 }
 

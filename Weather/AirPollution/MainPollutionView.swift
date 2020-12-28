@@ -18,7 +18,7 @@ struct MainPollutionView: View {
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
             VStack(spacing: 8) {
-                Text("\(placemark?.thoroughfare ?? "N/A")")
+                Text("\(placemark?.thoroughfare ?? placemark?.name ?? "N/A")")
                     .font(.system(size: 17, weight: .medium))
                     .foregroundColor(.black)
                     .padding(4)

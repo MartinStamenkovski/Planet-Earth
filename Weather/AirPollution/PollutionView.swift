@@ -13,20 +13,24 @@ public struct PollutionView: View {
     
     @ObservedObject var weatherService = OpenWeatherService<(Pollution, Pollution)>(endPoint: .airPollution)
 
+    @State private var showLocationSearch = false
+    
     public init() { }
     
     public var body: some View {
         NavigationView {
             VStack {
                 contentView()
-            }.navigationBarTitle(Text("Air Quality"))
+            }
+            .navigationBarTitle(Text("Air Quality"))
+            .navigationBarItems(trailing: trailingBarButtons())
         }.navigationViewStyle(StackNavigationViewStyle())
     }
     
     private func contentView() -> AnyView {
         switch weatherService.state {
         case .success((let pollution, let forecast)):
-            return configureScrollView(for: pollution, forecast: forecast)
+            return self.configureScrollView(for: pollution, forecast: forecast)
         case .error(let error):
             return self.showErrorView(for: error)
         case .loading:
@@ -46,17 +50,26 @@ public struct PollutionView: View {
                 }
             }.toAnyView()
         }
-        return PEErrorView(error: .message("No data available")) {
-            
-        }.toAnyView()
+        return self.showErrorView(for: .message("No data available"))
     }
     
     private func showErrorView(for error: PEError) -> AnyView  {
-        NavigationView {
-            PEErrorView(error: error) {
-                //self.weatherService.retryWeatherRequest()
-            }
+        PEErrorView(error: error) {
+            self.weatherService.retryAirPollutionRequest()
         }.toAnyView()
+    }
+    
+    private func trailingBarButtons() -> some View {
+        return Button {
+            self.showLocationSearch.toggle()
+        } label: {
+            Image(systemName: "magnifyingglass")
+                .font(.system(size: 20))
+        }.sheet(isPresented: $showLocationSearch) {
+            SearchLocationView(isShown: $showLocationSearch) { placemark in
+                self.weatherService.fetchAirPollution(for: placemark)
+            }
+        }
     }
 }
 

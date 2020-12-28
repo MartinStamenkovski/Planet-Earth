@@ -37,7 +37,6 @@ public class LocationManager: NSObject, ObservableObject {
             
             self.localSearch?.cancel()
             
-            self.searchRequest.resultTypes = .address
             self.searchRequest.naturalLanguageQuery = query
             
             self.localSearch = MKLocalSearch(request: self.searchRequest)
@@ -50,6 +49,7 @@ public class LocationManager: NSObject, ObservableObject {
                 guard let response = response else {
                     return
                 }
+               
                 for item in response.mapItems {
                     if let name = item.name,
                        let location = item.placemark.location {
