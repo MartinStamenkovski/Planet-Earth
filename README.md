@@ -1,4 +1,4 @@
-# Planet-Earth
+# Planet Earth
 
 iOS Application showing data for our planet, currently it's showing data for:
 
@@ -43,4 +43,6 @@ With that said you will need to clone this repository and install the applicatio
    <img src="https://github.com/MartinStamenkovski/Planet-Earth/blob/screenshots/earthquakes.png?raw=true" width="200" height="400"/>
    <img src="https://github.com/MartinStamenkovski/Planet-Earth/blob/screenshots/earthquake_map.png?raw=true" width="200" height="400"/>
  </p>
-   
+ 
+## App Icon
+Made by [Freepik](https://www.flaticon.com/authors/freepik) from [Flaticon](https://www.flaticon.com/)
