@@ -9,12 +9,12 @@ import Foundation
 
 public extension Date {
     
-    func shortTimeOnly() -> String? {
+    var shortTimeOnly: String? {
         let dateFormatter = DateFormatter.shortTime
         return dateFormatter.string(from: self)
     }
     
-    func timeAgo() -> String {
+    var timeAgo: String {
         let formatter = DateFormatter.timeAgoFormatter
         formatter.unitsStyle = .short
         return formatter.localizedString(for: self, relativeTo: Date())

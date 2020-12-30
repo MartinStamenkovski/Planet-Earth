@@ -11,20 +11,13 @@ import SwiftUI
 import Combine
 import Extensions
 import CoreLocation
-import CountryPicker
-
-public enum LoadingState {
-    case loading
-    case success
-    case error(Error)
-}
+import Helpers
 
 class EarthQuakeService: ObservableObject {
     
     private var earthQuakesURL: URL!
     
-    @Published private(set) var quakesTimeline: [QuakeTimeline] = []
-    @Published private(set) var state = LoadingState.loading
+    @Published private(set) var state = ViewState<[QuakeTimeline]>.loading
     
     private(set) var selectedCountry: Country!
     
@@ -38,24 +31,21 @@ class EarthQuakeService: ObservableObject {
         self.selectedCountry = country
         self.earthQuakesURL = URL(string: "https://www.volcanodiscovery.com/earthquakes/\(country.quakeQueryName)-showMore.html")
         self.state = .loading
-        
-        self.task = URLSession.shared.dataTaskPublisher(for: earthQuakesURL)
-            .compactMap { String(data: $0.data, encoding: .utf8) }
-            .tryMap { html -> [QuakeTimeline] in
-                return try self.parseEarthQuakesHtmlTable(from: html)
-            }
-            .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { failure in
-                switch failure {
+        self.task = URLSession.shared.dataTaskPublisherWithError(for: earthQuakesURL)
+            .compactMap { String(data: $0, encoding: .utf8) }
+            .tryCompactMap({[weak self] html -> [QuakeTimeline]? in
+                return try self?.parseEarthQuakesHtmlTable(from: html)
+            })
+            .receive(on: RunLoop.main)
+            .sink({[weak self] result in
+                switch result {
                 case .failure(let error):
-                    self.state = .error(error)
+                    self?.state = .error(.message(error.localizedDescription))
                     break
-                default:
+                case .success(let timeline):
+                    self?.state = .success(timeline)
                     break
                 }
-            }, receiveValue: { value in
-                self.quakesTimeline = value
-                self.state = .success
             })
     }
     
@@ -77,6 +67,7 @@ class EarthQuakeService: ObservableObject {
                 
                 currentEarthQuakeTimeline = QuakeTimeline(time: dateTimeline)
             } else {
+                guard try row.attr("id").contains("quake") else { continue }
                 currentEarthQuakeTimeline?.append(earthQuake: try quake(from: row))
             }
         }
@@ -87,38 +78,41 @@ class EarthQuakeService: ObservableObject {
     }
     
     private func quake(from cell: Elements.Element) throws -> Quake {
+        
         var quake = Quake()
         
-        let dateElement = try cell.getElementsByClass("sl2")
+        let dateElement = try cell.select("td").first()
         var quakeDate: Date?
         if self.selectedCountry.name == "today" {
-            try dateElement.select("span").remove()
-            quakeDate = try dateElement.text()
+            try dateElement?.select("span").remove()
+
+            quakeDate = try dateElement?.text()
                 .replacingOccurrences(of: "GMT", with: "")
                 .trimmingCharacters(in: .whitespacesAndNewlines)
                 .earthQuakeDate
         } else {
-            quakeDate = try dateElement.select("span[class=subdued]").text()
+            quakeDate = try dateElement?.select("span[class=subdued]").text()
                 .replacingOccurrences(of: "[GMT()]", with: "", options: .regularExpression)
                 .trimmingCharacters(in: .whitespacesAndNewlines)
                 .earthQuakeDate
             //When quake date is empty than subdued does not exist, that most of the time means
             // the date is in the <a> tag which we are extracting here.
             if quakeDate == nil {
-                try dateElement.select("span").remove()
-                quakeDate = try dateElement.text()
+                try dateElement?.select("span").remove()
+                quakeDate = try dateElement?.text()
                     .replacingOccurrences(of: "GMT", with: "")
                     .trimmingCharacters(in: .whitespacesAndNewlines)
                     .earthQuakeDate
             }
         }
+        
         let magnitudeAndDepthElement = try cell.getElementsByClass("mList")
         let magnitude = try magnitudeAndDepthElement.select("div").remove().text()
         let depth = try magnitudeAndDepthElement.text()
         
         quake.date = quakeDate
-        quake.time = quake.date?.shortTimeOnly()
-        quake.timeAgo = quake.date?.timeAgo()
+        quake.time = quake.date?.shortTimeOnly
+        quake.timeAgo = quake.date?.timeAgo
         
         quake.magnitude = magnitude
         quake.depth = depth.isEmpty ? "N/A" : depth
@@ -147,7 +141,7 @@ class EarthQuakeService: ObservableObject {
         
         location.detailInfo = try locationElement.select("a.sl").remove().attr("href")
         
-        try locationElement.select("a").remove()
+        try locationElement.select("a[href=#]").remove()
         
         let locationName = try locationElement.text()
             .replacingOccurrences(of: "-", with: "")

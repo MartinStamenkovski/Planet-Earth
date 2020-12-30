@@ -21,7 +21,7 @@ public class Artwork: NSObject, MKAnnotation, Identifiable {
     public var id = UUID()
     
     public var userInfo: Any?
-    public var span: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: 0.0981713407839031, longitudeDelta: 0.061416481295538006)
+    public var span = MKCoordinateSpan(latitudeDelta: 0.0981713407839031, longitudeDelta: 0.061416481295538006)
     
     public init(coordinate: CLLocationCoordinate2D, title: String?, subtitle: String? = nil) {
         self.coordinate = coordinate

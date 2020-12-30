@@ -12,6 +12,7 @@ struct USAStatesView: View {
     @State private var states: [Country] = []
     
     @Binding var isShown: Bool
+    
     let selectedState: Country?
     private var onCountrySelected: ((Country) -> Void)
     
@@ -20,6 +21,7 @@ struct USAStatesView: View {
         self.selectedState = selectedState
         self.onCountrySelected = onCountrySelected
     }
+    
     var body: some View {
         List {
             ForEach(states, id: \.id) { state in
@@ -36,7 +38,7 @@ struct USAStatesView: View {
     }
     
     private func loadStates() {
-        let currentBundle = Bundle(identifier: "com.stamenkovski.CountryPicker")!
+        let currentBundle = Bundle(identifier: "com.stamenkovski.Helpers")!
         let countriesJSON = currentBundle.url(forResource: "usa.json", withExtension: nil)!
         do {
             let data = try Data(contentsOf: countriesJSON, options: [])

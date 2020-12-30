@@ -7,24 +7,37 @@
 
 import SwiftUI
 import EarthQuake
+import Weather
 
 struct ContentView: View {
     
     enum PETab: Hashable {
+        case weather
+        case airPollution
         case earthquake
     }
     
+    @State private var selection = PETab.weather
+    
     var body: some View {
-        TabView {
+        TabView(selection: $selection) {
+            WeatherView()
+                .tabItem {
+                    Image(systemName: "thermometer")
+                    Text("Weather")
+                }.tag(PETab.weather)
+            
+            PollutionView()
+                .tabItem {
+                    Image(systemName: "aqi.low")
+                    Text("Air Quality")
+                }.tag(PETab.airPollution)
+            
             EarthQuakeListView()
                 .tabItem {
                     Image(systemName: "bolt.horizontal.fill")
                     Text("Earthquakes")
                 }.tag(PETab.earthquake)
-            Color.red.tabItem {
-                Image(systemName: "sun.max.fill")
-                Text("Colors")
-            }
         }
     }
 }

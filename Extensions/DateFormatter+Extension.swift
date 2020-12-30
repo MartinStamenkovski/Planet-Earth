@@ -22,6 +22,20 @@ public extension DateFormatter {
         return dateFormatter
     }()
     
+    static let dateFormatterMedium: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .medium
+        return dateFormatter
+    }()
+    
+    static let dateFormatterShort: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .short
+        return dateFormatter
+    }()
+    
     static let timeAgoFormatter: RelativeDateTimeFormatter = {
         let formatter = RelativeDateTimeFormatter()
         return formatter
@@ -31,7 +45,13 @@ public extension DateFormatter {
         let dateFormatter = DateFormatter()
         dateFormatter.timeStyle = .short
         dateFormatter.dateStyle = .none
-        dateFormatter.timeZone = .current
+        return dateFormatter
+    }()
+    
+    static let mediumTime: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = .medium
+        dateFormatter.dateStyle = .none
         return dateFormatter
     }()
     
@@ -39,7 +59,18 @@ public extension DateFormatter {
         let dateFormatter = DateFormatter()
         dateFormatter.timeStyle = .short
         dateFormatter.dateStyle = .short
-        dateFormatter.timeZone = .current
+        return dateFormatter
+    }()
+    
+    static let hourlyDateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.setLocalizedDateFormatFromTemplate("h")
+        return dateFormatter
+    }()
+    
+    static let shortDayDateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.setLocalizedDateFormatFromTemplate("EEE d")
         return dateFormatter
     }()
 }

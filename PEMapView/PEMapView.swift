@@ -13,22 +13,27 @@ public struct PEMapView: UIViewRepresentable {
     
     @Binding var annotations: [Artwork]
     @Binding var region: MKCoordinateRegion?
-        
+    @Binding var tiles: [MKTileOverlay]
+    
     var annotationSelectionChangedClosure: ((Artwork?) -> Void)? = nil
     
     fileprivate var selectedAnnotation: Artwork?
+    private var scrollEnabled = true
     
-    public init(_ annotations: Binding<[Artwork]>, region: Binding<MKCoordinateRegion?>, selection: Artwork? = nil) {
+    public init(
+        _ annotations: Binding<[Artwork]> = .constant([]),
+        region: Binding<MKCoordinateRegion?> = .constant(nil),
+        tiles: Binding<[MKTileOverlay]> = .constant([]),
+        selection: Artwork? = nil,
+        scrollEnabled: Bool = true
+    ) {
         self._annotations = annotations
         self._region = region
+        self._tiles = tiles
         self.selectedAnnotation = selection
+        self.scrollEnabled = scrollEnabled
     }
     
-    public init(_ annotations: Binding<[Artwork]>, selection: Artwork? = nil) {
-        self._annotations = annotations
-        self._region = .constant(nil)
-        self.selectedAnnotation = selection
-    }
     
     public func makeUIView(context: UIViewRepresentableContext<PEMapView>) -> MKMapView {
         let mapView = MKMapView()
@@ -41,7 +46,11 @@ public struct PEMapView: UIViewRepresentable {
         if let artwork = self.selectedAnnotation {
             let region = MKCoordinateRegion(center: artwork.coordinate, span: artwork.span)
             mapView.setRegion(region, animated: true)
+        } else if let region = self.region {
+            mapView.setRegion(region, animated: true)
         }
+        mapView.isScrollEnabled = scrollEnabled
+        mapView.isUserInteractionEnabled = scrollEnabled
         return mapView
     }
     
@@ -50,13 +59,18 @@ public struct PEMapView: UIViewRepresentable {
             uiView.removeAnnotations(uiView.annotations)
             uiView.addAnnotations(annotations)
         }
+    
+        if uiView.overlays.filter({$0 is MKTileOverlay}).count != tiles.count {
+            uiView.removeOverlays(uiView.overlays)
+            uiView.addOverlays(tiles)
+        }
     }
     
     
     public func makeCoordinator() -> MKMapViewCoordinator {
         return MKMapViewCoordinator(mapView: self)
     }
-   
+    
     public func annotationSelectionChanged(_ annotationSelected: @escaping ((Artwork?) -> Void)) -> Self {
         var mutableCopy = self
         mutableCopy.annotationSelectionChangedClosure = annotationSelected
@@ -105,16 +119,16 @@ public final class MKMapViewCoordinator: NSObject, MKMapViewDelegate {
         self.mapViewPlanetEarth.selectedAnnotation = nil
         self.mapViewPlanetEarth.annotationSelectionChangedClosure?(nil)
     }
-   
+    
     public func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
         guard mapView.selectedAnnotations.isEmpty else { return }
-
+        
         if let selectedAnnotation = self.mapViewPlanetEarth.selectedAnnotation {
             guard let annotation = mapView.annotations.first(where: { ($0 as? Artwork)?.id == selectedAnnotation.id })
             else {
                 return
             }
-
+            
             guard !mapView.selectedAnnotations.contains(where: { ($0 as? Artwork)?.id == selectedAnnotation.id })
             else {
                 return
@@ -122,5 +136,11 @@ public final class MKMapViewCoordinator: NSObject, MKMapViewDelegate {
             mapView.selectAnnotation(annotation, animated: true)
         }
     }
-    
+  
+    public func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        if let mkTileOverlay = overlay as? MKTileOverlay {
+            return MKTileOverlayRenderer(tileOverlay: mkTileOverlay)
+        }
+        return MKOverlayRenderer()
+    }
 }

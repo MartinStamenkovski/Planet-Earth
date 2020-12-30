@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import CountryPicker
+import Helpers
 import Extensions
 
 public struct EarthQuakeListView: View {
@@ -19,18 +19,20 @@ public struct EarthQuakeListView: View {
         NavigationView {
             self.contentView()
                 .navigationBarTitle(Text("Earthquakes"))
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
     
     private func contentView() -> AnyView {
         switch service.state {
         case .loading:
-            return ActivityIndicator(isAnimating: .constant(true)).toAnyView()
+            return ActivityIndicator(.constant(true), color: .systemBlue).toAnyView()
         case .error(let error):
-            return Text(error.localizedDescription).toAnyView()
-        default:
+            return PEErrorView(error: error) {
+                self.service.fetchEarthQuakes()
+            }.toAnyView()
+        case .success(let quakeTimeline):
             return QuakesListView(
-                quakesTimeline: self.service.quakesTimeline,
+                quakesTimeline: quakeTimeline,
                 selectedCountry: self.service.selectedCountry,
                 countryChanged: { country in
                 self.service.fetchEarthQuakes(for: country)
@@ -78,6 +80,7 @@ struct QuakesListView: View {
             self.showCountryPicker.toggle()
         } label: {
             Image(systemName: "slider.vertical.3")
+                .font(.system(size: 20))
         }
     }
 }
