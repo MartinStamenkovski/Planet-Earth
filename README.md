@@ -33,3 +33,14 @@ With that said you will need to clone this repository and install the applicatio
     * [Volcano Discovery](https://www.volcanodiscovery.com/earthquakes/today.html)
     
     For Earthquakes the website above is parsed using [SwiftSoup](https://github.com/scinfu/SwiftSoup)
+    
+## Preview
+
+ <p float="left">
+   <img src="https://github.com/MartinStamenkovski/Planet-Earth/blob/screenshots/weather_1.png?raw=true" width="200" height="400"/>
+   <img src="https://github.com/MartinStamenkovski/Planet-Earth/blob/screenshots/weather_2.png?raw=true" width="200" height="400"/>
+   <img src="https://github.com/MartinStamenkovski/Planet-Earth/blob/screenshots/aqi.png?raw=true" width="200" height="400"/>
+   <img src="https://github.com/MartinStamenkovski/Planet-Earth/blob/screenshots/earthquakes.png?raw=true" width="200" height="400"/>
+   <img src="https://github.com/MartinStamenkovski/Planet-Earth/blob/screenshots/earthquake_map.png?raw=true" width="200" height="400"/>
+ </p>
+   
