@@ -61,7 +61,7 @@ public struct SavedCitiesView: View {
                     }.onDelete(perform: removeCities(at:))
                 }
                 .listStyle(PlainListStyle())
-                .navigationBarTitle(Text("Cities"))
+                .navigationBarTitle(Text("Saved Locations"))
                 .navigationBarItems(trailing: trailingBarButtons())
             }.sheet(isPresented: $showSearchCity, content: {
                 SearchLocationView(isShown: $showSearchCity) { placemark in

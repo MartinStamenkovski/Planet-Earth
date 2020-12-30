@@ -32,15 +32,13 @@ struct GasRow: View {
                 Image(systemName: "info.circle")
                     .font(.system(size: 20))
             }
-
         }
+        .padding(8)
         .sheet(isPresented: $showSafari) {
             if let url = PollutionComponentKey(rawValue: gasType)?.wikiURL {
                 SFSafariView(url: url)
             }
         }
-        .padding(8)
-        
     }
 }
 

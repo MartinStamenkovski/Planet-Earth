@@ -27,7 +27,7 @@ public final class OpenWeatherService<T>: ObservableObject {
         #if targetEnvironment(simulator)
         
         self.currentLocation = Placemark(
-            coordinate: CLLocationCoordinate2D(latitude: 42, longitude: 21),
+            coordinate: CLLocationCoordinate2D(latitude: 42, longitude: 21.3),
             name: "Skopje",
             country: "North Macedonia",
             thoroughfare: "Debug Street"
