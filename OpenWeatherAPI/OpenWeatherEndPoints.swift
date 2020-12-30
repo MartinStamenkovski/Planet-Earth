@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 @frozen
 public enum OpenWeatherEndPoints: String {
     

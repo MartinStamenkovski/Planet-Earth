@@ -12,6 +12,7 @@ import SwiftUI
 import Extensions
 import Helpers
 
+
 public final class OpenWeatherService<T>: ObservableObject {
     
     private var locationManager = LocationManager()
@@ -55,12 +56,13 @@ public final class OpenWeatherService<T>: ObservableObject {
 extension OpenWeatherService {
     
     func constructOpenWeatherURL(for endPoint: OpenWeatherEndPoints, placemark: Placemark) -> URL? {
+       
         var components = URLComponents(url: endPoint.url, resolvingAgainstBaseURL: true)
         components?.appendQueryItems(
             [
                 "lat" : String(placemark.coordinate.latitude),
                 "lon" : String(placemark.coordinate.longitude),
-                "appid" : "1401ad6496ff98b6401caab2e6cfa2d7"
+                "appid" : InfoPlistValue.shared.openWeatherKey
             ]
         )
         return components?.url

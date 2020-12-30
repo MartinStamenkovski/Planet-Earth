@@ -45,8 +45,9 @@ public enum OpenWeatherLayer: String, CaseIterable {
 extension URL {
     
     public static func openWeatherLayer(for type: OpenWeatherLayer, z: Int, x: Int, y: Int) -> Self {
+        let openWeatherKey = InfoPlistValue.shared.openWeatherKey
         return URL(
-            string: "https://tile.openweathermap.org/map/\(type.identifier)/\(z)/\(x)/\(y).png?appid=1401ad6496ff98b6401caab2e6cfa2d7"
+            string: "https://tile.openweathermap.org/map/\(type.identifier)/\(z)/\(x)/\(y).png?appid=\(openWeatherKey)"
         )!
     }
 }

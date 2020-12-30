@@ -50,6 +50,7 @@
 		3213E9D425683C0D001DEF04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3213E9D325683C0D001DEF04 /* Assets.xcassets */; };
 		3213E9D725683C0D001DEF04 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3213E9D625683C0D001DEF04 /* Preview Assets.xcassets */; };
 		3213E9DA25683C0D001DEF04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3213E9D825683C0D001DEF04 /* LaunchScreen.storyboard */; };
+		3215BA15259CF350002C8A51 /* InfoPlistValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3215BA14259CF350002C8A51 /* InfoPlistValue.swift */; };
 		3215BB1025839E19001DF416 /* WeatherIconModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3215BB0F25839E19001DF416 /* WeatherIconModifier.swift */; };
 		3215BB382583AF7B001DF416 /* PEDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 3215BB362583AF7B001DF416 /* PEDatabase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3215BB3B2583AF7B001DF416 /* PEDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3215BB342583AF7B001DF416 /* PEDatabase.framework */; };
@@ -291,6 +292,7 @@
 		3213E9D625683C0D001DEF04 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3213E9D925683C0D001DEF04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3213E9DB25683C0D001DEF04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3215BA14259CF350002C8A51 /* InfoPlistValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPlistValue.swift; sourceTree = "<group>"; };
 		3215BB0F25839E19001DF416 /* WeatherIconModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherIconModifier.swift; sourceTree = "<group>"; };
 		3215BB342583AF7B001DF416 /* PEDatabase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PEDatabase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3215BB362583AF7B001DF416 /* PEDatabase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PEDatabase.h; sourceTree = "<group>"; };
@@ -773,6 +775,7 @@
 				32540356257AA09900CDF38C /* OpenWeatherEndPoints.swift */,
 				3283B51125867AD300E7A81B /* OpenWeatherIconSize.swift */,
 				3283B51D25867AF100E7A81B /* OpenWeatherLayer.swift */,
+				3215BA14259CF350002C8A51 /* InfoPlistValue.swift */,
 				32540340257A9FA900CDF38C /* OpenWeatherAPI.h */,
 				32540341257A9FA900CDF38C /* Info.plist */,
 			);
@@ -1386,6 +1389,7 @@
 				3283B51225867AD300E7A81B /* OpenWeatherIconSize.swift in Sources */,
 				322C7718257B9AD100D6A3E5 /* DailyWeather.swift in Sources */,
 				32540357257AA09900CDF38C /* OpenWeatherEndPoints.swift in Sources */,
+				3215BA15259CF350002C8A51 /* InfoPlistValue.swift in Sources */,
 				322C7711257B971600D6A3E5 /* Weather.swift in Sources */,
 				320DC8A225927D9800EE7267 /* PollutionElement.swift in Sources */,
 				320DC88525927D2700EE7267 /* Rain.swift in Sources */,
