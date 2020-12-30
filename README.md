@@ -34,6 +34,10 @@ With that said you will need to clone this repository and install the applicatio
     
     For Earthquakes the website above is parsed using [SwiftSoup](https://github.com/scinfu/SwiftSoup)
     
+## License
+
+[GPL-3.0](https://github.com/MartinStamenkovski/Planet-Earth/blob/main/LICENSE)
+
 ## Preview
 
  <p float="left">
@@ -43,6 +47,10 @@ With that said you will need to clone this repository and install the applicatio
    <img src="https://github.com/MartinStamenkovski/Planet-Earth/blob/screenshots/earthquakes.png?raw=true" width="200" height="400"/>
    <img src="https://github.com/MartinStamenkovski/Planet-Earth/blob/screenshots/earthquake_map.png?raw=true" width="200" height="400"/>
  </p>
+ 
+## Contributing
+
+**Contributions are very welcome, if you want to add new features or fix bugs, please open an issue first and start working on new branch.**
  
 ## App Icon
 Made by [Freepik](https://www.flaticon.com/authors/freepik) from [Flaticon](https://www.flaticon.com/)
