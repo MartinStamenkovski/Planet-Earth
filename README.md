@@ -25,6 +25,10 @@ With that said you will need to clone this repository and install the applicatio
     * Air Quality
     
     You will need to register your own API Key to use this service, read [here](https://openweathermap.org/appid) how to get your API Key.
+    
+    **After you obtain OpenWeather API key, you need to set it in [Info.plist](https://github.com/MartinStamenkovski/Planet-Earth/blob/main/OpenWeatherAPI/Info.plist)
+    in OpenWeatherAPI module.**
+    
 2. **Earthquakes**
     * [Volcano Discovery](https://www.volcanodiscovery.com/earthquakes/today.html)
     
