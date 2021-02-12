@@ -129,7 +129,7 @@ class EarthQuakeService: ObservableObject {
         if countryFlag.isEmpty, let flagURL = selectedCountry.flagURL {
             location.flag = "https:\(flagURL)"
         } else {
-            location.flag = "https://www.volcanodiscovery.com/\(countryFlag)"
+            location.flag = countryFlag
         }
         let country = try locationElement.select("img").attr("title")
         
